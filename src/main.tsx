@@ -14,3 +14,6 @@ createRoot(rootElement).render(
     <App />
   </StrictMode>,
 );
+
+// Shared layout rules follow component styles so all sections use one grid.
+import './styles/layout.css';

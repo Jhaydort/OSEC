@@ -1,0 +1,78 @@
+/* One 1280px design frame, including its gutters: 1080px usable at desktop.
+   Background sections remain viewport-wide; only their content is constrained. */
+:root { --page-gutter: var(--page-gutter-desktop); }
+@media (max-width: 1279px) { :root { --page-gutter: var(--space-24); } }
+@media (max-width: 600px) { :root { --page-gutter: var(--space-16); } }
+
+.osec-container { width: min(var(--content-desktop), calc(100% - 2 * var(--page-gutter))); margin-inline: auto; }
+.osec-frame,
+.osec-navigation__bar,
+.osec-footer__canvas { width: 100%; max-width: var(--canvas-desktop); min-width: 0; margin-inline: auto; padding-inline: var(--page-gutter); }
+
+/* Existing full-bleed section shells share the same inset utility without
+   extra wrappers that would change sticky positioning or animations. */
+.osec-section-frame,
+.osec-who-we-are,
+.osec-partners,
+.osec-services,
+.osec-reasons,
+.osec-statistics,
+.osec-health-resources,
+.osec-about-hero,
+.osec-our-story,
+.osec-purpose,
+.osec-physician,
+.osec-services-hero,
+.osec-services-listing,
+.osec-appointment,
+.osec-faq { padding-inline: max(var(--page-gutter), calc((100% - var(--content-desktop)) / 2)); }
+
+.osec-services__layout,
+.osec-who-we-are__content { width: 100%; max-width: var(--content-desktop); margin-inline: auto; }
+.osec-services-listing__grid { width: 100%; max-width: var(--content-desktop); }
+.osec-service-recommendations__content { width: min(var(--content-desktop), calc(100% - 2 * var(--page-gutter))); max-width: none; }
+/* Keep the intentionally narrower article/form widths, with shared gutters. */
+.osec-service-detail__article { max-width: calc(100% - 2 * var(--page-gutter)); }
+.osec-contact { padding-inline: var(--page-gutter); }
+.osec-statistics__intro, .osec-statistics__panel { max-width: 100%; }
+
+/* Preserve the 1280px hero composition; scale every shape together below it.
+   Shape masks, crop rules and carousel tracks are unchanged. */
+.osec-hero__content { width: 100%; max-width: var(--canvas-desktop); margin-inline: auto; }
+.osec-hero__media { width: 100%; height: auto; aspect-ratio: 1280 / 394; transform: none; margin-bottom: 0; }
+.osec-hero__shape--left { left: -10.78125%; top: 0; width: 27.8125%; height: 97.715736%; }
+.osec-hero__shape--center { left: 18.59375%; top: 8.121827%; width: 62.890625%; height: 81.725888%; }
+.osec-hero__shape--right { left: 83.046875%; top: 2.284264%; width: 27.8125%; height: 98.730964%; }
+
+/* The desktop footer canvas used to stay anchored at x=0 and require horizontal
+   scrolling on mobile. Keep the same columns at 1280px, then reflow them. */
+.osec-footer { overflow-x: clip; }
+.osec-footer__columns { display: grid; grid-template-columns: 193px minmax(0, 483px) minmax(0, 1fr); }
+.osec-footer__solutions, .osec-footer__centre, .osec-footer__contact { width: 100%; min-width: 0; }
+.osec-footer__contact-list { width: 100%; }
+.osec-footer__contact-row--address > span { width: auto; }
+
+@media (max-width: 1279px) {
+  .osec-footer__columns { grid-template-columns: minmax(120px, 1fr) minmax(260px, 2fr) minmax(190px, 1fr); gap: var(--space-24); }
+  .osec-footer__legal { height: auto; flex-wrap: wrap; gap: var(--space-24); padding-right: 0; }
+  .osec-footer__legal nav { flex-wrap: wrap; }
+  .osec-footer__legal p { white-space: normal; }
+}
+@media (min-width: 801px) and (max-width: 1279px) {
+  .osec-services__layout { gap: var(--space-24); }
+  .osec-services__intro { flex: 1 1 0; min-width: 0; }
+  .osec-services__cards { flex: 0 1 545px; min-width: 0; }
+  .osec-services__cards .osec-service-card { width: 100%; }
+}
+@media (max-width: 800px) {
+  .osec-services__cards { align-items: center; }
+  .osec-services__card-wrap { width: min(100%, var(--service-card-width)); }
+  .osec-services__card-wrap .osec-service-card { max-width: 100%; }
+}
+@media (max-width: 760px) {
+  .osec-footer__columns { grid-template-columns: minmax(0, 1fr); gap: var(--space-45); }
+  .osec-footer__solutions, .osec-footer__contact { max-width: 483px; margin-inline: auto; }
+  .osec-footer__centre { max-width: 483px; margin-inline: auto; }
+  .osec-footer__legal { padding-top: var(--space-45); justify-content: center; }
+  .osec-footer__legal nav { flex-basis: 100%; justify-content: center; }
+}
