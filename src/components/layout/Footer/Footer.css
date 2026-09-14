@@ -1,0 +1,301 @@
+.osec-footer {
+  width: 100%;
+  overflow-x: auto;
+  background: #501F68;
+  scrollbar-width: none;
+}
+
+.osec-footer::-webkit-scrollbar {
+  display: none;
+}
+
+.osec-footer__canvas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-45);
+  width: var(--canvas-desktop);
+  min-width: var(--canvas-desktop);
+  padding: var(--space-64) 99px;
+  overflow: clip;
+}
+
+.osec-footer__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-45);
+  width: 100%;
+}
+
+.osec-footer__logo {
+  position: relative;
+  display: block;
+  width: 154.59px;
+  height: 64px;
+}
+
+.osec-footer__logo-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 154.59px;
+  height: 60.492px;
+  background: var(--color-white);
+  mask-image: url('/icons/footer-logo-mask.png');
+  mask-repeat: no-repeat;
+  mask-size: 151.721px 55.816px;
+  -webkit-mask-image: url('/icons/footer-logo-mask.png');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 151.721px 55.816px;
+}
+
+.osec-footer__logo-tagline {
+  position: absolute;
+  top: 59.32px;
+  left: 6.4px;
+  display: block;
+  width: 137.727px;
+  height: 4.677px;
+}
+
+.osec-footer__columns {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-105);
+  width: 100%;
+}
+
+.osec-footer__solutions,
+.osec-footer__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+
+.osec-footer__solutions {
+  width: 193px;
+  justify-content: center;
+}
+
+.osec-footer__label {
+  margin: 0;
+  opacity: 0.5;
+  color: var(--color-border-light);
+  font-family: var(--font-label);
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.osec-footer__solution-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.osec-footer__solution-links a,
+.osec-footer__legal a {
+  color: var(--color-neutral-200);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  white-space: nowrap;
+}
+
+.osec-footer__centre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-45);
+  width: 483px;
+}
+
+.osec-footer__statement {
+  margin: 0;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+  text-align: center;
+}
+
+.osec-footer__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-34);
+  width: 261px;
+}
+
+.osec-footer__appointment-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.osec-footer__arrow-button {
+  display: grid;
+  flex: 0 0 var(--control-height);
+  width: var(--control-height);
+  height: var(--control-height);
+  padding: var(--space-12);
+  border: var(--border-white);
+  border-radius: var(--radius-component);
+  background: transparent;
+  place-items: center;
+}
+
+.osec-footer__arrow-button img {
+  width: var(--space-24);
+  height: var(--space-24);
+}
+
+.osec-footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 36px;
+}
+
+.osec-footer__social {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0.8px 10px;
+  border: 0.8px solid var(--color-white-40);
+  border-radius: 13421800px;
+  place-items: center;
+}
+
+.osec-footer__social img {
+  width: 16px;
+  height: 16px;
+}
+
+.osec-footer__contact {
+  width: 195px;
+  font-style: normal;
+}
+
+.osec-footer__contact-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+  width: 212px;
+}
+
+.osec-footer__contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  color: #DEDEDE;
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+
+.osec-footer__contact-row > img {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.osec-footer__contact-row--phone {
+  align-items: center;
+  white-space: nowrap;
+}
+
+.osec-footer__contact-row--emails > span {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.osec-footer__contact-row--address > span {
+  width: 188px;
+}
+
+.osec-footer__legal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 108px;
+  padding: var(--space-64) 50px var(--space-24) 0;
+  border-top: var(--border-width) solid var(--color-white-30);
+}
+
+.osec-footer__legal p {
+  margin: 0;
+  color: var(--color-neutral-100);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.osec-footer__legal nav {
+  display: flex;
+  flex: 1 0 0;
+  justify-content: flex-end;
+  gap: var(--space-16);
+}
+
+.osec-footer__solution-links a,
+.osec-footer__legal a,
+.osec-footer__contact a,
+a.osec-footer__contact-row {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition: color 180ms ease-out, text-decoration-color 180ms ease-out;
+}
+
+.osec-footer__solution-links a:is(:hover, :focus-visible),
+.osec-footer__legal a:is(:hover, :focus-visible),
+.osec-footer__contact a:is(:hover, :focus-visible),
+a.osec-footer__contact-row:is(:hover, :focus-visible) {
+  color: var(--color-white);
+  text-decoration-color: currentColor;
+}
+
+.osec-footer__appointment-row button {
+  transition: background-color 180ms ease-out, border-color 180ms ease-out;
+}
+
+.osec-footer__appointment-row button:is(:hover, :focus-visible):not(:disabled) {
+  background-color: var(--color-primary-cta);
+  border-color: var(--color-primary-cta);
+}
+
+.osec-footer a:focus-visible,
+.osec-footer button:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .osec-footer a,
+  .osec-footer__appointment-row button { transition: none; }
+}
+
+/* The inspected Figma file contains no mobile footer variant. Preserve the
+   supplied desktop composition without inventing a different mobile layout. */
+@media (max-width: 1279px) {
+  .osec-footer__canvas {
+    margin: 0;
+  }
+}

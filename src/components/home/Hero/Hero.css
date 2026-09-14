@@ -1,0 +1,114 @@
+.osec-hero {
+  overflow: hidden;
+  background: var(--color-page);
+  padding: 62px 0 0;
+}
+
+.osec-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.osec-hero__copy { width: min(100% - 48px, 535px); text-align: center; }
+
+.osec-hero__copy h1 {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 45px;
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-hero-heading);
+}
+
+.osec-hero__copy p {
+  max-width: 479px;
+  margin: var(--space-12) auto 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--font-size-navigation);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-navigation);
+}
+
+.osec-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-top: var(--space-18);
+}
+
+
+/* Exact layer geometry from Figma Group 2 (177:11949). */
+.osec-hero__media {
+  position: relative;
+  margin-top: var(--space-24);
+  width: 100%;
+  height: 394px;
+  overflow: hidden;
+}
+
+.osec-hero__shape {
+  position: absolute;
+  overflow: hidden;
+  mask-mode: alpha;
+}
+
+.osec-hero__shape--left {
+  left: -138px;
+  top: 0;
+  width: 356px;
+  height: 385px;
+  mask: url('/left.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('/left.png') center / 100% 100% no-repeat;
+}
+
+.osec-hero__shape--center {
+  left: 238px;
+  top: 32px;
+  width: 805px;
+  height: 322px;
+  mask: url('/Center.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('/Center.png') center / 100% 100% no-repeat;
+}
+
+.osec-hero__shape--right {
+  left: 1063px;
+  top: 9px;
+  width: 356px;
+  height: 389px;
+  mask: url('/right.png') center / 100% 100% no-repeat;
+  -webkit-mask: url('/right.png') center / 100% 100% no-repeat;
+}
+
+.osec-hero__track {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+
+.osec-hero__track--animated {
+  transition: transform 750ms ease-in-out;
+}
+
+.osec-hero__image {
+  display: block;
+  object-fit: cover;
+  flex: 0 0 25%;
+  width: 25%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) { .osec-hero__track--animated { transition: none; } }
+
+@media (max-width: 900px) {
+  .osec-hero { padding-top: 48px; }
+  .osec-hero__copy h1 { font-size: 38px; line-height: 42px; }
+  .osec-hero__media { transform: scale(.72); transform-origin: top center; margin-bottom: -110px; }
+}
+
+@media (max-width: 520px) {
+  .osec-hero__copy h1 { font-size: 32px; line-height: 36px; }
+  .osec-hero__media { transform: scale(.5); margin-bottom: -197px; }
+}

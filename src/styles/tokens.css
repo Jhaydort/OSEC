@@ -1,0 +1,79 @@
+:root {
+  /* Figma color variables */
+  --color-page: #fafbf4;
+  --color-text: #0a0a0a;
+  --color-text-muted: #2b2b2b;
+  --color-primary-1000: #430f5c;
+  --color-primary-900: #501f68;
+  --color-primary-800: #762d9c;
+  --color-primary-cta: #8d31bf;
+  --color-primary-500: #b763e9;
+  --color-border-light: #dddddd;
+  --color-neutral-200: #dedede;
+  --color-neutral-100: #f3f4f6;
+  --color-input-border: #5f5f5f;
+  --color-white: #ffffff;
+  --color-white-20: rgb(255 255 255 / 20%);
+  --color-white-30: rgb(255 255 255 / 30%);
+  --color-white-40: rgb(255 255 255 / 40%);
+  --color-navigation-active: rgb(236 194 227 / 20%);
+
+  /* Typography from Figma */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-label: 'DM Sans', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-size-body: 14px;
+  --line-height-body: 21px;
+  --font-size-navigation: 16px;
+  --line-height-navigation: 24px;
+  --font-size-hero-body: 18px;
+  --line-height-hero-body: 24px;
+  --font-size-hero-heading: 45px;
+  --line-height-hero-heading: 54px;
+
+  /* Repeated Figma spacing values */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-19: 19px;
+  --space-24: 24px;
+  --space-27: 27px;
+  --space-34: 34px;
+  --space-45: 45px;
+  --space-51: 51px;
+  --space-64: 64px;
+  --space-70: 70px;
+  --space-100: 100px;
+  --space-105: 105px;
+
+  --radius-input: 8px;
+  --radius-component: 24px;
+  --radius-pill: 100px;
+
+  --border-width: 1px;
+  --border-light: var(--border-width) solid var(--color-border-light);
+  --border-white: var(--border-width) solid var(--color-white);
+  --border-white-20: var(--border-width) solid var(--color-white-20);
+  --border-input: var(--border-width) solid var(--color-input-border);
+
+  /* Figma has no reusable shadow token in the inspected components. */
+  --shadow-none: none;
+
+  --canvas-desktop: 1280px;
+  --content-desktop: 1080px;
+  --page-gutter-desktop: 100px;
+  --header-announcement-height: 46px;
+  --header-navigation-height: 96px;
+  --control-height: 48px;
+  --field-height: 72px;
+  --textarea-height: 144px;
+  --service-card-width: 545px;
+  --service-card-height: 446px;
+}

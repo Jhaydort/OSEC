@@ -1,0 +1,61 @@
+.osec-about-hero { padding: 61px 97px 89px 104px; overflow: hidden; background: var(--color-page); }
+.osec-about-hero__content { display: flex; flex-direction: column; gap: 37px; max-width: 1079px; margin-inline: auto; }
+.osec-about-hero__intro { display: flex; flex-direction: column; gap: var(--space-24); width: 1077px; max-width: 100%; }
+.osec-about-hero h1 { width: 672px; max-width: 100%; margin: 0; color: var(--color-text); font-family: var(--font-heading); font-size: 45px; font-weight: var(--font-weight-medium); line-height: 45px; animation: about-heading-enter 2s linear; }
+.osec-about-hero__details { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.osec-about-hero__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; width: 629px; max-width: 100%; animation: about-copy-enter 2s linear; }
+.osec-about-hero__copy > p { width: 479px; max-width: 100%; }
+.osec-about-hero p { margin: 0; color: var(--color-text-muted); font-family: var(--font-body); font-size: 16px; line-height: 24px; }
+.osec-about-hero__statistics { display: flex; flex-direction: column; gap: var(--space-24); flex: 0 0 212px; animation: about-statistics-enter 2s linear; }
+.osec-about-hero__stat { display: flex; flex-direction: column; gap: var(--space-8); }
+.osec-about-hero .osec-about-hero__number { color: var(--color-primary-900); font-family: var(--font-heading); font-size: 34px; font-weight: var(--font-weight-bold); line-height: 45px; }
+.osec-about-hero .osec-about-hero__milestone { color: var(--color-text); font-family: var(--font-heading); font-size: 34px; font-weight: var(--font-weight-medium); line-height: 45px; white-space: nowrap; }
+.osec-about-hero__image { width: 100%; height: 435px; object-fit: cover; object-position: center; border-radius: var(--radius-component); background: #e0e0e0; animation: about-image-enter 2s linear; }
+.osec-about-hero a:focus-visible { outline: 2px solid var(--color-primary-900); outline-offset: 4px; }
+
+/* Exact two-second, once-only Figma timeline for nodes 238:4697/4699/4706/4669. */
+@keyframes about-heading-enter {
+  0% { translate: 0 100px; }
+  .1% { animation-timing-function: ease-out; translate: 0 100px; }
+  25.1%, 100% { translate: 0 0; }
+}
+@keyframes about-copy-enter {
+  0% { opacity: 0; translate: -100px 0; }
+  25.1% { animation-timing-function: ease-out; opacity: 0; translate: -100px 0; }
+  50.1%, 100% { opacity: 1; translate: 0 0; }
+}
+@keyframes about-statistics-enter {
+  0% { translate: 200px 0; }
+  24.185% { animation-timing-function: ease-out; translate: 200px 0; }
+  49.185%, 100% { translate: 0 0; }
+}
+@keyframes about-image-enter {
+  0% { scale: 1.2 1.2; }
+  47.616% { animation-timing-function: ease-out; scale: 1.2 1.2; }
+  72.616%, 100% { scale: 1 1; }
+}
+
+@media (max-width: 1100px) {
+  .osec-about-hero { padding-inline: 24px; }
+}
+@media (max-width: 760px) {
+  .osec-about-hero { padding-block: 48px; }
+  .osec-about-hero h1 { font-size: 36px; line-height: 40px; }
+  .osec-about-hero__details { flex-direction: column; align-items: stretch; gap: 32px; }
+  .osec-about-hero__statistics { flex: auto; flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
+  .osec-about-hero__stat { width: 212px; max-width: 100%; }
+  .osec-about-hero__image { height: auto; aspect-ratio: 1079 / 435; }
+}
+@media (max-width: 420px) {
+  .osec-about-hero h1 { font-size: 32px; line-height: 36px; }
+  .osec-about-hero__copy .osec-alternative-button__label { padding-inline: 16px; }
+  .osec-about-hero__copy .osec-alternative-button__arrow { width: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .osec-about-hero h1,
+  .osec-about-hero__copy,
+  .osec-about-hero__statistics,
+  .osec-about-hero__image { animation: none; }
+  .osec-about-hero .osec-alternative-button a,
+  .osec-about-hero .osec-alternative-button span { transition: none; }
+}

@@ -1,0 +1,80 @@
+.osec-service-recommendations {
+  overflow: hidden;
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
+.osec-service-recommendations__content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  width: 1090px;
+  max-width: calc(100% - 48px);
+  min-height: 713px;
+  margin-inline: auto;
+  padding-block: var(--space-64);
+}
+
+.osec-service-recommendations__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-27);
+  width: 413px;
+  max-width: 100%;
+}
+
+.osec-service-recommendations__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.osec-service-recommendations__eyebrow img {
+  display: block;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.osec-service-recommendations .osec-service-recommendations__label {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+  opacity: .75;
+}
+
+.osec-service-recommendations h2 {
+  width: 413px;
+  max-width: 100%;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+}
+
+.osec-service-recommendations__viewport {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.osec-service-recommendations__viewport::-webkit-scrollbar { display: none; }
+
+.osec-service-recommendations__track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  width: max-content;
+}
+
+@media (max-width: 600px) {
+  .osec-service-recommendations__content { max-width: calc(100% - 32px); gap: 36px; padding-block: var(--space-45); }
+  .osec-service-recommendations h2 { font-size: 28px; line-height: 32px; }
+  .osec-service-recommendations__track { gap: var(--space-16); }
+  .osec-service-recommendations .osec-service-card--recommendation { flex-basis: min(404px, calc(100vw - 48px)); width: min(404px, calc(100vw - 48px)); }
+  .osec-service-recommendations .osec-service-card--recommendation .osec-service-card__content { width: calc(100% - 2px); }
+}

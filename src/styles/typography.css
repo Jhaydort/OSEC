@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+body {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.osec-heading {
+  font-family: var(--font-heading);
+}
+
+.osec-hero-heading {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-hero-heading);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-hero-heading);
+}
+
+.osec-hero-body {
+  font-size: var(--font-size-hero-body);
+  line-height: var(--line-height-hero-body);
+}

@@ -1,0 +1,90 @@
+.osec-appointment {
+  padding: var(--space-64) var(--page-gutter-desktop);
+  background: var(--color-primary-900);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  line-height: 24px;
+}
+
+.osec-appointment__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  max-width: var(--content-desktop);
+  min-height: 258px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: var(--border-white);
+  border-radius: var(--radius-component);
+}
+
+.osec-appointment__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-19);
+  min-width: 0;
+  padding: var(--space-24);
+}
+
+.osec-appointment__column + .osec-appointment__column { border-left: var(--border-white); }
+
+.osec-appointment h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  line-height: 30px;
+}
+
+.osec-appointment p { margin: 0; }
+.osec-appointment__consultation-link { display: block; }
+.osec-appointment__consultation-link,
+.osec-appointment__booking-link { text-decoration: underline; text-underline-position: under; }
+.osec-appointment__booking-link { font-size: 12px; }
+.osec-appointment a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+.osec-appointment__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  font-style: normal;
+}
+
+.osec-appointment__contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.osec-appointment__contact-row > img,
+.osec-appointment__phone-icon { flex: none; width: 16px; height: 16px; }
+.osec-appointment__phone-icon { display: grid; place-items: center; }
+.osec-appointment__phone-icon img { width: 13.5px; height: 13.5px; }
+.osec-appointment__contact-row--phone { align-items: center; }
+.osec-appointment__emails { display: flex; flex-direction: column; gap: var(--space-8); line-height: 17px; }
+.osec-appointment__emails a { overflow-wrap: anywhere; }
+.osec-appointment__address { flex: 1; min-width: 0; line-height: 21px; }
+
+.osec-appointment__hours { display: flex; flex-direction: column; gap: var(--space-12); }
+.osec-appointment__schedule { display: flex; align-items: center; gap: var(--space-12); }
+.osec-appointment__schedule > img { flex: none; width: 24px; height: 24px; }
+.osec-appointment__times { display: flex; align-items: center; gap: var(--space-51); white-space: nowrap; }
+
+@media (max-width: 1279px) {
+  .osec-appointment { padding-inline: var(--space-24); }
+  .osec-appointment__times { flex: 1; justify-content: space-between; flex-wrap: wrap; gap: 0 12px; }
+}
+
+@media (max-width: 900px) {
+  .osec-appointment__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .osec-appointment__column:last-child { grid-column: 1 / -1; border-left: 0; border-top: var(--border-white); }
+  .osec-appointment__times { flex: initial; gap: var(--space-51); }
+}
+
+@media (max-width: 600px) {
+  .osec-appointment__grid { grid-template-columns: minmax(0, 1fr); }
+  .osec-appointment__column + .osec-appointment__column { border-left: 0; border-top: var(--border-white); }
+  .osec-appointment__times { flex: 1; gap: 0 12px; }
+}

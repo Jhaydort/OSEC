@@ -1,0 +1,7 @@
+.osec-alternative-button { display: inline-flex; align-items: center; gap: var(--space-8); }
+.osec-alternative-button__label, .osec-alternative-button__arrow { display: inline-flex; align-items: center; justify-content: center; height: 48px; border: 1px solid var(--color-text-muted); border-radius: var(--radius-component); color: var(--color-text-muted); font-family: var(--font-heading); font-size: 16px; font-weight: var(--font-weight-regular); line-height: 24px; transition: background 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out; }
+.osec-alternative-button__label { padding: var(--space-12) var(--space-24); white-space: nowrap; }
+.osec-alternative-button__arrow { width: 72px; }
+.osec-alternative-button__arrow span { width: 24px; height: 24px; background: var(--color-text-muted); mask: url('/icons/arrow-up-right.svg') center / 24px 24px no-repeat; -webkit-mask: url('/icons/arrow-up-right.svg') center / 24px 24px no-repeat; transition: background 200ms ease-out; }
+.osec-alternative-button:hover .osec-alternative-button__label, .osec-alternative-button:hover .osec-alternative-button__arrow { border-color: #e0e0e0; background: var(--color-primary-900); color: #e0e0e0; }
+.osec-alternative-button:hover .osec-alternative-button__arrow span { background: #e0e0e0; }

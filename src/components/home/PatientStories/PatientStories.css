@@ -1,0 +1,173 @@
+.osec-patient-stories {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 907px;
+  padding: 99px 24px;
+}
+
+.osec-patient-stories__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.osec-patient-stories__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-45);
+  width: 770px;
+  padding: 40px 110px;
+  overflow: hidden;
+  border-radius: var(--radius-component);
+  background: var(--color-primary-900);
+  color: var(--color-white);
+}
+
+.osec-patient-stories__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  width: 100%;
+  text-align: center;
+}
+
+.osec-patient-stories__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.osec-patient-stories__eyebrow img { width: 24px; height: 24px; }
+
+.osec-patient-stories .osec-patient-stories__label {
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+  opacity: .75;
+}
+
+.osec-patient-stories__header h2 {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+}
+
+.osec-patient-stories__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 21px;
+  width: 531px;
+  max-width: 100%;
+  margin: 0;
+  padding: var(--space-45) var(--space-24);
+  border-radius: var(--radius-component);
+  background: var(--color-white);
+}
+
+.osec-patient-stories__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.osec-patient-stories__quotes {
+  flex: none;
+  width: 101.805px;
+  height: 115.63px;
+  transform: rotate(180deg);
+}
+
+.osec-patient-stories__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-12);
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-component);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.osec-patient-stories__rating img { width: 16px; height: 16px; }
+
+.osec-patient-stories__story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  width: 473px;
+  max-width: 100%;
+}
+
+.osec-patient-stories__story blockquote {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: var(--font-weight-medium);
+  line-height: 38px;
+}
+
+.osec-patient-stories__story figcaption {
+  color: rgb(43 43 43 / 75%);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  line-height: normal;
+}
+
+.osec-patient-stories__pagination { width: 84px; height: 12px; }
+
+.osec-patient-stories__arrow {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 10%);
+  opacity: 1;
+  cursor: default;
+}
+
+.osec-patient-stories__arrow img { width: 24px; height: 24px; }
+.osec-patient-stories__arrow--previous { left: calc(50% - 482px); top: 391px; }
+.osec-patient-stories__arrow--previous img { transform: rotate(90deg); }
+.osec-patient-stories__arrow--next { left: calc(50% + 411px); top: 418px; }
+.osec-patient-stories__arrow--next img { transform: rotate(-90deg); }
+
+/* Figma supplies the desktop frame only; keep its hierarchy as space narrows. */
+@media (max-width: 1000px) {
+  .osec-patient-stories { min-height: 0; padding: 64px 72px; }
+  .osec-patient-stories__panel { width: 100%; padding-inline: 40px; }
+  .osec-patient-stories__arrow--previous { left: 16px; top: calc(50% - 22.5px); }
+  .osec-patient-stories__arrow--next { left: auto; right: 16px; top: calc(50% - 22.5px); }
+}
+
+@media (max-width: 600px) {
+  .osec-patient-stories { padding: 48px 16px 105px; }
+  .osec-patient-stories__panel { gap: 32px; padding: 32px 16px; }
+  .osec-patient-stories__header h2 { font-size: 28px; line-height: 32px; }
+  .osec-patient-stories__card { padding: 24px 16px; }
+  .osec-patient-stories__quotes { width: 70.43px; height: 80px; }
+  .osec-patient-stories__story blockquote { font-size: 24px; line-height: 32px; }
+  .osec-patient-stories__arrow--previous { left: calc(50% - 57px); top: auto; bottom: 36px; }
+  .osec-patient-stories__arrow--next { left: auto; right: calc(50% - 57px); top: auto; bottom: 36px; }
+}

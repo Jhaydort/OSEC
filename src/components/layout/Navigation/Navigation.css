@@ -1,0 +1,129 @@
+.osec-navigation {
+  width: 100%;
+}
+
+.osec-navigation__announcement {
+  display: grid;
+  min-height: var(--header-announcement-height);
+  place-items: center;
+  overflow: clip;
+  padding-inline: var(--space-24);
+  background: var(--color-primary-1000);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-navigation);
+  text-align: center;
+}
+
+.osec-navigation__announcement a {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+}
+
+.osec-navigation__bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+  width: 100%;
+  min-height: var(--header-navigation-height);
+  padding: var(--space-24) var(--page-gutter-desktop);
+  background: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(5px);
+}
+
+.osec-navigation__brand {
+  display: block;
+  flex: 0 0 auto;
+  width: 95px;
+  height: 40px;
+}
+
+.osec-navigation__brand img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.osec-navigation__links {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-12);
+  transform: translateX(-50%);
+}
+
+.osec-navigation__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-component);
+  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-navigation);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-navigation);
+  white-space: nowrap;
+}
+
+.osec-navigation__link--active {
+  background: var(--color-navigation-active);
+  color: var(--color-primary-800);
+  font-weight: var(--font-weight-medium);
+}
+
+.osec-navigation__link:hover {
+  background: var(--color-navigation-active);
+  color: var(--color-primary-800);
+  font-weight: var(--font-weight-medium);
+}
+
+.osec-navigation__appointment {
+  flex: 0 0 auto;
+  margin-left: auto;
+  background: var(--color-primary-900);
+}
+
+.osec-navigation__appointment:hover {
+  background: var(--color-primary-800);
+}
+
+.osec-navigation__whatsapp {
+  transform: rotate(180deg) scaleX(-1);
+}
+
+/* No mobile navigation, drawer, or hamburger variant exists in the supplied Figma
+   file. Below desktop width, the exact desktop controls remain available in a
+   horizontally scrollable row instead of inventing an undisclosed visual state. */
+@media (max-width: 1279px) {
+  .osec-navigation__bar {
+    gap: var(--space-24);
+    overflow-x: auto;
+    padding-inline: var(--space-24);
+    scrollbar-width: none;
+  }
+
+  .osec-navigation__bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .osec-navigation__appointment {
+    margin-left: 0;
+  }
+
+  .osec-navigation__links {
+    position: static;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    transform: none;
+  }
+}

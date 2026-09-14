@@ -1,0 +1,58 @@
+@import './tokens.css';
+@import './typography.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-page);
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-page);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.osec-container {
+  width: min(
+    var(--content-desktop),
+    calc(100% - (var(--page-gutter-desktop) * 2))
+  );
+  margin-inline: auto;
+}
+
+/* Figma supplies desktop frames only. This preserves the 1080/1280 layout
+   relationship while preventing horizontal overflow before mobile frames arrive. */
+@media (max-width: 1279px) {
+  .osec-container {
+    width: calc(100% - 48px);
+  }
+}

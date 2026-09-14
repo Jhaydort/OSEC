@@ -1,0 +1,8 @@
+.osec-article-card { display: flex; flex-direction: column; gap: var(--space-8); min-width: 0; color: var(--color-text-muted); }
+.osec-article-card__image { width: 100%; height: 256px; object-fit: cover; object-position: center; border-radius: var(--radius-component); }
+.osec-article-card__copy { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-18); }
+.osec-article-card h3 { margin: 0; font-family: var(--font-heading); font-size: 18px; font-weight: var(--font-weight-medium); line-height: 24px; }
+
+@media (max-width: 600px) {
+  .osec-article-card__image { height: auto; aspect-ratio: 347.33 / 256; }
+}
