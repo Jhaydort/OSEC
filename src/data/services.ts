@@ -124,6 +124,15 @@ export const services: readonly Service[] = [
     href: '/services/endoscopic-full-thickness-resection-eftr',
     featured: false,
   },
+  {
+    id: 'glp-1-assessment-obesity-clinic',
+    slug: 'glp-1-assessment-obesity-clinic',
+    image: assets.services.weightManagementFigma,
+    title: 'GLP-1 Assessment & Obesity Clinic',
+    description: 'A specialist medical assessment to determine whether GLP-1-based treatment is appropriate for you and what monitoring or further care may be needed.',
+    href: '/services/glp-1-assessment-obesity-clinic',
+    featured: false,
+  },
 ] as const;
 
 export const featuredServices = services.filter((service) => service.featured);

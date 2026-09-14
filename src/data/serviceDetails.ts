@@ -44,6 +44,18 @@ if (!eftrService) throw new Error('The Endoscopic Full-Thickness Resection servi
 const pegService = services.find((service) => service.id === 'peg-feeding-tube');
 if (!pegService) throw new Error('The PEG Feeding Tube Placement service is missing.');
 
+const paediatricColonoscopyService = services.find((service) => service.id === 'paediatric-colonoscopy');
+if (!paediatricColonoscopyService) throw new Error('The Paediatric Colonoscopy service is missing.');
+
+const glp1AssessmentService = services.find((service) => service.id === 'glp-1-assessment-obesity-clinic');
+if (!glp1AssessmentService) throw new Error('The GLP-1 Assessment & Obesity Clinic service is missing.');
+
+const weightManagementService = services.find((service) => service.id === 'weight-management');
+if (!weightManagementService) throw new Error('The Endobariatric Medical Weight Management service is missing.');
+
+const paediatricEndoscopyService = services.find((service) => service.id === 'paediatric-endoscopy');
+if (!paediatricEndoscopyService) throw new Error('The Paediatric Endoscopy service is missing.');
+
 /** Approved copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
 export const gastrointestinalConsultationDetail: ServiceDetailData = {
   service: consultationService,
@@ -514,6 +526,251 @@ export const pegDetail: ServiceDetailData = {
   },
 };
 
+/** Paediatric Colonoscopy copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
+export const paediatricColonoscopyDetail: ServiceDetailData = {
+  service: paediatricColonoscopyService,
+  title: "Paediatric Colonoscopy: Clearer Answers for Your Child's Bowel Health",
+  subtitle: 'A careful examination of the colon and rectum to investigate ongoing symptoms, take biopsies when needed, and guide appropriate care.',
+  imageAlt: paediatricColonoscopyService.title,
+  overview: [
+    'Paediatric Colonoscopy is a minimally invasive procedure that allows a specialist to examine the colon and rectum to investigate gastrointestinal symptoms and identify abnormalities.',
+    'Small biopsies can be taken and some suitable polyps or lesions may be removed during the procedure.',
+  ],
+  assessment: {
+    heading: 'What Can Paediatric Colonoscopy Diagnose?',
+    introduction: 'It may help identify:',
+    items: [
+      'Inflammatory bowel disease',
+      'Polyps',
+      'Inflammation',
+      'Other bowel lesions',
+      'Other causes of persistent gastrointestinal symptoms',
+    ],
+  },
+  sections: [
+    {
+      heading: 'Who Is It For?',
+      paragraphs: ['It may be recommended for children experiencing:'],
+      items: [
+        'Persistent abdominal pain',
+        'Rectal bleeding',
+        'Chronic diarrhoea',
+        'Unexplained anaemia',
+        'Poor growth',
+        'Ongoing constipation',
+      ],
+    },
+    {
+      heading: 'Why Might Your Child Need Colonoscopy?',
+      paragraphs: ['Colonoscopy allows the specialist to directly examine the bowel lining and, when necessary, obtain biopsies or remove suitable lesions.'],
+    },
+    {
+      heading: 'What to Expect',
+      paragraphs: [
+        'After appropriate bowel preparation, the colonoscope is carefully introduced through the anus and the colon and rectum are examined.',
+        'Biopsies or treatment of suitable lesions may be performed during the same procedure.',
+      ],
+    },
+    {
+      heading: 'Preparation',
+      paragraphs: ['A clear bowel is important for adequate examination. Parents/guardians will receive detailed instructions regarding bowel preparation, diet, fasting and medications.'],
+    },
+    {
+      heading: 'Sedation & Comfort',
+      paragraphs: ["Appropriate sedation or anaesthesia is used according to the child's age, procedure and individual needs. OSEC focuses on making the experience as comfortable and stress-free as possible."],
+    },
+    {
+      heading: 'After the Procedure',
+      paragraphs: ['The child will be monitored in recovery and the specialist will discuss the findings and any further investigations or treatment required.'],
+    },
+  ],
+  whyChoose: 'Our paediatric endoscopy approach prioritises safety, reassurance, comfort and individualised care for both children and their parents.',
+  cta: {
+    label: 'Book Appointment',
+    href: 'mailto:info@osecng.com',
+  },
+};
+
+/** Consultation copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
+export const glp1AssessmentDetail: ServiceDetailData = {
+  service: glp1AssessmentService,
+  title: 'GLP-1 Assessment & Obesity Clinic: Safe, Personalised Weight Management',
+  subtitle: 'A specialist medical assessment to determine whether GLP-1-based treatment is appropriate for you and what monitoring or further care may be needed.',
+  imageAlt: glp1AssessmentService.title,
+  overview: [
+    'At OSEC, our GLP-1 Obesity Clinic provides a comprehensive medical assessment for individuals considering GLP-1-based treatment for weight management.',
+    'Our priority is to ensure that treatment is appropriate, safe and tailored to each individual, with a focus on long-term health rather than weight loss alone.',
+  ],
+  sections: [
+    {
+      heading: 'Who Is It For?',
+      paragraphs: ['The service is for individuals considering medical treatment for weight management, including those exploring GLP-1-based therapies.'],
+    },
+    {
+      heading: 'What Does the Assessment Involve?',
+      paragraphs: ['The specialist will review your:'],
+      items: [
+        'Medical history',
+        'Current health',
+        'Gastrointestinal health',
+        'Pancreatic health',
+        'Current medications',
+        'Symptoms',
+        'Relevant risk factors',
+        'Weight-management goals',
+      ],
+      concludingParagraphs: ['Particular attention is given to gastrointestinal and pancreatic health that may affect the safety or suitability of treatment.'],
+    },
+    {
+      heading: 'Why Might You Need an Assessment?',
+      paragraphs: ['GLP-1-based treatment is not suitable for everyone. A medical assessment helps determine whether treatment is appropriate and whether further investigations or specialist input are required.'],
+    },
+    {
+      heading: 'What to Expect',
+      paragraphs: [
+        'During your consultation, the specialist will review your health history and assess factors relevant to treatment.',
+        'Where clinically appropriate, investigations may be recommended. These are guided by your medical history, symptoms and individual risk factors rather than automatically requiring a routine pancreatic function test for every patient.',
+      ],
+    },
+    {
+      heading: 'Treatment & Monitoring',
+      paragraphs: [
+        'If treatment is considered appropriate, your healthcare professional will discuss the available options and the monitoring required during treatment.',
+        'GLP-1-based medicines can reduce appetite, increase feelings of fullness and support weight loss in appropriately selected individuals.',
+      ],
+    },
+    {
+      heading: 'Important Information',
+      paragraphs: ['GLP-1-based medicines are prescription treatments and are not suitable for everyone. They should be prescribed and monitored by an appropriately qualified healthcare professional.'],
+    },
+    {
+      heading: "OSEC's Approach",
+      paragraphs: ['Our aim is to help each patient make an informed and safe decision while supporting sustainable improvements in health, wellbeing and quality of life.'],
+    },
+  ],
+};
+
+/** Weight-management copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
+export const weightManagementDetail: ServiceDetailData = {
+  service: weightManagementService,
+  title: 'Endobariatric Medical Weight Management: A Personalised Approach to Sustainable Weight Care',
+  subtitle: 'Individualised medical and lifestyle support, treatment and follow-up designed around your health needs and weight-management goals.',
+  imageAlt: weightManagementService.title,
+  overview: ['Our Endobariatric Medical Weight Management service provides individualised support for patients throughout their weight-management journey.'],
+  assessment: {
+    heading: 'What Does It Include?',
+    introduction: 'Depending on your individual needs, your care may include:',
+    items: [
+      'Lifestyle interventions',
+      'Medical treatment',
+      'Weight-management support',
+      'Monitoring',
+      'Follow-up',
+    ],
+  },
+  sections: [
+    {
+      heading: 'Who Is It For?',
+      paragraphs: ['The service is intended for individuals seeking professional support with weight management and those who may benefit from a medically supervised approach.'],
+    },
+    {
+      heading: 'What to Expect',
+      paragraphs: [
+        'Your care is tailored to your individual health needs, weight-management goals and clinical circumstances.',
+        'Your specialist will assess your needs and determine the most appropriate approach.',
+      ],
+    },
+    {
+      heading: 'Treatment Options',
+      paragraphs: ['Depending on your assessment, management may involve lifestyle interventions and/or medical treatment, with monitoring and follow-up.'],
+    },
+    {
+      heading: 'Follow-up',
+      paragraphs: ['Weight management is an ongoing process. Follow-up allows your healthcare team to monitor progress, assess response to treatment and make adjustments where necessary.'],
+    },
+  ],
+};
+
+/** Paediatric OGD copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
+export const paediatricEndoscopyDetail: ServiceDetailData = {
+  service: paediatricEndoscopyService,
+  imageAlt: paediatricEndoscopyService.title,
+  "title": "Paediatric Upper GI Endoscopy (OGD): Gentle Investigation for Your Child's Upper Digestive Health",
+  "subtitle": "A child-centred procedure to examine the oesophagus, stomach and duodenum, helping investigate persistent symptoms safely and comfortably.",
+  "overview": [
+    "Paediatric Upper GI Endoscopy (OGD) is a minimally invasive procedure that allows our specialist team to examine a child's oesophagus, stomach and duodenum using a thin flexible camera passed through the mouth.",
+    "Small biopsies may be taken during the examination when necessary."
+  ],
+  "assessment": {
+    "heading": "What Can Paediatric OGD Diagnose?",
+    "introduction": "OGD may help investigate:",
+    "items": [
+      "Gastritis",
+      "Ulcers",
+      "Coeliac disease",
+      "Eosinophilic oesophagitis",
+      "Gastrointestinal bleeding",
+      "Other upper GI conditions"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "Who Is It For?",
+      "paragraphs": [
+        "It may be recommended for children with:"
+      ],
+      "items": [
+        "Persistent abdominal pain",
+        "Vomiting",
+        "Difficulty swallowing",
+        "Gastrointestinal bleeding",
+        "Unexplained anaemia",
+        "Chronic diarrhoea",
+        "Poor weight gain"
+      ],
+      "concludingParagraphs": [
+        "It may also be recommended when a specific gastrointestinal condition is suspected."
+      ]
+    },
+    {
+      "heading": "Why Might Your Child Need OGD?",
+      "paragraphs": [
+        "The procedure allows the specialist to directly examine the upper digestive tract and obtain tissue samples where required."
+      ]
+    },
+    {
+      "heading": "What to Expect",
+      "paragraphs": [
+        "The child will be appropriately prepared before the procedure. The flexible endoscope is passed through the mouth and the upper digestive tract is carefully examined.",
+        "Biopsies may be taken if clinically indicated."
+      ]
+    },
+    {
+      "heading": "Preparation",
+      "paragraphs": [
+        "Parents or guardians will receive clear instructions about fasting, medications and other preparation before the procedure."
+      ]
+    },
+    {
+      "heading": "Sedation & Comfort",
+      "paragraphs": [
+        "The procedure is carried out with appropriate sedation or anaesthesia to ensure that the child remains comfortable and safe."
+      ]
+    },
+    {
+      "heading": "After the Procedure",
+      "paragraphs": [
+        "Your child will be monitored until sufficiently recovered. The medical team will explain when normal eating and drinking can resume and discuss any findings."
+      ]
+    }
+  ],
+  "whyChoose": "OSEC takes a child-centred approach, focusing on reassurance, comfort and safety throughout the experience.",
+  "cta": {
+    "label": "Book Appointment",
+    "href": "mailto:info@osecng.com"
+  }
+};
+
 /** Add future approved detail records here; no page component duplication is needed. */
 export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> = {
   [gastrointestinalConsultationDetail.service.slug]: gastrointestinalConsultationDetail,
@@ -524,4 +781,8 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
   [esdDetail.service.slug]: esdDetail,
   [eftrDetail.service.slug]: eftrDetail,
   [pegDetail.service.slug]: pegDetail,
+  [paediatricColonoscopyDetail.service.slug]: paediatricColonoscopyDetail,
+  [glp1AssessmentDetail.service.slug]: glp1AssessmentDetail,
+  [weightManagementDetail.service.slug]: weightManagementDetail,
+  [paediatricEndoscopyDetail.service.slug]: paediatricEndoscopyDetail,
 };

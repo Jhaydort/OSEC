@@ -11,6 +11,7 @@ import { AppointmentSection } from '../components/shared/AppointmentSection/Appo
 import { HealthResources } from '../components/home/HealthResources/HealthResources';
 import { FAQSection } from '../components/shared/FAQSection/FAQSection';
 import { faqs } from '../data/faqs';
+import { ContactPage } from '../pages/ContactPage';
 import { AboutPage } from '../pages/AboutPage';
 import { ServicesPage } from '../pages/ServicesPage';
 import { ServiceDetailTemplate } from '../components/services/ServiceDetailTemplate/ServiceDetailTemplate';
@@ -19,6 +20,7 @@ import { serviceDetailsBySlug } from '../data/serviceDetails';
 /** Native internal anchors navigate in the same tab; render the matching page. */
 export default function App() {
   const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isContact = currentPath === '/contact';
   const isAbout = currentPath === '/about';
   const isServices = currentPath === '/services' || currentPath.startsWith('/services/');
   const serviceSlug = currentPath.startsWith('/services/') ? currentPath.slice('/services/'.length) : '';
@@ -26,8 +28,8 @@ export default function App() {
 
   return (
     <>
-      <Navigation activeHref={isAbout ? '/about' : isServices ? '/services' : '/'} />
-      {isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : <>
+      <Navigation activeHref={isContact ? '/contact' : isAbout ? '/about' : isServices ? '/services' : '/'} />
+      {isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : <>
       <Hero />
       <WhoWeAre />
       <Partners />

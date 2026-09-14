@@ -76,5 +76,4 @@
   .osec-service-recommendations h2 { font-size: 28px; line-height: 32px; }
   .osec-service-recommendations__track { gap: var(--space-16); }
   .osec-service-recommendations .osec-service-card--recommendation { flex-basis: min(404px, calc(100vw - 48px)); width: min(404px, calc(100vw - 48px)); }
-  .osec-service-recommendations .osec-service-card--recommendation .osec-service-card__content { width: calc(100% - 2px); }
 }
