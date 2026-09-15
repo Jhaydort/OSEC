@@ -4,10 +4,10 @@ import './Footer.css';
 
 const solutionLinks = [
   { label: 'Home', href: '/' },
-  { label: 'About us', href: '/about' },
-  { label: 'Parttners', href: '/partners' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Inspection Reports', href: '/inspection-reports' },
+  { label: 'About OSEC', href: '/about' },
+  { label: 'Our Services', href: '/services' },
+  { label: 'News & Health Articles', href: '/news-health-articles' },
+  { label: 'Contact Us', href: '/contact' },
 ] as const;
 
 const legalLinks = [

@@ -1,3 +1,4 @@
+import { PageMotion } from '../components/motion/PageMotion';
 import { AboutHero } from '../components/about/AboutHero/AboutHero';
 import { OurStory } from '../components/about/OurStory/OurStory';
 import { Purpose } from '../components/about/Purpose/Purpose';
@@ -9,6 +10,7 @@ import { faqs } from '../data/faqs';
 export function AboutPage() {
   return (
     <>
+      <PageMotion page="about" />
       <main>
         <AboutHero />
         <OurStory />

@@ -1,3 +1,4 @@
+import { PageMotion } from '../components/motion/PageMotion';
 import { useState, type FormEvent } from 'react';
 import { Footer } from '../components/layout/Footer/Footer';
 import { AppointmentSection } from '../components/shared/AppointmentSection/AppointmentSection';
@@ -19,6 +20,7 @@ export function ContactPage() {
 
   return (
     <>
+      <PageMotion page="contact" />
       <main>
         <div className="osec-contact">
           <header className="osec-contact__hero">

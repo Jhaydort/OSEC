@@ -1,3 +1,4 @@
+import { LineRevealHeading } from '../../motion/LineRevealHeading';
 import { useEffect, useState } from 'react';
 import { assets } from '../../../data/assets';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
@@ -53,7 +54,7 @@ export function Hero() {
     <section className="osec-hero" aria-labelledby="hero-heading">
       <div className="osec-hero__content">
         <div className="osec-hero__copy">
-          <h1 id="hero-heading">A center of excellence for gastrointestinal services and procedures</h1>
+          <LineRevealHeading id="hero-heading">A center of excellence for gastrointestinal services and procedures</LineRevealHeading>
           <p>
             Catching What Matters, Before It Becomes Serious.<br />
             OSEC helps prevent and treat colorectal cancer through early detection, advanced endoscopy,

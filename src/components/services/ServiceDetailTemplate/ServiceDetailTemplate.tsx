@@ -1,3 +1,4 @@
+import { PageMotion } from '../../motion/PageMotion';
 import { assets } from '../../../data/assets';
 import type { ServiceDetailData } from '../../../data/serviceDetails';
 import { Footer } from '../../layout/Footer/Footer';
@@ -15,6 +16,7 @@ export interface ServiceDetailTemplateProps {
 export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
   return (
     <>
+      <PageMotion page="detail" />
       <main className="osec-service-detail">
         <div className="osec-service-detail__article">
           <header className="osec-service-detail__hero">

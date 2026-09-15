@@ -75,8 +75,9 @@
   top: 143px;
   left: 36px;
   display: flex;
-  align-items: center;
-  gap: 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
   width: 536px;
   color: var(--color-white);
 }
@@ -92,6 +93,9 @@
 }
 
 .osec-statistics__metric-copy {
+  width: 100%;
+  min-width: 0;
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: var(--space-6);

@@ -1,3 +1,4 @@
+import { HomepageMotion } from '../components/motion/HomepageMotion';
 import { Navigation } from '../components/layout/Navigation/Navigation';
 import { Footer } from '../components/layout/Footer/Footer';
 import { Hero } from '../components/home/Hero/Hero';
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <>
+      <HomepageMotion enabled={currentPath === '/'} />
       <Navigation activeHref={isContact ? '/contact' : isAbout ? '/about' : isServices ? '/services' : '/'} />
       {isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : <>
       <Hero />
