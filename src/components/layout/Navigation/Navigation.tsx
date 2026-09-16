@@ -1,3 +1,4 @@
+import { openWhatsAppBooking } from '../../../data/links';
 import { Button } from '../../ui/Button/Button';
 import { assets } from '../../../data/assets';
 import './Navigation.css';
@@ -28,7 +29,7 @@ export interface NavigationProps {
 export function Navigation({
   activeHref,
   items = defaultItems,
-  onAppointmentClick,
+  onAppointmentClick = openWhatsAppBooking,
 }: NavigationProps) {
   return (
     <header className="osec-navigation">

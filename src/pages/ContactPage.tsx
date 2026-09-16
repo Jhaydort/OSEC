@@ -61,7 +61,7 @@ export function ContactPage() {
             </form>
           </section>
         </div>
-        <AppointmentSection bookingHref="mailto:info@osecng.com" />
+        <AppointmentSection />
         <FAQSection items={faqs} />
       </main>
       <Footer />

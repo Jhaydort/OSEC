@@ -75,7 +75,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               <h2 id="why-osec-heading">Why Choose OSEC?</h2>
               <p>{service.whyChoose}</p>
             </div>
-            {service.cta ? <AlternativeButton href={service.cta.href} label={service.cta.label} /> : null}
+            {service.cta ? <AlternativeButton href={service.cta.href} target="_blank" rel="noopener noreferrer" label={service.cta.label} /> : null}
           </section> : null}
         </div>
 

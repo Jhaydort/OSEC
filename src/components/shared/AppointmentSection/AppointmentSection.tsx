@@ -1,13 +1,14 @@
+import { OSEC_LINKS } from '../../../data/links';
 import { assets } from '../../../data/assets';
 import './AppointmentSection.css';
 
 export interface AppointmentSectionProps {
-  /** Destination for both booking CTAs; supplied by the page, not fixed in Figma. */
-  bookingHref: string;
+  /** Defaults both booking CTAs to the shared WhatsApp booking destination. */
+  bookingHref?: string;
 }
 
 /** Shared Figma “Appoinmet card” (334:2534), used unchanged on Home and Contact. */
-export function AppointmentSection({ bookingHref }: AppointmentSectionProps) {
+export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }: AppointmentSectionProps) {
   return (
     <section className="osec-appointment" aria-label="Consultation, contact information and clinic hours">
       <div className="osec-appointment__grid">
@@ -15,7 +16,7 @@ export function AppointmentSection({ bookingHref }: AppointmentSectionProps) {
           <h2>Consultation</h2>
           <p>
             Take the next step with expert care. Book a consultation with our specialists today..{' '}
-            <a className="osec-appointment__consultation-link" href={bookingHref}>Click Here</a>
+            <a className="osec-appointment__consultation-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Click Here</a>
           </p>
         </div>
 
@@ -50,7 +51,7 @@ export function AppointmentSection({ bookingHref }: AppointmentSectionProps) {
                 <span>8:00 AM – 5:00 PM</span>
               </div>
             </div>
-            <p>By appointment only. <a className="osec-appointment__booking-link" href={bookingHref}>Click here to book</a></p>
+            <p>By appointment only. <a className="osec-appointment__booking-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Click here to book</a></p>
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function App() {
       <Reasons />
       <Statistics />
       <PatientStories />
-      <AppointmentSection bookingHref="mailto:info@osecng.com" />
+      <AppointmentSection />
       <HealthResources />
       <FAQSection items={faqs} />
       <Footer />

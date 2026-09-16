@@ -1,3 +1,4 @@
+import { OSEC_LINKS } from './links';
 import { services, type Service } from './services';
 
 export interface ServiceDetailSection {
@@ -94,7 +95,7 @@ export const gastrointestinalConsultationDetail: ServiceDetailData = {
   whyChoose: 'At OSEC, we combine specialist gastrointestinal expertise with a patient-centred approach, ensuring that each patient receives personalised advice and a clear plan of care.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -166,7 +167,7 @@ export const gastroscopyDetail: ServiceDetailData = {
   whyChoose: 'OSEC combines specialist expertise, modern endoscopic equipment and a comfort-focused approach to provide safe and effective upper GI investigation and treatment.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -237,7 +238,7 @@ export const colonoscopyDetail: ServiceDetailData = {
   whyChoose: 'OSEC provides specialist lower gastrointestinal assessment using modern endoscopic technology, careful monitoring and a patient-focused approach to diagnosis, screening and treatment.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -292,7 +293,7 @@ export const gastrointestinalBiopsyDetail: ServiceDetailData = {
   whyChoose: 'At OSEC, biopsies are performed when clinically indicated to support accurate diagnosis and appropriate treatment planning.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -346,7 +347,7 @@ export const emrDetail: ServiceDetailData = {
   whyChoose: 'OSEC performs EMR using modern endoscopy equipment with an experienced specialist team and a strong focus on patient safety, comfort and optimal outcomes.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -404,7 +405,7 @@ export const esdDetail: ServiceDetailData = {
   whyChoose: 'At OSEC, every patient is individually assessed to determine whether ESD is the most appropriate treatment. The specialist team combines advanced endoscopic techniques with careful patient selection, attention to safety and comfort, and close follow-up.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -467,7 +468,7 @@ export const eftrDetail: ServiceDetailData = {
   whyChoose: 'At OSEC, every patient is carefully assessed to determine the safest and most appropriate treatment, with the aim of achieving complete removal while preserving normal bowel and rectal function whenever possible.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -522,7 +523,7 @@ export const pegDetail: ServiceDetailData = {
   whyChoose: 'OSEC provides PEG placement with a focus on safe tube insertion, patient comfort and continued support for patients and their families.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -587,7 +588,7 @@ export const paediatricColonoscopyDetail: ServiceDetailData = {
   whyChoose: 'Our paediatric endoscopy approach prioritises safety, reassurance, comfort and individualised care for both children and their parents.',
   cta: {
     label: 'Book Appointment',
-    href: 'mailto:info@osecng.com',
+    href: OSEC_LINKS.whatsappBooking,
   },
 };
 
@@ -767,7 +768,7 @@ export const paediatricEndoscopyDetail: ServiceDetailData = {
   "whyChoose": "OSEC takes a child-centred approach, focusing on reassurance, comfort and safety throughout the experience.",
   "cta": {
     "label": "Book Appointment",
-    "href": "mailto:info@osecng.com"
+    "href": OSEC_LINKS.whatsappBooking
   }
 };
 

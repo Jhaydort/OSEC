@@ -1,3 +1,4 @@
+import { OSEC_LINKS } from '../../../data/links';
 import { assets } from '../../../data/assets';
 import { SectionLabel } from '../../ui/SectionLabel/SectionLabel';
 import './MeetYourPhysician.css';
@@ -39,11 +40,11 @@ export function MeetYourPhysician() {
             </div>
 
             <div className="osec-physician__actions">
-              <a className="osec-physician__appointment" href="mailto:info@osecng.com">Book Appointment</a>
+              <a className="osec-physician__appointment" href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer">Book Appointment</a>
               <div className="osec-physician__socials" aria-label="Physician contact links">
-                <span className="osec-physician__social" aria-label="LinkedIn link to be added">
+                <a className="osec-physician__social" href={OSEC_LINKS.physicianLinkedIn} target="_blank" rel="noopener noreferrer" aria-label="Dr. Taiwo Onabanjo on LinkedIn">
                   <img src={assets.icons.physicianLinkedIn} alt="" width={16} height={16} />
-                </span>
+                </a>
                 <a className="osec-physician__social" href="mailto:info@osecng.com" aria-label="Email Dr. Onabanjo Taiwo">
                   <img src={assets.icons.physicianMail} alt="" width={16} height={16} />
                 </a>

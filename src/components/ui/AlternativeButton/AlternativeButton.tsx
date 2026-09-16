@@ -10,7 +10,7 @@ export function AlternativeButton({ label, className = '', href = '#', ...props 
   return (
     <div className={`osec-alternative-button ${className}`.trim()}>
       <a className="osec-alternative-button__label" href={href} {...props}>{label}</a>
-      <a className="osec-alternative-button__arrow" href={href} aria-label={label}>
+      <a className="osec-alternative-button__arrow" href={href} target={props.target} rel={props.rel} aria-label={label}>
         <span aria-hidden="true" />
       </a>
     </div>

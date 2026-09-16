@@ -1,3 +1,4 @@
+import { OSEC_LINKS } from '../../../data/links';
 import { LineRevealHeading } from '../../motion/LineRevealHeading';
 import { useEffect, useState } from 'react';
 import { assets } from '../../../data/assets';
@@ -61,7 +62,7 @@ export function Hero() {
             and compassionate care.
           </p>
           <div className="osec-hero__actions">
-            <AlternativeButton href="/contact" label="Book Appointment" />
+            <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />
           </div>
         </div>
 

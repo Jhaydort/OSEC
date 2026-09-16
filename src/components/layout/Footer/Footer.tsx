@@ -1,3 +1,4 @@
+import { OSEC_LINKS, openWhatsAppBooking } from '../../../data/links';
 import { assets } from '../../../data/assets';
 import { Button } from '../../ui/Button/Button';
 import './Footer.css';
@@ -22,12 +23,12 @@ interface SocialLink {
   href?: string;
 }
 
-// TODO: Add the approved OSEC social page URLs when supplied.
+// TODO: Add approved X and Facebook URLs when supplied.
 // Icons remain non-interactive until their real destination is available.
 const socialLinks: readonly SocialLink[] = [
   { label: 'X', asset: assets.icons.socialX },
-  { label: 'WhatsApp', asset: assets.icons.socialWhatsapp },
-  { label: 'Instagram', asset: assets.icons.socialInstagram },
+  { label: 'WhatsApp', asset: assets.icons.socialWhatsapp, href: OSEC_LINKS.whatsapp },
+  { label: 'Instagram', asset: assets.icons.socialInstagram, href: OSEC_LINKS.instagram },
   { label: 'Facebook', asset: assets.icons.socialFacebook },
 ];
 
@@ -36,7 +37,7 @@ export interface FooterProps {
 }
 
 /** Shared Figma footer component (234:3393). */
-export function Footer({ onAppointmentClick }: FooterProps) {
+export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps) {
   return (
     <footer className="osec-footer">
       <div className="osec-footer__canvas">
@@ -66,7 +67,7 @@ export function Footer({ onAppointmentClick }: FooterProps) {
                 <div className="osec-footer__socials" aria-label="OSEC social media">
                   {socialLinks.map((social) => (
                     social.href ? (
-                      <a className="osec-footer__social" href={social.href} aria-label={social.label} key={social.label}>
+                      <a className="osec-footer__social" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} key={social.label}>
                         <img src={social.asset} alt="" />
                       </a>
                     ) : (

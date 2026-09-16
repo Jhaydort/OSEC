@@ -1,3 +1,4 @@
+import { OSEC_LINKS } from '../../../data/links';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
 import './ServicesHero.css';
 
@@ -9,7 +10,7 @@ export function ServicesHero() {
         <h1 id="services-page-heading">Comprehensive Specialist Care,<br />Tailored to Your Needs</h1>
         <div className="osec-services-hero__support">
           <p>Delivering specialist care through advanced technology, expert diagnosis, and personalised treatment.</p>
-          <AlternativeButton href="mailto:info@osecng.com" label="Book a Consultation" />
+          <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book a Consultation" />
         </div>
       </div>
     </section>
