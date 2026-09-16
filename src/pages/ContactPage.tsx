@@ -1,5 +1,5 @@
 import { PageMotion } from '../components/motion/PageMotion';
-import { useState, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { Footer } from '../components/layout/Footer/Footer';
 import { AppointmentSection } from '../components/shared/AppointmentSection/AppointmentSection';
 import { FAQSection } from '../components/shared/FAQSection/FAQSection';
@@ -9,13 +9,31 @@ import './ContactPage.css';
 
 /** Contact OSEC, Figma frame 249:7609; unique hero/form in 249:7464. */
 export function ContactPage() {
-  const [submissionUnavailable, setSubmissionUnavailable] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const submitting = useRef(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // TODO: Connect the confirmed enquiry service here before enabling delivery.
-    // Keep entered values in the form; never claim an enquiry was sent.
-    setSubmissionUnavailable(true);
+    if (submitting.current) return;
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form));
+    submitting.current = true;
+    setStatus('sending');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error('Submission failed');
+      form.reset();
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    } finally {
+      submitting.current = false;
+    }
   }
 
   return (
@@ -30,34 +48,39 @@ export function ContactPage() {
           <section className="osec-contact__form-section" aria-labelledby="contact-form-heading">
             <h2 id="contact-form-heading">Tell Us How We Can Help</h2>
             <form className="osec-contact__form" onSubmit={handleSubmit}>
+              <div hidden aria-hidden="true">
+                <label htmlFor="contact-website">Website</label>
+                <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" />
+              </div>
               <div className="osec-contact__fields">
                 <div className="osec-contact__field">
                   <label htmlFor="contact-first-name">First Name</label>
-                  <input id="contact-first-name" name="firstName" autoComplete="given-name" placeholder="Enter name" />
+                  <input id="contact-first-name" name="firstName" required maxLength={100} autoComplete="given-name" placeholder="Enter name" />
                 </div>
                 <div className="osec-contact__field">
                   <label htmlFor="contact-last-name">Last Name</label>
-                  <input id="contact-last-name" name="lastName" autoComplete="family-name" placeholder="Enter name" />
+                  <input id="contact-last-name" name="lastName" required maxLength={100} autoComplete="family-name" placeholder="Enter name" />
                 </div>
                 <div className="osec-contact__field">
                   <label htmlFor="contact-email">Email Address</label>
-                  <input id="contact-email" name="email" type="email" autoComplete="email" placeholder="Enter email address" />
+                  <input id="contact-email" name="email" required maxLength={254} type="email" autoComplete="email" placeholder="Enter email address" />
                 </div>
                 <div className="osec-contact__field">
                   <label htmlFor="contact-phone">Phone number</label>
-                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" placeholder="Enter phone number" />
+                  <input id="contact-phone" name="phone" required maxLength={40} type="tel" autoComplete="tel" placeholder="Enter phone number" />
                 </div>
                 <div className="osec-contact__field osec-contact__field--full">
                   <label htmlFor="contact-enquiry">Nature of Enquiry</label>
-                  <input id="contact-enquiry" name="enquiry" placeholder="Enter your organisation name" />
+                  <input id="contact-enquiry" name="natureOfEnquiry" required maxLength={200} placeholder="What can we help you with?" />
                 </div>
                 <div className="osec-contact__field osec-contact__field--full">
                   <label htmlFor="contact-message">Message</label>
-                  <textarea id="contact-message" name="message" placeholder="Tell us more about your needs" />
+                  <textarea id="contact-message" name="message" required maxLength={5000} placeholder="Tell us more about your needs" />
                 </div>
               </div>
-              <Button className="osec-contact__submit" variant="secondary" type="submit">Send Enquiry</Button>
-              {submissionUnavailable ? <p className="osec-contact__status" role="status">Your enquiry has not been sent. Online enquiries are not available yet. Please call <a href="tel:+2348164353633">+234 816 435 3633</a> or email <a href="mailto:info@osecng.com">info@osecng.com</a>.</p> : null}
+              <Button className="osec-contact__submit" variant="secondary" type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending...' : 'Send Enquiry'}</Button>
+              {status === 'success' ? <p className="osec-contact__status" role="status">Enquiry sent successfully<br />Thank you for contacting OSEC. Our team will get back to you as soon as possible.</p> : null}
+              {status === 'error' ? <p className="osec-contact__status" role="alert">We couldn't send your enquiry. Please try again.</p> : null}
             </form>
           </section>
         </div>
