@@ -1,5 +1,6 @@
 import { PageMotion } from '../../motion/PageMotion';
 import { assets } from '../../../data/assets';
+import { OSEC_LINKS } from '../../../data/links';
 import type { ServiceDetailData } from '../../../data/serviceDetails';
 import { Footer } from '../../layout/Footer/Footer';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
@@ -70,13 +71,13 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             ))}
           </div> : null}
 
-          {service.whyChoose ? <section className="osec-service-detail__why" aria-labelledby="why-osec-heading">
+          <section className="osec-service-detail__why" aria-labelledby="why-osec-heading">
             <div className="osec-service-detail__why-copy">
               <h2 id="why-osec-heading">Why Choose OSEC?</h2>
-              <p>{service.whyChoose}</p>
+              <p>At OSEC, we combine specialist expertise with personalised care, giving every patient the attention and confidence they deserve.</p>
             </div>
-            {service.cta ? <AlternativeButton href={service.cta.href} target="_blank" rel="noopener noreferrer" label={service.cta.label} /> : null}
-          </section> : null}
+            <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />
+          </section>
         </div>
 
         <ServiceRecommendations currentServiceId={service.service.id} />

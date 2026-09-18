@@ -96,7 +96,7 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
                 </div>
                 <div className="osec-footer__contact-row osec-footer__contact-row--address">
                   <img src={assets.icons.location} alt="" />
-                  <span>CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru beside MFM church, Victoria Island.</span>
+                  <span>CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru, Victoria Island.</span>
                 </div>
               </div>
             </address>

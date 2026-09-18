@@ -36,7 +36,7 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
             </div>
             <div className="osec-appointment__contact-row">
               <img src={assets.icons.location} alt="" />
-              <p className="osec-appointment__address">CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru beside MFM church, Victoria Island.</p>
+              <p className="osec-appointment__address">CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru, Victoria Island.</p>
             </div>
           </address>
         </div>
