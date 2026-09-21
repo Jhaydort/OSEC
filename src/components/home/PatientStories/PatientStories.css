@@ -167,14 +167,111 @@
 }
 
 @media (max-width: 600px) {
-  .osec-patient-stories { padding: 48px 16px 105px; }
-  .osec-patient-stories__panel { gap: 32px; padding: 32px 16px; }
-  .osec-patient-stories__header h2 { font-size: 28px; line-height: 32px; }
-  .osec-patient-stories__card { padding: 24px 16px; }
-  .osec-patient-stories__quotes { width: 70.43px; height: 80px; }
-  .osec-patient-stories__story blockquote { font-size: 24px; line-height: 32px; }
-  .osec-patient-stories__arrow--previous { left: calc(50% - 57px); top: auto; bottom: 36px; }
-  .osec-patient-stories__arrow--next { left: auto; right: calc(50% - 57px); top: auto; bottom: 36px; }
+  .osec-patient-stories {
+    min-width: 0;
+    padding: 48px 16px 105px;
+    overflow: hidden;
+  }
+
+  .osec-patient-stories__panel {
+    width: 100%;
+    min-width: 0;
+    gap: 32px;
+    padding: 32px 16px;
+    box-sizing: border-box;
+  }
+
+  .osec-patient-stories__header {
+    min-width: 0;
+  }
+
+  .osec-patient-stories__header h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .osec-patient-stories__viewport {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .osec-patient-stories__slide {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .osec-patient-stories__card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    align-items: stretch;
+  }
+
+  .osec-patient-stories__card-header {
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+  }
+
+  .osec-patient-stories__quotes {
+    flex: 0 0 auto;
+    width: 70px;
+    height: 80px;
+  }
+
+  .osec-patient-stories__rating {
+    flex: 0 0 auto;
+    max-width: 100%;
+    margin-left: auto;
+  }
+
+  .osec-patient-stories__story {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .osec-patient-stories__story blockquote {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+
+    font-size: 20px;
+    line-height: 30px;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .osec-patient-stories__story figcaption {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    font-size: 15px;
+    line-height: 22px;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .osec-patient-stories__arrow--previous {
+    left: calc(50% - 57px);
+    top: auto;
+    bottom: 36px;
+  }
+
+  .osec-patient-stories__arrow--next {
+    left: auto;
+    right: calc(50% - 57px);
+    top: auto;
+    bottom: 36px;
+  }
 }
 
 /* One stable, clipped viewport; only its white cards translate. Grid sizing
