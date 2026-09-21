@@ -77,3 +77,20 @@
   --service-card-width: 545px;
   --service-card-height: 446px;
 }
+
+/* Controlled mobile categories, derived from the existing type hierarchy.
+   Explicit Figma component typography remains scoped to its component. */
+:root {
+  --font-size-mobile-display: 32px;
+  --line-height-mobile-display: 36px;
+  --font-size-mobile-section: 28px;
+  --line-height-mobile-section: 34px;
+  --font-size-mobile-card: 20px;
+  --line-height-mobile-card: 28px;
+  --font-size-mobile-body: 16px;
+  --line-height-mobile-body: 24px;
+  --font-size-mobile-support: 14px;
+  --line-height-mobile-support: 21px;
+  --font-size-mobile-caption: 12px;
+  --line-height-mobile-caption: 18px;
+}

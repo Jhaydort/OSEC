@@ -76,3 +76,40 @@
   .osec-footer__legal { padding-top: var(--space-45); justify-content: center; }
   .osec-footer__legal nav { flex-basis: 100%; justify-content: center; }
 }
+
+/* The mobile header has its own explicit 24px Figma inset. */
+@media (max-width: 480px) {
+  .osec-navigation__bar { padding-inline: 24px; }
+}
+@media (max-width: 600px) {
+  .osec-hero__copy { width: calc(100% - 2 * var(--page-gutter)); }
+  .osec-hero__actions { flex-wrap: wrap; }
+  .osec-patient-stories { padding-inline: var(--page-gutter); }
+  .osec-service-recommendations .osec-service-card--recommendation {
+    flex-basis: min(404px, calc(100vw - 2 * var(--page-gutter)));
+    width: min(404px, calc(100vw - 2 * var(--page-gutter)));
+  }
+  /* Intrinsic card height protects long titles/copy at narrow widths and zoom.
+     The existing photograph, overlay and interaction stay in the same order. */
+  .osec-service-card:not(.osec-service-card--recommendation) {
+    display: grid; align-items: end; min-height: 300px; height: auto;
+    aspect-ratio: auto; padding: 24px 22px;
+  }
+  .osec-service-card:not(.osec-service-card--recommendation) .osec-service-card__image-container {
+    position: absolute; inset: 0;
+  }
+  .osec-service-card:not(.osec-service-card--recommendation) .osec-service-card__content {
+    position: relative; inset: auto; width: 100%;
+  }
+  .osec-alternative-button { max-width: 100%; }
+  .osec-alternative-button__label { min-width: 0; padding-inline: 16px; }
+  .osec-alternative-button__arrow { flex: none; width: 48px; }
+  .osec-faq__trigger { min-height: 44px; }
+}
+
+/* Keep the entrance zoom inside the image crop instead of scaling its layout
+   box beyond the mobile/tablet viewport. Desktop motion remains unchanged. */
+@media (max-width: 1279px) and (prefers-reduced-motion: no-preference) {
+  .osec-service-detail__hero-image { animation: none; }
+  .osec-service-detail__hero-image img { animation: service-detail-image-enter 2s linear; }
+}

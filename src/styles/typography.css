@@ -39,3 +39,67 @@ h6,
   font-size: var(--font-size-hero-body);
   line-height: var(--line-height-hero-body);
 }
+
+/* Fixed sizes at the existing mobile breakpoint: no viewport-based shrinking. */
+@media (max-width: 600px) {
+  .osec-hero__copy h1,
+  .osec-about-hero h1,
+  .osec-services-hero h1,
+  .osec-contact__hero h1,
+  .osec-service-detail__hero h1 {
+    font-size: var(--font-size-mobile-display);
+    line-height: var(--line-height-mobile-display);
+  }
+  .osec-who-we-are h2,
+  .osec-services__copy h2,
+  .osec-reasons h2,
+  .osec-statistics h2,
+  .osec-patient-stories__header h2,
+  .osec-health-resources h2,
+  .osec-our-story h2,
+  .osec-purpose h2,
+  .osec-purpose__card h3,
+  .osec-physician h2,
+  .osec-contact__form-section h2,
+  .osec-service-detail__text-section h2,
+  .osec-service-detail__why h2,
+  .osec-service-recommendations h2,
+  .osec-faq h2 {
+    font-size: var(--font-size-mobile-section);
+    line-height: var(--line-height-mobile-section);
+  }
+  .osec-service-card__copy h3,
+  .osec-article-card h3,
+  .osec-faq__trigger {
+    font-size: var(--font-size-mobile-card);
+    line-height: var(--line-height-mobile-card);
+  }
+  .osec-hero__copy p,
+  .osec-about-hero__copy > p,
+  .osec-services-hero__support p,
+  .osec-contact__hero p,
+  .osec-service-detail__hero p,
+  .osec-faq__answer p {
+    font-size: var(--font-size-mobile-body);
+    line-height: var(--line-height-mobile-body);
+  }
+  .osec-statistics__metric-copy p,
+  .osec-statistics__expertise-copy p,
+  .osec-appointment__booking-link {
+    font-size: var(--font-size-mobile-support);
+    line-height: var(--line-height-mobile-support);
+  }
+  .osec-contact__field input,
+  .osec-contact__field textarea {
+    font-size: var(--font-size-mobile-body);
+    line-height: var(--line-height-mobile-body);
+  }
+  /* Exact dedicated mobile sample 513:1989. Do not generalize its small
+     body text to sections which have no mobile Figma reference. */
+  .osec-service-detail__sections .osec-service-detail__consultation-reason h2 {
+    font-size: 18px; line-height: 32px; font-weight: 500; letter-spacing: 0;
+  }
+  .osec-service-detail__sections .osec-service-detail__consultation-reason p {
+    font-size: 12px; line-height: 18px; font-weight: 500; letter-spacing: 0;
+  }
+}

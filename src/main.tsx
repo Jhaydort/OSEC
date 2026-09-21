@@ -17,3 +17,6 @@ createRoot(rootElement).render(
 
 // Shared layout rules follow component styles so all sections use one grid.
 import './styles/layout.css';
+
+// Typography follows component rules so mobile categories have one source.
+import './styles/typography.css';

@@ -101,29 +101,72 @@
   transform: rotate(180deg) scaleX(-1);
 }
 
-/* No mobile navigation, drawer, or hamburger variant exists in the supplied Figma
-   file. Below desktop width, the exact desktop controls remain available in a
-   horizontally scrollable row instead of inventing an undisclosed visual state. */
-@media (max-width: 1279px) {
-  .osec-navigation__bar {
-    gap: var(--space-24);
-    overflow-x: auto;
-    padding-inline: var(--space-24);
-    scrollbar-width: none;
-  }
+/* Pictures preserve the existing desktop icon box. */
+.osec-navigation__brand picture { display: block; width: 100%; height: 100%; }
+.osec-navigation__appointment .osec-button__icon picture { display: block; width: 100%; height: 100%; }
+.osec-navigation__appointment .osec-button__icon img { width: 100%; height: 100%; }
+.osec-navigation__toggle { display: none; }
+.osec-navigation :is(a, button):focus-visible { outline: 2px solid var(--color-primary-500); outline-offset: 3px; }
 
-  .osec-navigation__bar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .osec-navigation__appointment {
-    margin-left: 0;
-  }
-
-  .osec-navigation__links {
-    position: static;
-    flex: 0 0 auto;
-    justify-content: flex-start;
-    transform: none;
-  }
+/* Preserve the existing scrollable desktop row between mobile and desktop. */
+@media (min-width: 481px) and (max-width: 1279px) {
+  .osec-navigation__bar { gap: var(--space-24); overflow-x: auto; padding-inline: var(--space-24); scrollbar-width: none; }
+  .osec-navigation__bar::-webkit-scrollbar { display: none; }
+  .osec-navigation__appointment { margin-left: 0; }
+  .osec-navigation__links { position: static; flex: 0 0 auto; justify-content: flex-start; transform: none; }
 }
+
+/* Figma Mobile nav 509:2068, closed 509:2067 / open 509:2066.
+   Use the requested 480px breakpoint; existing navigation remains above it. */
+@media (max-width: 480px) {
+  .osec-navigation { position: relative; z-index: 20; }
+  .osec-navigation__announcement { min-height: 54px; padding: 11px 24px; font-size: 12px; line-height: 16px; }
+  .osec-navigation__bar {
+    position: relative; min-height: 33px; height: 33px; gap: 12px;
+    margin-top: 4px; padding: 0 24px; overflow: visible;
+    background: transparent; backdrop-filter: none;
+  }
+  .osec-navigation__brand { width: 78.58034px; height: 33px; }
+  .osec-navigation__appointment {
+    position: relative; width: 144px; height: 32px; min-height: 32px;
+    margin-left: auto; padding: 4px 12px; gap: 4px; border-radius: 24px;
+    background: #501f68; font-size: 12px; font-weight: 400; line-height: 24px;
+  }
+  .osec-navigation__appointment .osec-button__icon { flex: none; width: 16px; height: 16px; }
+  .osec-navigation__appointment .osec-button__icon picture { display: grid; place-items: center; }
+  .osec-navigation__appointment .osec-button__icon img { width: 14.334px; height: 14.334px; }
+  .osec-navigation__toggle {
+    position: relative; display: grid; place-items: center; flex: none;
+    width: 24px; height: 24px; padding: 0; border: 0; background: transparent;
+  }
+  /* Extend hit areas without changing Figma's visible 32/24px controls.
+     Adjacent targets meet midway through their 12px visual gap. */
+  .osec-navigation__appointment::after { content: ''; position: absolute; inset: -6px; }
+  .osec-navigation__toggle::after { content: ''; position: absolute; inset: -10px -10px -10px -6px; }
+  .osec-navigation__links {
+    display: none; position: absolute; top: calc(100% + 24px); right: 0; left: auto;
+    transform: none; width: 214px; max-width: 100%; flex-direction: column;
+    align-items: flex-start; gap: 12px; padding: 12px 6px;
+    border: 1px solid #e0e0e0; border-radius: 12px; background: var(--color-page);
+    filter: drop-shadow(0 4px 2px rgb(0 0 0 / 25%));
+  }
+  .osec-navigation__links--open { display: flex; }
+  .osec-navigation__link { justify-content: flex-start; font-size: 16px; line-height: 24px; }
+  .osec-navigation__link--active { width: 100%; }
+}
+
+.osec-navigation__mobile-logo { display: none; }
+@media (max-width: 480px) {
+  .osec-navigation__brand picture { display: none; }
+  .osec-navigation__mobile-logo { position: relative; display: block; width: 78.58034px; height: 33px; }
+  .osec-navigation__mobile-logo > span {
+    display: block; width: 78.58034px; height: 28.91886px;
+    background: var(--color-primary-900);
+    mask: url('/icons/mobile-logo-mask.png') 0 0 / 78.58034px 28.91886px no-repeat;
+  }
+  .osec-navigation__mobile-logo > img { position: absolute; left: 3.31588px; top: 30.57681px; width: 71.35742px; height: 2.42319px; }
+}
+
+/* Standalone forms keep the same branding and booking control, without links. */
+.osec-navigation--standalone .osec-navigation__bar { overflow: visible; }
+.osec-navigation--standalone .osec-navigation__appointment { margin-left: auto; }

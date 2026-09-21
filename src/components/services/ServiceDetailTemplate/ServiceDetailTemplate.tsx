@@ -58,7 +58,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
 
           {service.sections?.length ? <div className="osec-service-detail__sections">
             {service.sections.map((section) => (
-              <section className="osec-service-detail__text-section" key={section.heading}>
+              <section className={`osec-service-detail__text-section${service.service.id === 'specialist-consultation' && section.heading === 'Why Might You Need a Consultation?' ? ' osec-service-detail__consultation-reason' : ''}`} key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.items?.length ? (
