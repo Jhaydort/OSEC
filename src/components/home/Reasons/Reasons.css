@@ -166,3 +166,9 @@
     margin-top: 0;
   }
 }
+/* Mobile-only text-led layout; the existing reason selection stays intact. */
+@media (max-width: 480px) {
+  .osec-reasons { padding-block: 32px var(--space-45); }
+  .osec-reasons__image-wrap { display: none; }
+  .osec-reasons__content { gap: 0; }
+}

@@ -14,3 +14,13 @@
 .osec-who-we-are__play { position: absolute; top: 50%; left: 50%; width: 100px; height: 100px; padding: 0; border: 0; background: transparent; transform: translate(-50%, -50%); }
 .osec-who-we-are__play img { display: block; width: 100%; height: 100%; }
 @media (max-width: 900px) { .osec-who-we-are { padding: var(--space-64) var(--space-24); } .osec-who-we-are h2 { font-size: 28px; line-height: 38px; } .osec-who-we-are__video-wrap { height: auto; aspect-ratio: 1080 / 533; } }
+/* Mobile-only, video-led composition. Tablet and desktop rules stay intact. */
+@media (max-width: 480px) {
+  .osec-who-we-are { padding: 40px 16px; }
+  .osec-who-we-are__content { gap: 24px; }
+  .osec-who-we-are__intro { gap: 0; }
+  .osec-who-we-are h2,
+  .osec-who-we-are__link { display: none; }
+  .osec-who-we-are__video-wrap { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+  .osec-who-we-are__play { width: 64px; height: 64px; }
+}

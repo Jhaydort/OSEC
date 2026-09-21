@@ -268,3 +268,14 @@
   .osec-statistics__track { animation: none; transform: none; }
   .osec-statistics__expertise-card:not(:first-child) { display: none; }
 }
+
+/* Mobile uses only the original metric and once-only count-up. */
+@media (max-width: 480px) {
+  .osec-statistics__panel { height: auto; padding: var(--space-64) var(--space-24); gap: 0; }
+  .osec-statistics__panel > .osec-statistics__carousel { display: none; }
+  .osec-statistics__panel .osec-statistics__track { animation: none; }
+  .osec-statistics__metric { gap: var(--space-24); }
+  .osec-statistics__metric-copy { gap: var(--space-16); }
+  .osec-statistics .osec-statistics__metric-copy > p { font-size: 16px; line-height: 24px; }
+  .osec-statistics__metric-copy h3 { font-size: 24px; line-height: 32px; color: var(--color-white); }
+}

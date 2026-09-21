@@ -11,3 +11,15 @@
 @keyframes osec-partners-marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .osec-partners { align-items: flex-start; flex-wrap: wrap; padding-right: var(--page-gutter-desktop); } .osec-partners__viewport { flex-basis: 100%; } .osec-partners__track { width: 100%; flex-wrap: wrap; gap: var(--space-24); animation: none; } .osec-partners__logo-group { gap: var(--space-24); padding: 0; } .osec-partners__logo-group[aria-hidden='true'] { display: none; } }
 @media (max-width: 700px) { .osec-partners { padding-left: var(--space-24); padding-right: var(--space-24); } .osec-partners__logo-group { gap: var(--space-64); padding-right: var(--space-64); } }
+/* Mobile partners: stationary centered label above the existing moving track. */
+@media (max-width: 480px) {
+  .osec-partners.osec-partners { flex-direction: column; align-items: center; gap: 20px; min-height: 0; padding: 28px 0 32px; }
+  .osec-partners > p { width: 100%; padding-inline: 16px; text-align: center; }
+  .osec-partners__viewport { flex: none; width: 100%; }
+  .osec-partners__logo-group { gap: 40px; padding-right: 40px; }
+  .osec-partners__logo { width: auto; height: 56px; max-height: 56px; object-fit: contain; object-position: center; transform: none; }
+}
+@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+  .osec-partners__viewport { flex-basis: auto; }
+  .osec-partners__logo-group { width: 100%; flex-wrap: wrap; justify-content: center; gap: 24px 32px; padding: 0 16px; }
+}

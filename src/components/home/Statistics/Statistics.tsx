@@ -58,7 +58,7 @@ function formatNumber(value: number) {
 
 /** Animates one time after the section first becomes visible. */
 function useCountUp(target: number, sectionRef: React.RefObject<HTMLElement | null>) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => window.matchMedia('(max-width: 480px) and (prefers-reduced-motion: reduce)').matches ? target : 0);
   const hasStarted = useRef(false);
 
   useEffect(() => {

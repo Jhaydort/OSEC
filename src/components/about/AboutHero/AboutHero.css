@@ -59,3 +59,7 @@
   .osec-about-hero .osec-alternative-button a,
   .osec-about-hero .osec-alternative-button span { transition: none; }
 }
+/* Hide only the image at mobile widths; display:none also removes its flex gap. */
+@media (max-width: 480px) {
+  .osec-about-hero__image { display: none; }
+}

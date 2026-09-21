@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { assets } from '../../../data/assets';
 import { featuredServices } from '../../../data/services';
 import { ServiceCard } from '../../ui/ServiceCard/ServiceCard';
@@ -6,8 +7,53 @@ import './Services.css';
 
 /** Figma Home Services frame 295:2183. */
 export function Services() {
+  const sectionRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const mobile = window.matchMedia('(max-width: 480px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const cards = Array.from(section.querySelectorAll<HTMLElement>('.osec-services__card-wrap'));
+    const header = document.querySelector<HTMLElement>('.osec-navigation');
+    let frame = 0;
+    let visible = false;
+    let offset = 100;
+    const reset = () => cards.forEach((card) => card.style.removeProperty('--stack-scale'));
+    const paint = () => {
+      frame = 0;
+      if (!mobile.matches || reduced.matches || !visible) return;
+      const bounds = cards.map((card) => card.getBoundingClientRect());
+      cards.forEach((card, index) => {
+        const next = bounds[index + 1];
+        const progress = next ? Math.max(0, Math.min(1, 1 - (next.top - offset) / bounds[index].height)) : 0;
+        card.style.setProperty('--stack-scale', String(1 - progress * 0.02));
+      });
+    };
+    const schedule = () => { if (mobile.matches && !reduced.matches && visible && !frame) frame = requestAnimationFrame(paint); };
+    const measure = () => {
+      offset = (header?.getBoundingClientRect().height ?? 87) + 16;
+      section.style.setProperty('--service-stack-top', offset + 'px');
+      reset();
+      schedule();
+    };
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; schedule(); });
+    observer.observe(section);
+    const resize = new ResizeObserver(measure);
+    if (header) resize.observe(header);
+    resize.observe(section);
+    mobile.addEventListener('change', measure);
+    reduced.addEventListener('change', measure);
+    window.addEventListener('scroll', schedule, { passive: true });
+    measure();
+    return () => {
+      cancelAnimationFrame(frame); observer.disconnect(); resize.disconnect();
+      mobile.removeEventListener('change', measure); reduced.removeEventListener('change', measure);
+      window.removeEventListener('scroll', schedule); reset();
+      section.style.removeProperty('--service-stack-top');
+    };
+  }, []);
   return (
-    <section className="osec-services" aria-labelledby="services-heading">
+    <section ref={sectionRef} className="osec-services" aria-labelledby="services-heading">
       <div className="osec-services__layout">
         <div className="osec-services__intro">
           <div className="osec-services__eyebrow"><img src={assets.icons.loom} alt="" /><span>Our Services</span></div>

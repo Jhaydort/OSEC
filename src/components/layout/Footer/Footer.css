@@ -299,3 +299,12 @@ a.osec-footer__contact-row:is(:hover, :focus-visible) {
     margin: 0;
   }
 }
+/* Mobile brand/action group precedes navigation; larger layouts are unchanged. */
+@media (max-width: 480px) {
+  .osec-footer__main { gap: 32px; }
+  .osec-footer__columns > .osec-footer__centre { grid-row: 1; gap: 28px; }
+  .osec-footer__columns > .osec-footer__solutions { grid-row: 2; }
+  .osec-footer__columns > .osec-footer__contact { grid-row: 3; }
+  .osec-footer__centre .osec-footer__actions { gap: 24px; }
+  .osec-footer__appointment-row { justify-content: center; }
+}

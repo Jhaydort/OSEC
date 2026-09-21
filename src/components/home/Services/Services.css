@@ -11,3 +11,14 @@
 .osec-services__card-wrap { position: sticky; top: 100px; }
 @media (max-width: 1000px) { .osec-services { padding-inline: var(--space-24); } .osec-services__layout { gap: var(--space-64); } .osec-services__intro { flex-basis: 320px; } }
 @media (max-width: 800px) { .osec-services__layout { display: block; min-height: 0; } .osec-services__intro { position: static; width: 100%; padding-top: var(--space-64); } .osec-services__cards { width: 100%; padding-top: var(--space-45); } .osec-services__card-wrap { position: static; } }
+
+/* Reuse the desktop sticky wrappers; the existing natural card heights and
+   gaps provide the scroll runway. No separate scroller or duplicated cards. */
+@media (max-width: 480px) {
+  .osec-services { isolation: isolate; }
+  .osec-services__card-wrap { position: sticky; top: var(--service-stack-top, 103px); }
+  .osec-services__card-wrap .osec-service-card { transform: scale(var(--stack-scale, 1)); transform-origin: center top; }
+}
+@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+  .osec-services__card-wrap .osec-service-card { transform: none; }
+}
