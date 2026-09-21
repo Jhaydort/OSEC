@@ -26,7 +26,7 @@
 .osec-patient-story__field :is(input, textarea)::placeholder { color: var(--color-input-border); opacity: 1; }
 .osec-patient-story__field select {
   appearance: none; height: 48px; padding-right: 46px;
-  background: url('/icons/patient-story-chevron.svg') right 14px center / 24px 24px no-repeat;
+  background: url('/icons/patient-story-chevron.svg') right 19.25px center / 13.5px 7.5px no-repeat;
   text-overflow: ellipsis; cursor: pointer;
 }
 .osec-patient-story__field select:invalid { color: var(--color-input-border); }
@@ -76,3 +76,19 @@
   .osec-patient-story__star img { display: none; }
   .osec-patient-story__consent input { appearance: auto; }
 }
+
+/* Figma thank-you frame 518:2455: header 142px, content y=416px. */
+.osec-patient-story--success { padding-top: 274px; }
+.osec-patient-story__success { display: flex; flex-direction: column; align-items: center; width: min(100%, 1080px); margin-inline: auto; text-align: center; outline: none; }
+.osec-patient-story__success h1 { width: min(100%, 672px); margin: 0; font-family: var(--font-heading); font-size: 32px; font-weight: 500; line-height: 40px; color: var(--color-text); }
+.osec-patient-story__success > p { width: min(100%, 479px); margin: 24px 0 0; color: var(--color-text-muted); font-family: var(--font-body); font-size: 16px; line-height: 24px; }
+.osec-patient-story__home { margin-top: 45px; }
+.osec-patient-story__home .osec-alternative-button__label { width: 174px; }
+.osec-patient-story__home .osec-alternative-button__arrow span { mask-size: 12.5px 12.5px; -webkit-mask-size: 12.5px 12.5px; }
+@media (min-width: 1280px) { .osec-patient-story__success { position: relative; left: 4px; } }
+@media (max-width: 600px) {
+  .osec-patient-story--success { min-height: calc(100svh - 142px); padding-block: clamp(96px, 20svh, 180px) 96px; }
+  .osec-patient-story__success h1 { font-size: 28px; line-height: 36px; }
+}
+
+.osec-patient-story__word-help { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; }

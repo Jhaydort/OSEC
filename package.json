@@ -9,6 +9,7 @@
     "preview": "vite preview --config vite.config.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "react": "latest",
     "react-dom": "latest",
     "resend": "^6.28.1"

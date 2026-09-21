@@ -1,4 +1,4 @@
-/** Step 1 values only: moderation and persistence belong to the future backend. */
+/** Patient-editable values only; moderation fields are fixed at the insert boundary. */
 export interface PatientStoryValues {
   fullName: string;
   email: string;
@@ -15,6 +15,11 @@ export const initialPatientStoryValues: PatientStoryValues = {
   fullName: '', email: '', service: '', phoneNumber: '', rating: 0, review: '', consentToPublish: false,
 };
 
+export const PATIENT_STORY_WORD_LIMIT = 45;
+export function countStoryWords(text: string): number {
+  return text.trim() ? text.trim().split(/\s+/u).length : 0;
+}
+
 /** Pure validation; the caller supplies the existing service IDs. No storage or network. */
 export function validatePatientStory(values: PatientStoryValues, serviceIds: readonly string[]): PatientStoryErrors {
   const errors: PatientStoryErrors = {};
@@ -28,10 +33,27 @@ export function validatePatientStory(values: PatientStoryValues, serviceIds: rea
   else if (!/^\+?[\d\s().-]+$/.test(mainNumber) || digits.length < 7 || digits.length > 15) errors.phoneNumber = 'Enter a valid phone number.';
   if (!Number.isInteger(values.rating) || values.rating < 1 || values.rating > 5) errors.rating = 'Please select a rating.';
   if (!values.review.trim()) errors.review = 'Please share your experience.';
+  else if (countStoryWords(values.review) > PATIENT_STORY_WORD_LIMIT) errors.review = 'Your story exceeds 45 words. Please shorten it before submitting.';
   return errors;
 }
 
-/** The future submission boundary can use this payload without changing the UI. */
+/** Normalize values before validation and submission. */
 export function normalizePatientStory(values: PatientStoryValues): PatientStoryValues {
   return { ...values, fullName: values.fullName.trim(), email: values.email.trim(), phoneNumber: values.phoneNumber.trim(), review: values.review.trim() };
+}
+
+/** Explicit allowlist: patient input can never set moderation or extra columns. */
+export function toPatientReviewInsert(values: PatientStoryValues) {
+  const normalized = normalizePatientStory(values);
+  return {
+    full_name: normalized.fullName,
+    email: normalized.email,
+    phone_number: normalized.phoneNumber,
+    service: normalized.service,
+    rating: normalized.rating,
+    review: normalized.review,
+    consent_to_publish: normalized.consentToPublish,
+    status: 'pending' as const,
+    approved_at: null,
+  };
 }

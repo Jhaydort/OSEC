@@ -118,7 +118,7 @@
   margin: 0;
   color: var(--color-text-muted);
   font-family: var(--font-body);
-  font-size: 30px;
+  font-size: 28px;
   font-weight: var(--font-weight-medium);
   line-height: 38px;
 }
@@ -131,7 +131,12 @@
   line-height: normal;
 }
 
-.osec-patient-stories__pagination { width: 84px; height: 12px; }
+.osec-patient-stories__pagination { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; max-width: 100%; min-height: 12px; }
+.osec-patient-stories__pagination button { flex: none; width: 12px; height: 12px; padding: 0; border: 0; border-radius: 50%; background: rgb(255 255 255 / 60%); cursor: pointer; }
+.osec-patient-stories__pagination button[aria-current="true"] { background: #8d31bf; }
+.osec-patient-stories__pagination button:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+.osec-patient-stories__placeholder { min-height: 384px; justify-content: center; align-items: center; color: var(--color-text-muted); text-align: center; }
+.osec-patient-stories__story { overflow-wrap: anywhere; }
 
 .osec-patient-stories__arrow {
   position: absolute;
@@ -171,3 +176,17 @@
   .osec-patient-stories__arrow--previous { left: calc(50% - 57px); top: auto; bottom: 36px; }
   .osec-patient-stories__arrow--next { left: auto; right: calc(50% - 57px); top: auto; bottom: 36px; }
 }
+
+/* One stable, clipped viewport; only its white cards translate. Grid sizing
+   reserves the tallest story at each width, keeping the purple panel still. */
+.osec-patient-stories__viewport { display: grid; width: 531px; max-width: 100%; overflow: hidden; border-radius: var(--radius-component); }
+.osec-patient-stories__slide { grid-area: 1 / 1; width: 100%; visibility: hidden; pointer-events: none; }
+.osec-patient-stories__slide.is-active { visibility: visible; pointer-events: auto; }
+.osec-patient-stories__slide.is-outgoing { visibility: visible; }
+.osec-patient-stories__slide.is-moving.is-active { animation: story-enter 700ms cubic-bezier(.22,.61,.36,1) both; }
+.osec-patient-stories__slide.is-outgoing { animation: story-exit 700ms cubic-bezier(.22,.61,.36,1) both; }
+.osec-patient-stories__viewport { --slide-direction: 1; }
+.osec-patient-stories__viewport[data-direction='-1'] { --slide-direction: -1; }
+@keyframes story-enter { from { transform: translateX(calc(var(--slide-direction) * 100%)); } to { transform: translateX(0); } }
+@keyframes story-exit { from { transform: translateX(0); } to { transform: translateX(calc(var(--slide-direction) * -100%)); } }
+@media (prefers-reduced-motion: reduce) { .osec-patient-stories__slide { animation: none !important; } }
