@@ -1,3 +1,7 @@
+import { CookieConsent } from '../components/shared/CookieConsent/CookieConsent';
+import { SEO } from '../components/shared/SEO';
+import { LegalPage, UnavailablePage } from '../pages/LegalPage';
+import { legalDocuments } from '../data/legal';
 import { HomepageMotion } from '../components/motion/HomepageMotion';
 import { Navigation } from '../components/layout/Navigation/Navigation';
 import { Footer } from '../components/layout/Footer/Footer';
@@ -21,19 +25,25 @@ import { serviceDetailsBySlug } from '../data/serviceDetails';
 
 /** Native internal anchors navigate in the same tab; render the matching page. */
 export default function App() {
-  const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const requestedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const currentPath = requestedPath === '/terms-of-service' ? '/terms-and-conditions' : requestedPath;
+  const legalDocument = legalDocuments[currentPath];
   const isPatientStory = currentPath === '/patient-story';
   const isContact = currentPath === '/contact';
   const isAbout = currentPath === '/about';
-  const isServices = currentPath === '/services' || currentPath.startsWith('/services/');
+  const isServices = currentPath === '/services';
   const serviceSlug = currentPath.startsWith('/services/') ? currentPath.slice('/services/'.length) : '';
-  const serviceDetail = serviceSlug ? serviceDetailsBySlug[serviceSlug] : undefined;
+  const serviceDetail = Object.prototype.hasOwnProperty.call(serviceDetailsBySlug, serviceSlug) ? serviceDetailsBySlug[serviceSlug] : undefined;
 
   return (
     <>
+      <SEO path={currentPath} />
+      <a className="osec-skip-link" href="#main-content">Skip to main content</a>
+      <CookieConsent />
       <HomepageMotion enabled={currentPath === '/'} />
       <Navigation activeHref={currentPath} standalone={isPatientStory} />
-      {isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : <>
+      {legalDocument ? <LegalPage document={legalDocument} /> : isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : currentPath !== '/' ? <UnavailablePage news={currentPath === '/news-health-articles'} /> : <>
+      <main id="main-content" tabIndex={-1}>
       <Hero />
       <WhoWeAre />
       <Partners />
@@ -44,6 +54,7 @@ export default function App() {
       <AppointmentSection />
       <HealthResources />
       <FAQSection items={faqs} />
+      </main>
       <Footer />
       </>}
     </>

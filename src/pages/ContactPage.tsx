@@ -1,3 +1,4 @@
+import { trackEvent } from '../lib/analytics';
 import { PageMotion } from '../components/motion/PageMotion';
 import { useRef, useState, type FormEvent } from 'react';
 import { Footer } from '../components/layout/Footer/Footer';
@@ -29,6 +30,7 @@ export function ContactPage() {
       if (!response.ok || result.success !== true) throw new Error('Submission failed');
       form.reset();
       setStatus('success');
+      trackEvent('contact_form_submit');
     } catch {
       setStatus('error');
     } finally {

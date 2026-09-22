@@ -5,8 +5,99 @@
       "destination": "/api/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/patient-story",
+      "destination": "/patient-story/index.html"
+    },
+    {
+      "source": "/news-health-articles",
+      "destination": "/news-health-articles/index.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy/index.html"
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms-and-conditions/index.html"
+    },
+    {
+      "source": "/cookie-policy",
+      "destination": "/cookie-policy/index.html"
+    },
+    {
+      "source": "/services/gastrointestinal-specialist-consultation",
+      "destination": "/services/gastrointestinal-specialist-consultation/index.html"
+    },
+    {
+      "source": "/services/colonoscopy-lower-gi-endoscopy",
+      "destination": "/services/colonoscopy-lower-gi-endoscopy/index.html"
+    },
+    {
+      "source": "/services/gastroscopy-upper-gi-endoscopy",
+      "destination": "/services/gastroscopy-upper-gi-endoscopy/index.html"
+    },
+    {
+      "source": "/services/endoscopic-mucosal-resection-emr",
+      "destination": "/services/endoscopic-mucosal-resection-emr/index.html"
+    },
+    {
+      "source": "/services/endoscopic-submucosal-dissection-esd",
+      "destination": "/services/endoscopic-submucosal-dissection-esd/index.html"
+    },
+    {
+      "source": "/services/gastrointestinal-biopsy",
+      "destination": "/services/gastrointestinal-biopsy/index.html"
+    },
+    {
+      "source": "/services/peg-feeding-tube-placement",
+      "destination": "/services/peg-feeding-tube-placement/index.html"
+    },
+    {
+      "source": "/services/paediatric-endoscopy-procedures",
+      "destination": "/services/paediatric-endoscopy-procedures/index.html"
+    },
+    {
+      "source": "/services/endobariatric-medical-weight-management",
+      "destination": "/services/endobariatric-medical-weight-management/index.html"
+    },
+    {
+      "source": "/services/endoscopic-full-thickness-resection-eftr",
+      "destination": "/services/endoscopic-full-thickness-resection-eftr/index.html"
+    },
+    {
+      "source": "/services/paediatric-colonoscopy",
+      "destination": "/services/paediatric-colonoscopy/index.html"
+    },
+    {
+      "source": "/services/glp-1-assessment-obesity-clinic",
+      "destination": "/services/glp-1-assessment-obesity-clinic/index.html"
+    },
+    {
+      "source": "/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/404.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/terms-of-service",
+      "destination": "/terms-and-conditions",
+      "permanent": true
     }
   ]
 }

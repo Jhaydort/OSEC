@@ -1,3 +1,4 @@
+import { openCookiePreferences } from '../../../lib/consent';
 import { OSEC_LINKS, openWhatsAppBooking } from '../../../data/links';
 import { assets } from '../../../data/assets';
 import { Button } from '../../ui/Button/Button';
@@ -13,7 +14,7 @@ const solutionLinks = [
 
 const legalLinks = [
   { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms of Service', href: '/terms-of-service' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   { label: 'Cookie Policy', href: '/cookie-policy' },
 ] as const;
 
@@ -107,6 +108,7 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
           <p>© 2026 OSEC </p>
           <nav aria-label="Legal">
             {legalLinks.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
+            <button type="button" onClick={openCookiePreferences}>Cookie Preferences</button>
           </nav>
         </div>
       </div>

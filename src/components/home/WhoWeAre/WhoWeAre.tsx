@@ -8,7 +8,7 @@ export function WhoWeAre() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   async function playVideo() {
-    await videoRef.current?.play();
+    try { await videoRef.current?.play(); } catch { setIsPlaying(false); }
   }
 
   return (
@@ -29,11 +29,12 @@ export function WhoWeAre() {
         <div className="osec-who-we-are__video-wrap">
           <video
             className="osec-who-we-are__video"
+            aria-label="OSEC clinic video"
             controls={isPlaying}
             onPause={() => setIsPlaying(false)}
             onPlay={() => setIsPlaying(true)}
             poster={assets.editorial.consultation}
-            preload="metadata"
+            preload="none"
             ref={videoRef}
           >
             <source src={assets.media.colonoscopyVideo} type="video/mp4" />

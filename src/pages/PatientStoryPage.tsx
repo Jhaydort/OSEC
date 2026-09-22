@@ -1,3 +1,4 @@
+import { trackEvent } from '../lib/analytics';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Footer } from '../components/layout/Footer/Footer';
 import { AppointmentSection } from '../components/shared/AppointmentSection/AppointmentSection';
@@ -57,6 +58,7 @@ export function PatientStoryPage() {
       setValues({ ...initialPatientStoryValues });
       setErrors({});
       setStatus('success');
+      trackEvent('patient_story_submit');
     } catch {
       // Keep all entered values for a deliberate retry; never expose raw errors.
       setStatus('error');

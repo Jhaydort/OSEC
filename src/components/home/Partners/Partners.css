@@ -16,8 +16,12 @@
   .osec-partners.osec-partners { flex-direction: column; align-items: center; gap: 20px; min-height: 0; padding: 28px 0 32px; }
   .osec-partners > p { width: 100%; padding-inline: 16px; text-align: center; }
   .osec-partners__viewport { flex: none; width: 100%; }
-  .osec-partners__logo-group { gap: 40px; padding-right: 40px; }
-  .osec-partners__logo { width: auto; height: 56px; max-height: 56px; object-fit: contain; object-position: center; transform: none; }
+  .osec-partners__logo-group { gap: 32px; padding-right: 32px; }
+  .osec-partners__logo { width: 50px; height: auto; max-width: 60px; flex-shrink: 0; object-fit: contain; object-position: center; transform: none; }
+  /* Balance wide and compact marks without changing their intrinsic ratios. */
+  .osec-partners__logo--101 { width: 60px; }
+  .osec-partners__logo--100 { width: 60px; }
+  .osec-partners__logo--102 { width: 55px; }
 }
 @media (max-width: 480px) and (prefers-reduced-motion: reduce) {
   .osec-partners__viewport { flex-basis: auto; }

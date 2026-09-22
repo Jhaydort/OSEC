@@ -32,14 +32,14 @@ export function ServiceCard({
   return (
     <article className={`osec-service-card osec-service-card--${variant} ${className}`.trim()}>
       <div className="osec-service-card__image-container">
-        <img className="osec-service-card__image" src={image} alt={imageAlt} style={{ objectPosition: imagePosition }} />
+        <img className="osec-service-card__image" src={image} alt={imageAlt} loading="lazy" style={{ objectPosition: imagePosition }} />
       </div>
       <div className="osec-service-card__content">
         <div className="osec-service-card__copy">
           <h3>{title}</h3>
           <p>{description}</p>
         </div>
-        {ctaHref ? <a className="osec-service-card__cta" href={ctaHref}>{cta}</a> : <span className="osec-service-card__cta">{cta}</span>}
+        {ctaHref ? <a className="osec-service-card__cta" href={ctaHref} aria-label={`${ctaLabel}: ${title}`}>{cta}</a> : <span className="osec-service-card__cta">{cta}</span>}
       </div>
     </article>
   );

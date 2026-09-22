@@ -308,3 +308,7 @@ a.osec-footer__contact-row:is(:hover, :focus-visible) {
   .osec-footer__centre .osec-footer__actions { gap: 24px; }
   .osec-footer__appointment-row { justify-content: center; }
 }
+
+.osec-footer__legal nav { flex-wrap: wrap; align-items: center; }
+.osec-footer__legal button { padding: 0; border: 0; color: var(--color-neutral-200); background: transparent; font: var(--font-size-body)/var(--line-height-body) var(--font-body); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 480px) { .osec-footer__legal nav { gap: 8px 16px; } .osec-footer__legal nav a, .osec-footer__legal nav button { display: inline-flex; align-items: center; min-height: 44px; white-space: normal; } }
