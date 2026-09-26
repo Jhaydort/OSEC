@@ -87,6 +87,7 @@ export const assets = {
     pegFigma: asset('service-peg-figma.png'),
     paediatricEndoscopyFigma: asset('service-paediatric-endoscopy-figma.png'),
     weightManagementFigma: asset('service-weight-management-figma.png'),
+    eftrSupplied: asset('EFTR.jpeg'),
     eftrAdvancedFigma: asset('service-eftr-advanced-figma.png'),
     paediatricColonoscopyFigma: asset('service-paediatric-colonoscopy-figma.png'),
     eftrFigma: asset('service-eftr-figma.png'),

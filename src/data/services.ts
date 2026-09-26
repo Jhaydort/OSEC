@@ -100,7 +100,7 @@ export const services: readonly Service[] = [
   {
     id: 'eftr-advanced',
     slug: 'endoscopic-full-thickness-resection-eftr',
-    image: assets.services.eftrAdvancedFigma,
+    image: assets.services.eftrSupplied,
     title: 'Endoscopic Full-Thickness Resection (EFTR)',
     description: 'An advanced minimally invasive procedure to remove selected gastrointestinal lesions and early cancers.',
     href: '/services/endoscopic-full-thickness-resection-eftr',
@@ -118,7 +118,7 @@ export const services: readonly Service[] = [
   {
     id: 'eftr',
     slug: 'endoscopic-full-thickness-resection-eftr',
-    image: assets.services.eftrFigma,
+    image: assets.services.eftrSupplied,
     title: 'Endoscopic Full-Thickness Resection (EFTR)',
     description: 'Minimally invasive removal of selected gastrointestinal lesions, polyps, tumours and early cancers.',
     href: '/services/endoscopic-full-thickness-resection-eftr',
