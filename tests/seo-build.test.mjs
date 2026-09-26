@@ -14,7 +14,7 @@ test('built route heads and Vercel rewrite targets agree', async () => {
     const title = html.match(/<title[^>]*>(.*?)<\/title>/)[1];
     assert.equal(titles.has(title), false, path); titles.add(title);
     for (const field of ['description', 'robots', 'og:title', 'og:description', 'twitter:card']) assert.equal((html.match(new RegExp(`(?:name|property)="${field}"`, 'g')) || []).length, 1, path + ' ' + field);
-    const noindex = ['/patient-story','/news-health-articles'].includes(path);
+    const noindex = ['/patient-story'].includes(path);
     assert.equal(html.includes('content="noindex, follow"'), noindex);
     assert.equal(html.includes('rel="canonical"'), !!domain && !noindex);
     if (domain && !noindex) {
@@ -40,5 +40,5 @@ test('robots and sitemap use the configured production origin with no duplicate 
   const sitemap = await read('dist/sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
   assert.equal(new Set(urls).size, urls.length);
-  assert.deepEqual(new Set(urls), new Set(paths.filter(path => !['/patient-story','/news-health-articles'].includes(path)).map(path => domain + path)));
+  assert.deepEqual(new Set(urls), new Set(paths.filter(path => !['/patient-story'].includes(path)).map(path => domain + path)));
 });

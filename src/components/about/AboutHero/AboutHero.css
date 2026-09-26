@@ -66,3 +66,8 @@
   section.osec-about-hero { padding-left: calc((100% - 1280px) / 2 + 104px); padding-right: calc((100% - 1280px) / 2 + 97px); }
 }
 .osec-about-hero .osec-alternative-button__arrow span { mask-size: 12.5px 12.5px; -webkit-mask-size: 12.5px 12.5px; }
+
+/* Remove only the consultation photo and its flex gap on small mobile screens. */
+@media (max-width: 480px) {
+  .osec-about-hero__image { display: none; }
+}

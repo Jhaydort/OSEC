@@ -22,7 +22,7 @@ export function HealthResources() {
 
         <div className="osec-health-resources__grid">
           {healthResources.map((article) => (
-            <ArticleCard key={article.id} title={article.title} image={article.image} href={article.href} />
+            <ArticleCard key={article.id} title={article.title} image={article.image} href={article.externalUrl} imageAlt={article.imageAlt} imagePosition={article.imagePosition} external />
           ))}
         </div>
       </div>

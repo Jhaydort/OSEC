@@ -19,6 +19,7 @@ import { faqs } from '../data/faqs';
 import { PatientStoryPage } from '../pages/PatientStoryPage';
 import { ContactPage } from '../pages/ContactPage';
 import { AboutPage } from '../pages/AboutPage';
+import { NewsPage } from '../pages/NewsPage';
 import { ServicesPage } from '../pages/ServicesPage';
 import { ServiceDetailTemplate } from '../components/services/ServiceDetailTemplate/ServiceDetailTemplate';
 import { serviceDetailsBySlug } from '../data/serviceDetails';
@@ -42,7 +43,7 @@ export default function App() {
       <CookieConsent />
       <HomepageMotion enabled={currentPath === '/'} />
       <Navigation activeHref={currentPath} standalone={isPatientStory} />
-      {legalDocument ? <LegalPage document={legalDocument} /> : isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : currentPath !== '/' ? <UnavailablePage news={currentPath === '/news-health-articles'} /> : <>
+      {legalDocument ? <LegalPage document={legalDocument} /> : isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : currentPath === '/news-health-articles' ? <NewsPage /> : currentPath !== '/' ? <UnavailablePage news={currentPath === '/news-health-articles'} /> : <>
       <main id="main-content" tabIndex={-1}>
       <Hero />
       <WhoWeAre />

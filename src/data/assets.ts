@@ -54,6 +54,12 @@ export const assets = {
     whyOsecEarlyDetection: asset('why-osec-early-detection.png'),
     statsInternationalExpertise: asset('stats-international-expertise.png'),
   },
+  publications: {
+    gist: asset('gist-colonoscopy-case-study.webp'),
+    fitScreening: asset('fit-colonoscopy-screening.webp'),
+    giLesions: asset('gastrointestinal-lesions.webp'),
+    inflammatoryBowel: asset('inflammatory-bowel-changes.webp'),
+  },
   patientStories: {
     loom: asset('icons/patient-stories-loom.svg'),
     quotes: asset('icons/patient-stories-quotes.svg'),
