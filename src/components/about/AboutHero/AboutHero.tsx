@@ -74,11 +74,11 @@ export function AboutHero() {
                 <p className="osec-about-hero__number" ref={counterRef} aria-label="1,800 or more">
                   <span aria-hidden="true">{procedureCount.toLocaleString('en-US')}+</span>
                 </p>
-                <p>Procedures Performed in the last 3years</p>
+                <p>Procedures Performed in the last 3 Years</p>
               </div>
               <div className="osec-about-hero__stat">
-                <p className="osec-about-hero__milestone">First in Nigeria</p>
-                <p>ESD Procedure</p>
+                <p className="osec-about-hero__milestone">First Team in Nigeria</p>
+                <p>to perform Endoscopic Submucosal Dissection (ESD) procedure in Nigeria</p>
               </div>
             </div>
           </div>

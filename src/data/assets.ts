@@ -62,7 +62,7 @@ export const assets = {
     arrow: asset('icons/patient-stories-arrow.svg'),
   },
   hero: {
-    left: asset('Hero image 1.png'),
+    left: asset('Atinuke setting up scope.PNG'),
     center: asset('hero image 2.png'),
     right: asset('hero image 3.png'),
     leftMask: asset('left.png'),
@@ -72,7 +72,9 @@ export const assets = {
   services: {
     consultationFigma: asset('service-consultation-figma.png'),
     colonoscopyFigma: asset('service-colonoscopy-figma.png'),
+    gastroscopySuite: asset('gastroscopy-upper-gi-endoscopy.webp'),
     gastroscopyFigma: asset('service-gastroscopy-figma.png'),
+    emrSupplied: asset('EMR.png'),
     emrFigma: asset('service-emr-figma.png'),
     esdFigma: asset('service-esd-figma.png'),
     biopsyFigma: asset('service-biopsy-figma.png'),
@@ -97,9 +99,8 @@ export const assets = {
     colonoscopyVideo: asset('COLONOSCOPY FINAL DRAFT (1).mp4'),
   },
   partners: {
-    image101: asset('image 101.png'),
-    image99: asset('image 99.png'),
-    image100: asset('image 100.png'),
-    image102: asset('image 102.png'),
+    nnpcHmo: asset('NNPC HMO.png'),
+    nemHealth: asset('NEM Logo.png'),
+    leadwayHealth: asset('image 100.png'),
   },
 } as const;

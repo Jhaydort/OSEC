@@ -2,16 +2,17 @@ import { assets } from '../../../data/assets';
 import './Partners.css';
 
 const logos = [
-  { src: assets.partners.image101, className: 'osec-partners__logo--101', alt: 'NEM Insurance' },
-  { src: assets.partners.image99, className: 'osec-partners__logo--99', alt: 'Insurance partner' },
-  { src: assets.partners.image100, className: 'osec-partners__logo--100', alt: 'Leadway Health' },
-  { src: assets.partners.image102, className: 'osec-partners__logo--102', alt: 'Bupa' },
+  { src: assets.partners.nnpcHmo, className: 'osec-partners__logo--nnpc', alt: 'NNPC Health Maintenance Organisation' },
+  { src: assets.partners.nemHealth, className: 'osec-partners__logo--nem', alt: 'NEM Health Limited' },
+  { src: assets.partners.leadwayHealth, className: 'osec-partners__logo--100', alt: 'Leadway Health' },
 ] as const;
+// Repeat the complete ordered list so each animation half fills the viewport.
+const trackLogos = [...logos, ...logos];
 
 function LogoGroup({ hidden = false }: { hidden?: boolean }) {
   return (
     <div aria-hidden={hidden || undefined} className="osec-partners__logo-group">
-      {logos.map((logo) => <img className={`osec-partners__logo ${logo.className}`} src={logo.src} alt={hidden ? '' : logo.alt} key={logo.src} />)}
+      {trackLogos.map((logo, index) => <img className={`osec-partners__logo ${logo.className}`} src={logo.src} alt={hidden || index >= logos.length ? '' : logo.alt} aria-hidden={hidden || index >= logos.length || undefined} key={`${logo.src}-${index}`} />)}
     </div>
   );
 }

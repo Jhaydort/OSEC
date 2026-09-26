@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react';
 import './ServiceCard.css';
 
 export interface ServiceCardProps {
-  image: string;
+  image?: string;
   imageAlt: string;
   imagePosition?: CSSProperties['objectPosition'];
   title: string;
@@ -32,7 +32,7 @@ export function ServiceCard({
   return (
     <article className={`osec-service-card osec-service-card--${variant} ${className}`.trim()}>
       <div className="osec-service-card__image-container">
-        <img className="osec-service-card__image" src={image} alt={imageAlt} loading="lazy" style={{ objectPosition: imagePosition }} />
+        {image ? <img className="osec-service-card__image" src={image} alt={imageAlt} loading="lazy" style={{ objectPosition: imagePosition }} /> : null}
       </div>
       <div className="osec-service-card__content">
         <div className="osec-service-card__copy">

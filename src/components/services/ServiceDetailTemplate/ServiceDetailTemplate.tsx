@@ -31,9 +31,9 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             </div>
           </header>
 
-          <div className="osec-service-detail__hero-image">
+          {service.service.image ? <div className="osec-service-detail__hero-image">
             <img src={service.service.image} alt={service.imageAlt} width={802} height={435} />
-          </div>
+          </div> : null}
 
           {service.overview ? <section className="osec-service-detail__text-section" aria-labelledby="service-overview-heading">
             <h2 id="service-overview-heading">Overview</h2>

@@ -3,7 +3,7 @@ import { assets } from './assets';
 export interface Service {
   id: string;
   slug: string;
-  image: string;
+  image?: string;
   imagePosition?: string;
   title: string;
   description: string;
@@ -36,7 +36,7 @@ export const services: readonly Service[] = [
   {
     id: 'gastroscopy',
     slug: 'gastroscopy-upper-gi-endoscopy',
-    image: assets.services.gastroscopyFigma,
+    image: assets.services.gastroscopySuite,
     title: 'Gastroscopy (Upper GI Endoscopy)',
     description: 'Examine the oesophagus, stomach, and upper digestive tract to diagnose the cause of persistent symptoms.',
     href: '/services/gastroscopy-upper-gi-endoscopy',
@@ -45,7 +45,7 @@ export const services: readonly Service[] = [
   {
     id: 'emr',
     slug: 'endoscopic-mucosal-resection-emr',
-    image: assets.services.emrFigma,
+    image: assets.services.emrSupplied,
     title: 'Endoscopic Mucosal Resection (EMR)',
     description: 'A minimally invasive procedure to remove abnormal or pre-cancerous tissue from the digestive tract.',
     featuredDescription: 'A minimally invasive procedure used to remove abnormal tissue or pre-cancerous growths from the digestive tract without major surgery.',
@@ -55,7 +55,7 @@ export const services: readonly Service[] = [
   {
     id: 'esd',
     slug: 'endoscopic-submucosal-dissection-esd',
-    image: assets.services.esdFigma,
+    image: assets.services.emrFigma,
     title: 'Endoscopic Submucosal Dissection (ESD)',
     description: 'Advanced endoscopic treatment for early-stage gastrointestinal lesions, preserving healthy tissue.',
     href: '/services/endoscopic-submucosal-dissection-esd',

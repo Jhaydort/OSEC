@@ -159,7 +159,7 @@ export const gastroscopyDetail: ServiceDetailData = {
       heading: 'After the Procedure',
       paragraphs: [
         'You will be monitored in recovery until you are sufficiently awake and stable.',
-        'You may experience temporary bloating, mild throat discomfort or drowsiness following sedation.',
+        'You may experience mild throat discomfort or drowsiness following sedation.',
         'Your specialist will explain the findings and any further treatment or follow-up required.',
       ],
     },
@@ -187,7 +187,7 @@ export const colonoscopyDetail: ServiceDetailData = {
       'Colorectal polyps',
       'Colorectal cancer',
       'Inflammatory bowel disease',
-      'Sources of gastrointestinal bleeding',
+      'Rectal Bleeding',
       'Changes in bowel habits',
       'Persistent diarrhoea or constipation',
       'Unexplained abdominal symptoms',
@@ -229,7 +229,6 @@ export const colonoscopyDetail: ServiceDetailData = {
       heading: 'After the Procedure',
       paragraphs: [
         'Afterwards, you will be monitored in recovery until you are sufficiently awake and stable.',
-        'Temporary bloating, gas or mild abdominal discomfort may occur.',
         'If sedation was used, you may be advised not to drive or perform certain activities for a period after the procedure.',
         'Your specialist will discuss the findings and any recommended follow-up.',
       ],
@@ -431,7 +430,7 @@ export const eftrDetail: ServiceDetailData = {
       heading: 'Who Is It For?',
       paragraphs: [
         'EFTR is intended for carefully selected patients whose lesion characteristics make full-thickness endoscopic removal appropriate.',
-        "Lesion size, location and characteristics are assessed before treatment. The doctor's draft specifically identifies carefully selected lesions around 2 cm or less as particularly suitable.",
+        "Lesion size, location and characteristics are assessed before treatment. Carefully selected lesions of appropriate size may be suitable.",
       ],
     },
     {
