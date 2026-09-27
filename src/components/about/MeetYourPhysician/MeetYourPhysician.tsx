@@ -35,7 +35,8 @@ export function MeetYourPhysician() {
               </div>
               <div className="osec-physician__biography">
                 <p>Dr. Taiwo is an internationally trained Specialist in Gastrointestinal Endoscopy with over 12 years of experience. An ESGE Fellow trained in Germany, with advanced training in Denmark and Belgium, he provides world-class Colonoscopy, Upper GI Endoscopy, Colon Cancer Screening, EMR, ESD, and Endobariatrics in Lagos and across Nigeria.</p>
-                <p><strong>Certified member</strong>: WEO | ESGE | ASGE<br />MBBS, PG Diploma in Gastroenterology [UK], MPH [University of Liverpool]</p>
+                <p><strong>Certified member</strong>:European Society of Gastrointestinal Endoscopy (ESGE),
+World Endoscopy Organization (WEO), Member American Society of Gastrointestinal Endoscopy (ASGEMBBS), PG Diploma in Gastroenterology [UK], MPH [University of Liverpool]</p>
               </div>
             </div>
 
