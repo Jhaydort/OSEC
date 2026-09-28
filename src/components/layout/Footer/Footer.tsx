@@ -84,10 +84,13 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
             <address className="osec-footer__contact" aria-labelledby="footer-contact">
               <h2 id="footer-contact" className="osec-footer__label">Contact</h2>
               <div className="osec-footer__contact-list">
-                <a className="osec-footer__contact-row osec-footer__contact-row--phone" href="tel:+2348164353633">
+                <div className="osec-footer__contact-row osec-footer__contact-row--phone">
                   <img src={assets.icons.phone} alt="" />
-                  <span>+234 816 435 3633</span>
-                </a>
+                  <div className="osec-footer__phones">
+                    <a href="tel:+2348164353633">+234 816 435 3633</a>
+                    <a href="tel:08072417458">08072417458</a>
+                  </div>
+                </div>
                 <div className="osec-footer__contact-row osec-footer__contact-row--emails">
                   <img src={assets.icons.mail} alt="" />
                   <span>

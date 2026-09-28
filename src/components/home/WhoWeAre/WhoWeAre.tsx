@@ -13,20 +13,67 @@ export function WhoWeAre() {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let sufficientlyVisible = false;
     let disposed = false;
-    let shouldPlay = false;
+    let requestId = 0;
+    let hasAttemptedAutoplay = false;
+    let manualSoundPreference = false;
+    let interactionAttempted = false;
+    let expectedMuted = video.muted;
+    let expectedVolume = video.volume;
 
-    const autoplay = async () => {
-      if (reducedMotion.matches || !sufficientlyVisible) return;
-      shouldPlay = true;
-      video.muted = true;
-      try {
-        await video.play();
-        // A pending play request can resolve after scrolling away or cleanup.
-        if (disposed || !shouldPlay || reducedMotion.matches) video.pause();
-      } catch {
-        // The existing manual play button remains available if autoplay is blocked.
+    const setMuted = (muted: boolean) => {
+      expectedMuted = muted;
+      video.muted = muted;
+    };
+    const interactionEvents = ['pointerup', 'click', 'keydown'] as const;
+    const removeInteractionListeners = () => {
+      interactionEvents.forEach(event => document.removeEventListener(event, onInteraction, true));
+    };
+    const onVolumeChange = () => {
+      // Distinguish native sound control changes from our own volumechange events.
+      if (video.muted !== expectedMuted || video.volume !== expectedVolume) {
+        manualSoundPreference = true;
+        expectedMuted = video.muted;
+        expectedVolume = video.volume;
+        removeInteractionListeners();
       }
     };
+    const canPlay = (id: number) =>
+      !disposed && id === requestId && sufficientlyVisible && !reducedMotion.matches;
+    const playWithFallback = async () => {
+      const id = ++requestId;
+      try {
+        await video.play();
+      } catch (error) {
+        if (!canPlay(id)) return;
+        // Retry policy rejections muted, but do not reinterpret source errors
+        // or interrupted playback as an autoplay permission failure.
+        if (!(error instanceof DOMException) || error.name !== 'NotAllowedError' || video.muted) return;
+        setMuted(true);
+        if (!manualSoundPreference && !interactionAttempted) {
+          interactionEvents.forEach(event => document.addEventListener(event, onInteraction, true));
+        }
+        try { await video.play(); } catch { /* Manual playback remains available. */ }
+      }
+      // A pending request must not restart playback after scrolling away.
+      if (disposed || !sufficientlyVisible || reducedMotion.matches) video.pause();
+    };
+    const onInteraction = (event: Event) => {
+      if (!event.isTrusted || manualSoundPreference || interactionAttempted ||
+          !sufficientlyVisible || video.paused || !video.muted || reducedMotion.matches) return;
+      // Native media controls must handle their own clicks and key presses.
+      if (event.composedPath().includes(video)) return;
+      interactionAttempted = true;
+      removeInteractionListeners();
+      setMuted(false);
+      void playWithFallback();
+    };
+    const autoplay = () => {
+      if (disposed || reducedMotion.matches || !sufficientlyVisible) return;
+      if (!hasAttemptedAutoplay && !manualSoundPreference) setMuted(false);
+      hasAttemptedAutoplay = true;
+      void playWithFallback();
+    };
+    video.addEventListener('volumechange', onVolumeChange);
     const preloadObserver = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       video.preload = 'metadata';
@@ -34,8 +81,8 @@ export function WhoWeAre() {
     }, { rootMargin: '200px' });
     const playbackObserver = new IntersectionObserver(([entry]) => {
       sufficientlyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.45;
-      if (!entry.isIntersecting) {
-        shouldPlay = false;
+      if (!sufficientlyVisible) {
+        ++requestId;
         video.pause();
       } else if (sufficientlyVisible) {
         void autoplay();
@@ -43,7 +90,7 @@ export function WhoWeAre() {
     }, { threshold: [0, 0.45] });
     const onMotionChange = () => {
       if (reducedMotion.matches) {
-        shouldPlay = false;
+        ++requestId;
         video.pause();
       } else {
         void autoplay();
@@ -54,7 +101,9 @@ export function WhoWeAre() {
     playbackObserver.observe(video);
     return () => {
       disposed = true;
-      shouldPlay = false;
+      ++requestId;
+      removeInteractionListeners();
+      video.removeEventListener('volumechange', onVolumeChange);
       preloadObserver.disconnect();
       playbackObserver.disconnect();
       reducedMotion.removeEventListener('change', onMotionChange);

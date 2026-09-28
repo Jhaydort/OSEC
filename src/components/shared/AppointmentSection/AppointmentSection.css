@@ -88,3 +88,12 @@
   .osec-appointment__column + .osec-appointment__column { border-left: 0; border-top: var(--border-white); }
   .osec-appointment__times { flex: 1; gap: 0 12px; }
 }
+
+.osec-appointment__phones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.osec-appointment__phones a { white-space: nowrap; }
