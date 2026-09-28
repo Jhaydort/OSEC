@@ -9,104 +9,67 @@ export function WhoWeAre() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !('IntersectionObserver' in window)) return;
+    if (!video) return;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let sufficientlyVisible = false;
     let disposed = false;
-    let requestId = 0;
-    let hasAttemptedAutoplay = false;
-    let manualSoundPreference = false;
-    let interactionAttempted = false;
-    let expectedMuted = video.muted;
-    let expectedVolume = video.volume;
+    let pending = false;
+    let visibilityVersion = 0;
 
-    const setMuted = (muted: boolean) => {
-      expectedMuted = muted;
-      video.muted = muted;
-    };
-    const interactionEvents = ['pointerup', 'click', 'keydown'] as const;
-    const removeInteractionListeners = () => {
-      interactionEvents.forEach(event => document.removeEventListener(event, onInteraction, true));
-    };
-    const onVolumeChange = () => {
-      // Distinguish native sound control changes from our own volumechange events.
-      if (video.muted !== expectedMuted || video.volume !== expectedVolume) {
-        manualSoundPreference = true;
-        expectedMuted = video.muted;
-        expectedVolume = video.volume;
-        removeInteractionListeners();
-      }
-    };
-    const canPlay = (id: number) =>
-      !disposed && id === requestId && sufficientlyVisible && !reducedMotion.matches;
-    const playWithFallback = async () => {
-      const id = ++requestId;
+    // Set the actual media properties before the first play request, including
+    // defaultMuted for WebKit. Sound remains under the native controls thereafter.
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+    const shouldAutoplay = () =>
+      !disposed && sufficientlyVisible && !reducedMotion.matches && !document.hidden;
+
+    const play = async () => {
+      if (!shouldAutoplay() || pending || !video.paused) return;
+      pending = true;
+      const version = visibilityVersion;
       try {
         await video.play();
       } catch (error) {
-        if (!canPlay(id)) return;
-        // Retry policy rejections muted, but do not reinterpret source errors
-        // or interrupted playback as an autoplay permission failure.
-        if (!(error instanceof DOMException) || error.name !== 'NotAllowedError' || video.muted) return;
-        setMuted(true);
-        if (!manualSoundPreference && !interactionAttempted) {
-          interactionEvents.forEach(event => document.addEventListener(event, onInteraction, true));
+        // A previously selected sound-on preference can be blocked on re-entry.
+        // Audio permission must not prevent otherwise permitted muted playback.
+        if (shouldAutoplay() && !video.muted &&
+            error instanceof Error && error.name === 'NotAllowedError') {
+          video.muted = true;
+          try { await video.play(); } catch { /* Keep the manual control available. */ }
         }
-        try { await video.play(); } catch { /* Manual playback remains available. */ }
-      }
-      // A pending request must not restart playback after scrolling away.
-      if (disposed || !sufficientlyVisible || reducedMotion.matches) video.pause();
-    };
-    const onInteraction = (event: Event) => {
-      if (!event.isTrusted || manualSoundPreference || interactionAttempted ||
-          !sufficientlyVisible || video.paused || !video.muted || reducedMotion.matches) return;
-      // Native media controls must handle their own clicks and key presses.
-      if (event.composedPath().includes(video)) return;
-      interactionAttempted = true;
-      removeInteractionListeners();
-      setMuted(false);
-      void playWithFallback();
-    };
-    const autoplay = () => {
-      if (disposed || reducedMotion.matches || !sufficientlyVisible) return;
-      if (!hasAttemptedAutoplay && !manualSoundPreference) setMuted(false);
-      hasAttemptedAutoplay = true;
-      void playWithFallback();
-    };
-    video.addEventListener('volumechange', onVolumeChange);
-    const preloadObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      video.preload = 'metadata';
-      preloadObserver.disconnect();
-    }, { rootMargin: '200px' });
-    const playbackObserver = new IntersectionObserver(([entry]) => {
-      sufficientlyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.45;
-      if (!sufficientlyVisible) {
-        ++requestId;
-        video.pause();
-      } else if (sufficientlyVisible) {
-        void autoplay();
-      }
-    }, { threshold: [0, 0.45] });
-    const onMotionChange = () => {
-      if (reducedMotion.matches) {
-        ++requestId;
-        video.pause();
-      } else {
-        void autoplay();
+      } finally {
+        pending = false;
+        if (!shouldAutoplay()) {
+          video.pause();
+        } else if (version !== visibilityVersion) {
+          // Finish an interrupted request before resuming after a rapid scroll.
+          void play();
+        }
       }
     };
-    reducedMotion.addEventListener('change', onMotionChange);
-    preloadObserver.observe(video);
-    playbackObserver.observe(video);
+    const syncPlayback = () => {
+      ++visibilityVersion;
+      // Scope native autoplay to the viewport instead of starting it off-screen.
+      video.autoplay = shouldAutoplay();
+      if (video.autoplay) void play();
+      else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      const visible = entry.isIntersecting && entry.intersectionRatio >= 0.45;
+      if (visible === sufficientlyVisible) return;
+      sufficientlyVisible = visible;
+      syncPlayback();
+    }, { threshold: [0, 0.45], rootMargin: '0px' });
+    reducedMotion.addEventListener('change', syncPlayback);
+    document.addEventListener('visibilitychange', syncPlayback);
+    observer.observe(video);
     return () => {
       disposed = true;
-      ++requestId;
-      removeInteractionListeners();
-      video.removeEventListener('volumechange', onVolumeChange);
-      preloadObserver.disconnect();
-      playbackObserver.disconnect();
-      reducedMotion.removeEventListener('change', onMotionChange);
+      observer.disconnect();
+      reducedMotion.removeEventListener('change', syncPlayback);
+      document.removeEventListener('visibilitychange', syncPlayback);
+      video.autoplay = false;
       video.pause();
     };
   }, []);
@@ -139,7 +102,9 @@ export function WhoWeAre() {
             onPlay={() => setIsPlaying(true)}
             muted
             playsInline
-            preload="none"
+            // The observer enables the native autoplay property only in view.
+            autoPlay={false}
+            preload="metadata"
             ref={videoRef}
           >
             <source src={assets.media.colonoscopyVideo} type="video/mp4" />
