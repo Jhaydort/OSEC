@@ -179,6 +179,20 @@
   max-width: none;
 }
 
+.osec-statistics__expertise-image-wrap .osec-statistics__image--medical-innovation {
+  object-position: center top;
+  top: -31.57%;
+  left: .13%;
+}
+
+.osec-statistics__expertise-image-wrap .osec-statistics__image--community-impact {
+  object-position: center top;
+  top: -126.71%;
+  left: -5.75%;
+  width: 105.84%;
+  height: 353.66%;
+}
+
 .osec-statistics__expertise-copy {
   display: flex;
   flex-shrink: 0;

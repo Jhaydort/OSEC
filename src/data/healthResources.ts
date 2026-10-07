@@ -55,8 +55,8 @@ export const publications: readonly Publication[] = [
   },
   {
     id: 'inflammatory-bowel-changes',
-    image: assets.publications.inflammatoryBowel,
-    imageAlt: 'Two clinicians in green scrubs at a conference.',
+    image: assets.editorial.physicianTaiwo,
+    imageAlt: 'Dr. Onabanjo Taiwo',
     imagePosition: 'center 15.6%',
     slug: 'inflammatory-bowel-changes-nigeria',
     title: 'Prevalence and Histopathological Patterns of Inflammatory Bowel Changes Among Patients Undergoing Colonoscopy in sub-saharan Africa \u2013 Nigeria',

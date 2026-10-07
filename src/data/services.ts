@@ -45,7 +45,7 @@ export const services: readonly Service[] = [
   {
     id: 'emr',
     slug: 'endoscopic-mucosal-resection-emr',
-    image: assets.services.emrSupplied,
+    image: assets.services.pegFigma,
     title: 'Endoscopic Mucosal Resection (EMR)',
     description: 'A minimally invasive procedure to remove abnormal or pre-cancerous tissue from the digestive tract.',
     featuredDescription: 'A minimally invasive procedure used to remove abnormal tissue or pre-cancerous growths from the digestive tract without major surgery.',
@@ -73,7 +73,7 @@ export const services: readonly Service[] = [
   {
     id: 'peg-feeding-tube',
     slug: 'peg-feeding-tube-placement',
-    image: assets.services.pegFigma,
+    image: assets.services.pegSupplied,
     title: 'PEG Feeding Tube Placement',
     description: 'A minimally invasive procedure that provides long-term nutritional support for patients unable to eat normally.',
     href: '/services/peg-feeding-tube-placement',
@@ -113,15 +113,6 @@ export const services: readonly Service[] = [
     title: 'Paediatric Colonoscopy',
     description: 'A minimally invasive procedure to examine the colon and rectum, investigate symptoms and identify abnormalities.',
     href: '/services/paediatric-colonoscopy',
-    featured: false,
-  },
-  {
-    id: 'eftr',
-    slug: 'endoscopic-full-thickness-resection-eftr',
-    image: assets.services.eftrSupplied,
-    title: 'Endoscopic Full-Thickness Resection (EFTR)',
-    description: 'Minimally invasive removal of selected gastrointestinal lesions, polyps, tumours and early cancers.',
-    href: '/services/endoscopic-full-thickness-resection-eftr',
     featured: false,
   },
   {

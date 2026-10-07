@@ -9,12 +9,13 @@ import './PatientStories.css';
 export function PatientStories() {
   const [items, setItems] = useState<PatientStory[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadFailed, setLoadFailed] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     import('../../../lib/fetchPatientStories')
       .then(({ fetchPatientStories }) => fetchPatientStories(controller.signal))
       .then((stories) => { if (!controller.signal.aborted) setItems(stories); })
-      .catch(() => { /* Keep the surrounding page intact; never expose database errors. */ })
+      .catch(() => { if (!controller.signal.aborted) setLoadFailed(true); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, []);
@@ -106,7 +107,7 @@ export function PatientStories() {
             <figcaption>{story.full_name} &mdash; {services.find((service) => service.id === story.service)?.title ?? story.service}</figcaption>
           </div>
         </figure>)}</div> : <div className="osec-patient-stories__card osec-patient-stories__placeholder" role="status">
-          {loading ? 'Loading patient stories...' : 'Patient stories will appear here when available.'}
+          {loading ? 'Loading patient stories...' : loadFailed ? 'Patient stories are temporarily unavailable. Please try again later.' : 'Patient stories will appear here when available.'}
         </div>}
 
         <div className="osec-patient-stories__pagination" aria-label="Patient story navigation">

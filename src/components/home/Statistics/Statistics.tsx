@@ -7,7 +7,6 @@ const PROCEDURES_TOTAL = 1_800;
 const COUNTER_DURATION = 5_000;
 
 // Figma Statistics component set 224:1962, variants 1, 2, and 3.
-// Variants 2 and 3 intentionally have solid fills instead of image fills.
 const STATISTICS_CARDS = [
   {
     heading: 'International Expertise',
@@ -17,12 +16,14 @@ const STATISTICS_CARDS = [
   {
     heading: 'Medical Innovation',
     description: 'Pioneering advanced therapeutic procedures that improve patient outcomes.',
-    image: null,
+    image: assets.editorial.statsMedicalInnovation,
+    imageClassName: 'osec-statistics__image--medical-innovation',
   },
   {
     heading: 'Community Impact',
     description: 'Bringing specialist digestive healthcare closer to communities across Nigeria.',
-    image: null,
+    image: assets.editorial.statsCommunityImpact,
+    imageClassName: 'osec-statistics__image--community-impact',
   },
 ] as const;
 
@@ -39,7 +40,7 @@ function StatisticsCarousel() {
             aria-roledescription="slide"
           >
             <div className="osec-statistics__expertise-image-wrap">
-              {card.image && <img src={card.image} alt="" />}
+              {card.image && <img src={card.image} alt="" className={'imageClassName' in card ? card.imageClassName : undefined} />}
             </div>
             <div className="osec-statistics__expertise-copy">
               <h3>{card.heading}</h3>

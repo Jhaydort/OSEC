@@ -53,6 +53,8 @@ export const assets = {
     whyOsecCompassionateCare: asset('why-osec-compassionate-care.png'),
     whyOsecEarlyDetection: asset('why-osec-early-detection.png'),
     statsInternationalExpertise: asset('stats-international-expertise.png'),
+    statsMedicalInnovation: asset('stats-medical-innovation.png'),
+    statsCommunityImpact: asset('stats-community-impact.png'),
   },
   publications: {
     gist: asset('gist-colonoscopy-case-study.webp'),
@@ -85,6 +87,7 @@ export const assets = {
     esdFigma: asset('service-esd-figma.png'),
     biopsyFigma: asset('service-biopsy-figma.png'),
     pegFigma: asset('service-peg-figma.png'),
+    pegSupplied: asset('PEG.jpeg'),
     paediatricEndoscopyFigma: asset('service-paediatric-endoscopy-figma.png'),
     weightManagementFigma: asset('service-weight-management-figma.png'),
     eftrSupplied: asset('EFTR.jpeg'),
