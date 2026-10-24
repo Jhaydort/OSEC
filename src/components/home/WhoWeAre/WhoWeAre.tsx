@@ -87,7 +87,7 @@ export function WhoWeAre() {
             <span>Who are we</span>
           </div>
           <h2 id="who-we-are-heading">
-            We combine specialist expertise with compassionate care to help you feel informed,
+            We combine specialist expertise with compassionate care to keep you informed,
             comfortable, and confident every step of your health care journey
           </h2>
           <a className="osec-who-we-are__link" href="/about">Learn More About OSEC</a>

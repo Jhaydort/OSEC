@@ -61,7 +61,7 @@ export function Navigation({ activeHref, standalone = false, items = defaultItem
     <header className={`osec-navigation${standalone ? ' osec-navigation--standalone' : ''}`}>
       <div className="osec-navigation__announcement">
         <p>
-          For enquiries and booking, kindly call&nbsp;+234 816 435 3633&nbsp; or send an email to&nbsp;
+          For enquiries and booking, kindly call&nbsp;+234 816 435 3633&nbsp; on WhatsApp or send an email to&nbsp;
           <a href="mailto:info@osecng.com">info@osecng.com</a>
         </p>
       </div>

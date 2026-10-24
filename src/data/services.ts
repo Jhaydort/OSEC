@@ -10,6 +10,8 @@ export interface Service {
   featuredDescription?: string;
   href: string;
   featured: boolean;
+  /** Exclude from the full Services listing while preserving the service record and route. */
+  visibleInListing?: boolean;
 }
 
 /** Service content and ordering from the Figma Our Services page (249:6390). */
@@ -73,7 +75,7 @@ export const services: readonly Service[] = [
   {
     id: 'peg-feeding-tube',
     slug: 'peg-feeding-tube-placement',
-    image: assets.services.pegSupplied,
+    image: assets.services.pegFeedingTube,
     title: 'PEG Feeding Tube Placement',
     description: 'A minimally invasive procedure that provides long-term nutritional support for patients unable to eat normally.',
     href: '/services/peg-feeding-tube-placement',
@@ -96,6 +98,7 @@ export const services: readonly Service[] = [
     description: 'Personalised medical weight-management support throughout your weight-loss journey.',
     href: '/services/endobariatric-medical-weight-management',
     featured: false,
+    visibleInListing: false,
   },
   {
     id: 'eftr-advanced',
@@ -124,9 +127,19 @@ export const services: readonly Service[] = [
     href: '/services/glp-1-assessment-obesity-clinic',
     featured: false,
   },
+  {
+    id: 'behavioral-counseling',
+    slug: 'behavioral-counseling',
+    image: assets.services.behavioralCounselingHero,
+    title: 'Behavioral/ Counseling',
+    description: 'Personalized counseling to support emotional well-being, resilience, and recovery.',
+    href: '/services/behavioral-counseling',
+    featured: false,
+  },
 ] as const;
 
 export const featuredServices = services.filter((service) => service.featured);
+export const listedServices = services.filter((service) => service.visibleInListing !== false);
 
 /** Stable per-service rotation avoids render instability while varying suggestions. */
 export function getServiceRecommendations(currentServiceId: string, count = 4): readonly Service[] {

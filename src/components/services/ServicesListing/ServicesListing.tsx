@@ -1,4 +1,4 @@
-import { services } from '../../../data/services';
+import { listedServices } from '../../../data/services';
 import { ServiceCard } from '../../ui/ServiceCard/ServiceCard';
 import './ServicesListing.css';
 
@@ -7,7 +7,7 @@ export function ServicesListing() {
   return (
     <section className="osec-services-listing" aria-label="Our services">
       <div className="osec-services-listing__grid">
-        {services.map((service) => (
+        {listedServices.map((service) => (
           <ServiceCard
             className="osec-services-listing__card"
             image={service.image}

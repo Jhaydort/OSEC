@@ -19,11 +19,11 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
     <>
       <PageMotion page="detail" />
       <main className="osec-service-detail">
-        <div className="osec-service-detail__article">
+        <div className={`osec-service-detail__article${service.service.id === 'behavioral-counseling' ? ' osec-service-detail__article--behavioral' : ''}`}>
           <header className="osec-service-detail__hero">
             <a className="osec-service-detail__back" href="/services">
               <img src={assets.icons.arrowLeft} alt="" width={24} height={24} />
-              <span>Back to Service</span>
+              <span>{service.backLabel ?? 'Back to Service'}</span>
             </a>
             <div className="osec-service-detail__hero-copy">
               <h1>{service.title}</h1>
@@ -31,8 +31,8 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             </div>
           </header>
 
-          {service.service.image ? <div className="osec-service-detail__hero-image">
-            <img src={service.service.image} alt={service.imageAlt} width={802} height={435} />
+          {service.service.image ? <div className={`osec-service-detail__hero-image${service.service.id === 'behavioral-counseling' ? ' osec-service-detail__hero-image--behavioral' : ''}`}>
+            <img src={service.service.image} alt={service.imageAlt} width={802} height={435} style={service.imagePosition ? { objectPosition: service.imagePosition } : undefined} />
           </div> : null}
 
           {service.overview ? <section className="osec-service-detail__text-section" aria-labelledby="service-overview-heading">
@@ -71,10 +71,32 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             ))}
           </div> : null}
 
-          <section className="osec-service-detail__why" aria-labelledby="why-osec-heading">
+          {service.counselor ? <section className="osec-service-detail__counselor" aria-labelledby="service-counselor-heading">
+            <div className="osec-service-detail__counselor-intro">
+              <div className="osec-service-detail__counselor-label">
+                <img src={assets.icons.loom} alt="" width={24} height={24} />
+                <span>{service.counselor.label}</span>
+              </div>
+              <h2 id="service-counselor-heading">{service.counselor.heading}</h2>
+            </div>
+            <div className="osec-service-detail__counselor-profile">
+              <img className="osec-service-detail__counselor-image" src={service.counselor.image} alt={service.counselor.imageAlt} width={310} height={370} />
+              <div className="osec-service-detail__counselor-copy">
+                <div className="osec-service-detail__counselor-identity">
+                  <h3>{service.counselor.name}</h3>
+                  <p>{service.counselor.role}</p>
+                </div>
+                <div className="osec-service-detail__counselor-biography">
+                  {service.counselor.biography.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                </div>
+              </div>
+            </div>
+          </section> : null}
+
+          <section className={`osec-service-detail__why${service.counselor ? ' osec-service-detail__why--after-counselor' : ''}`} aria-labelledby="why-osec-heading" style={service.whyChooseImage ? { backgroundImage: `url("${service.whyChooseImage}")` } : undefined}>
             <div className="osec-service-detail__why-copy">
               <h2 id="why-osec-heading">Why Choose OSEC?</h2>
-              <p>At OSEC, we combine specialist expertise with personalised care, giving every patient the attention and confidence they deserve.</p>
+              <p>{service.whyChoose ?? 'At OSEC, we combine specialist expertise with personalised care, giving every patient the attention and confidence they deserve.'}</p>
             </div>
             <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />
           </section>

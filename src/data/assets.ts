@@ -90,6 +90,8 @@ export const assets = {
     pegSupplied: asset('PEG.jpeg'),
     paediatricEndoscopyFigma: asset('service-paediatric-endoscopy-figma.png'),
     weightManagementFigma: asset('service-weight-management-figma.png'),
+    behavioralCounselingHero: asset('behavioral-counseling-session.png'),
+    behavioralCounselorPortrait: asset('behavioral-counselor.png'),
     eftrSupplied: asset('EFTR.jpeg'),
     eftrAdvancedFigma: asset('service-eftr-advanced-figma.png'),
     paediatricColonoscopyFigma: asset('service-paediatric-colonoscopy-figma.png'),

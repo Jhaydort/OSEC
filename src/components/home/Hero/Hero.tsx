@@ -58,7 +58,7 @@ export function Hero() {
           <LineRevealHeading id="hero-heading">A center of excellence for gastrointestinal services and procedures</LineRevealHeading>
           <p>
             Catching What Matters, Before It Becomes Serious.<br />
-            OSEC helps prevent and treat colorectal cancer through early detection, advanced endoscopy,
+            OSEC helps prevent and treat gastrointestinal pathologies and cancers through early detection, advanced endoscopy,
             and compassionate care.
           </p>
           <div className="osec-hero__actions">

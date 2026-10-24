@@ -1,5 +1,6 @@
 import { OSEC_LINKS } from './links';
 import { services, type Service } from './services';
+import { assets } from './assets';
 
 export interface ServiceDetailSection {
   heading: string;
@@ -13,6 +14,8 @@ export interface ServiceDetailData {
   title: string;
   subtitle: string;
   imageAlt: string;
+  imagePosition?: string;
+  backLabel?: string;
   overview?: readonly string[];
   assessment?: {
     heading: string;
@@ -22,6 +25,16 @@ export interface ServiceDetailData {
   };
   sections?: readonly ServiceDetailSection[];
   whyChoose?: string;
+  whyChooseImage?: string;
+  counselor?: {
+    label: string;
+    heading: string;
+    image: string;
+    imageAlt: string;
+    name: string;
+    role: string;
+    biography: readonly string[];
+  };
   cta?: {
     label: string;
     href: string;
@@ -56,6 +69,8 @@ if (!weightManagementService) throw new Error('The Endobariatric Medical Weight 
 
 const paediatricEndoscopyService = services.find((service) => service.id === 'paediatric-endoscopy');
 if (!paediatricEndoscopyService) throw new Error('The Paediatric Endoscopy service is missing.');
+const behavioralCounselingService = services.find((service) => service.id === 'behavioral-counseling');
+if (!behavioralCounselingService) throw new Error('The Behavioral/Counseling service is missing.');
 
 /** Approved copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
 export const gastrointestinalConsultationDetail: ServiceDetailData = {
@@ -785,4 +800,44 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
   [glp1AssessmentDetail.service.slug]: glp1AssessmentDetail,
   [weightManagementDetail.service.slug]: weightManagementDetail,
   [paediatricEndoscopyDetail.service.slug]: paediatricEndoscopyDetail,
+  [behavioralCounselingService.slug]: {
+    service: behavioralCounselingService,
+    title: 'Behavioral / Counseling',
+    subtitle: 'Compassionate mental health support, personalized counseling, and expert guidance to help you navigate emotional challenges, build resilience, and take positive steps toward recovery.',
+    imageAlt: 'A woman counselor in a blue blazer and red top speaking with a seated client.',
+    imagePosition: 'center 40%',
+    backLabel: 'Back to Services',
+    overview: ['Our Behavioral and Counselling services provide professional support for individuals experiencing emotional, psychological, or behavioral challenges. Through personalized assessments and compassionate guidance, we help patients understand their concerns, explore practical coping strategies, and develop a care plan that supports their mental and emotional well-being.'],
+    sections: [
+      {
+        heading: 'Psychosocial Assessment & Screening',
+        paragraphs: ['We conduct comprehensive, evidence-based psychosocial assessments using internationally validated screening tools to accurately identify mental health and substance use needs, ensuring precise and person-centered care planning.'],
+      },
+      {
+        heading: 'Counseling & Psychological Support',
+        paragraphs: ['We provide trauma-informed, individualized counseling for adults and adolescents, complemented by structured family psychoeducation to strengthen support systems and promote sustained recovery.'],
+      },
+      {
+        heading: 'Addiction Recovery Support',
+        paragraphs: ['Our approach integrates evidence-based relapse prevention strategies with holistic lifestyle interventions designed to foster resilience, restore functionality, and support long-term wellness and reintegration.'],
+      },
+      {
+        heading: 'Case Management & Coordinated Referrals',
+        paragraphs: ['We deliver proactive case management, continuous follow-up, and secure, ethical referral pathways in collaboration with accredited partner facilities to ensure seamless access to higher-level care when required.'],
+      },
+    ],
+    counselor: {
+      label: 'Meet Your Counselor',
+      heading: 'Expert Care, Led by Experience',
+      image: assets.services.behavioralCounselorPortrait,
+      imageAlt: 'Feiyisayo Olubukola Iwayemi, Social Services Manager and Mental Health Counselor.',
+      name: 'Feiyisayo Olubukola Iwayemi',
+      role: 'Social Services Manager & Mental Health Counselor',
+      biography: [
+        'Feiyisayo Olubukola Iwayemi holds a Master of Science in Child and Adolescent Mental Well-being from Anglia Ruskin University (UK) and a Diploma in Addiction Science and Behavioral Psychology. As Social Services Manager and a practitioner trained in Universal Treatment Curriculum (UTC) standards,',
+        'Mrs. Iwayemi directs outpatient counseling, clinical case management, and integrative recovery support services. Her practice focuses on evidence-based addiction interventions, adolescent psychological support, and individualized care planning. Mrs. Iwayemi is dedicated to empowering patients and families through high-quality care, compassionate counseling, and sustainable pathways to long-term wellness.',
+      ],
+    },
+    whyChooseImage: assets.editorial.image1171283239,
+  },
 };
