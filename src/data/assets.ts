@@ -33,6 +33,7 @@ export const assets = {
     logoTagline: asset('icons/footer-logo-tagline.svg'),
   },
   editorial: {
+    DSC04133: asset('DSC04133.jpg'),
     faqConsultation: asset('faq-consultation.png'),
     avatar: asset('Avater.png'),
     physicianTaiwo: asset('Dr taiwo image.png'),

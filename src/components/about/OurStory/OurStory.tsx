@@ -9,7 +9,7 @@ export function OurStory() {
       <div className="osec-our-story__layout">
         <img
           className="osec-our-story__image"
-          src={assets.editorial.image1171283247Portrait}
+          src={assets.editorial.DSC04133}
           alt="Three members of the OSEC clinical team in blue scrubs"
           width={530}
           height={513}
