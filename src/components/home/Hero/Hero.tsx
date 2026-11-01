@@ -5,7 +5,7 @@ import { assets } from '../../../data/assets';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
 import './Hero.css';
 
-const heroSlides = [assets.hero.left, assets.hero.center, assets.hero.right] as const;
+const heroSlides = [assets.hero.left, assets.hero.center, assets.hero.right, assets.services.gastroscopySuite] as const;
 
 interface HeroShapeCarouselProps {
   className: string;
@@ -23,7 +23,7 @@ function HeroShapeCarousel({ className, slides, index, animate, onTransitionEnd 
       <div
         className={`osec-hero__track${animate ? ' osec-hero__track--animated' : ''}`}
         onTransitionEnd={onTransitionEnd}
-        style={{ transform: `translateX(-${index * 25}%)` }}
+        style={{ transform: `translateX(-${index * 20}%)` }}
       >
         {trackSlides.map((src, slideIndex) => (
           <img className="osec-hero__image" src={src} alt="" key={`${src}-${slideIndex}`} />
@@ -68,8 +68,8 @@ export function Hero() {
 
         <div className="osec-hero__media" aria-label="OSEC clinical care gallery">
           <HeroShapeCarousel className="osec-hero__shape--left" slides={heroSlides} index={index} animate={animate} onTransitionEnd={resetLoop} />
-          <HeroShapeCarousel className="osec-hero__shape--center" slides={[heroSlides[1], heroSlides[2], heroSlides[0]]} index={index} animate={animate} />
-          <HeroShapeCarousel className="osec-hero__shape--right" slides={[heroSlides[2], heroSlides[0], heroSlides[1]]} index={index} animate={animate} />
+          <HeroShapeCarousel className="osec-hero__shape--center" slides={[heroSlides[1], heroSlides[2], heroSlides[3], heroSlides[0]]} index={index} animate={animate} />
+          <HeroShapeCarousel className="osec-hero__shape--right" slides={[heroSlides[2], heroSlides[3], heroSlides[0], heroSlides[1]]} index={index} animate={animate} />
         </div>
       </div>
     </section>

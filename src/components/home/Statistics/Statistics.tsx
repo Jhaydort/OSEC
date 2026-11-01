@@ -6,7 +6,7 @@ import './Statistics.css';
 const PROCEDURES_TOTAL = 1_800;
 const COUNTER_DURATION = 5_000;
 
-// Figma Statistics component set 224:1962, variants 1, 2, and 3.
+// Figma Statistics component set 224:1962, including the added training card.
 const STATISTICS_CARDS = [
   {
     heading: 'International Expertise',
@@ -24,6 +24,12 @@ const STATISTICS_CARDS = [
     description: 'Bringing specialist digestive healthcare closer to communities across Nigeria.',
     image: assets.editorial.statsCommunityImpact,
     imageClassName: 'osec-statistics__image--community-impact',
+  },
+  {
+    heading: 'Advanced Endoscopy Training',
+    description: 'Bringing advanced specialist digestive care closer to communities across Nigeria.',
+    image: assets.editorial.statsAdvancedEndoscopyTraining,
+    imageClassName: 'osec-statistics__image--advanced-training',
   },
 ] as const;
 

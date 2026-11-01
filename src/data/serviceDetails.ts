@@ -815,7 +815,7 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
       },
       {
         heading: 'Counseling & Psychological Support',
-        paragraphs: ['We provide trauma-informed, individualized counseling for adults and adolescents, complemented by structured family psychoeducation to strengthen support systems and promote sustained recovery.'],
+        paragraphs: ['We provide individualized counseling for adults and adolescents, complemented by structured family psychoeducation to strengthen support systems and promote sustained recovery. We also provide specialized psychotherapy and behavioral counselling needs for clients experiencing conditions like bulimia, anorexia and other eating disorders to help them understand their triggers and develop practical coping strategies.'],
       },
       {
         heading: 'Addiction Recovery Support',
@@ -830,12 +830,12 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
       label: 'Meet Your Counselor',
       heading: 'Expert Care, Led by Experience',
       image: assets.services.behavioralCounselorPortrait,
-      imageAlt: 'Feiyisayo Olubukola Iwayemi, Social Services Manager and Mental Health Counselor.',
-      name: 'Feiyisayo Olubukola Iwayemi',
+      imageAlt: 'Feyisayo Olubukola Iwayemi, Social Services Manager and Mental Health Counselor.',
+      name: 'Feyisayo Olubukola Iwayemi',
       role: 'Social Services Manager & Mental Health Counselor',
       biography: [
-        'Feiyisayo Olubukola Iwayemi holds a Master of Science in Child and Adolescent Mental Well-being from Anglia Ruskin University (UK) and a Diploma in Addiction Science and Behavioral Psychology. As Social Services Manager and a practitioner trained in Universal Treatment Curriculum (UTC) standards,',
-        'Mrs. Iwayemi directs outpatient counseling, clinical case management, and integrative recovery support services. Her practice focuses on evidence-based addiction interventions, adolescent psychological support, and individualized care planning. Mrs. Iwayemi is dedicated to empowering patients and families through high-quality care, compassionate counseling, and sustainable pathways to long-term wellness.',
+        'Feyisayo Olubukola Iwayemi holds a Master of Science in Child and Adolescent Mental Well-being from Anglia Ruskin University (UK) and a Diploma in Addiction Science and Behavioral Psychology. A practitioner trained in Universal Treatment Curriculum (UTC) standards,',
+        'Mrs. Iwayemi directs outpatient counseling, clinical case management, and integrative recovery support services. Her practice focuses on evidence-based addiction interventions, adolescent psychological support, and individualized care planning. Mrs Iwayemi is dedicated to empowering patients and families through high-quality care, compassionate counseling, and sustainable pathways to long-term wellness.',
       ],
     },
     whyChooseImage: assets.editorial.image1171283239,

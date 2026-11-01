@@ -134,16 +134,17 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  animation: statistics-slide 12.6s cubic-bezier(.4, 0, .2, 1) infinite;
+  animation: statistics-slide 16.8s cubic-bezier(.4, 0, .2, 1) infinite;
 }
 
-/* Each third of the loop holds for 3.5s and slides for .7s.
+/* Each quarter of the loop holds for 3.5s and slides for .7s.
    The last slide duplicates the first, making the animation reset invisible. */
 @keyframes statistics-slide {
-  0%, 27.777778% { transform: translateY(0); }
-  33.333333%, 61.111111% { transform: translateY(-100%); }
-  66.666667%, 94.444444% { transform: translateY(-200%); }
-  100% { transform: translateY(-300%); }
+  0%, 20.833333% { transform: translateY(0); }
+  25%, 45.833333% { transform: translateY(-100%); }
+  50%, 70.833333% { transform: translateY(-200%); }
+  75%, 95.833333% { transform: translateY(-300%); }
+  100% { transform: translateY(-400%); }
 }
 
 .osec-statistics__expertise-card {
@@ -191,6 +192,15 @@
   left: -5.75%;
   width: 105.84%;
   height: 353.66%;
+}
+
+.osec-statistics__expertise-image-wrap .osec-statistics__image--advanced-training {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .osec-statistics__expertise-copy {

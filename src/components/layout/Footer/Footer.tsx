@@ -57,7 +57,7 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
             </section>
 
             <section className="osec-footer__centre" aria-label="OSEC appointment">
-              <p className="osec-footer__statement">&quot;Your health our priority. Excellent in care every step of the way.&quot;</p>
+              <p className="osec-footer__statement">&quot;Your health our priority. Excellence in care every step of the way&quot;</p>
               <div className="osec-footer__actions">
                 <div className="osec-footer__appointment-row">
                   <Button variant="secondary" onClick={onAppointmentClick}>Book Appointment</Button>
