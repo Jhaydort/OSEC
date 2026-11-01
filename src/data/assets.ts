@@ -80,7 +80,7 @@ export const assets = {
     rightMask: asset('right.png'),
   },
   services: {
-    consultationFigma: asset('service-consultation-figma.png'),
+    consultationFigma: asset('Doctor-Patient Consultation at Desk.png'),
     colonoscopyFigma: asset('service-colonoscopy-figma.png'),
     gastroscopySuite: asset('gastroscopy-upper-gi-endoscopy.webp'),
     gastroscopyFigma: asset('service-gastroscopy-figma.png'),

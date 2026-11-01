@@ -83,7 +83,7 @@ export function AboutHero() {
             </div>
           </div>
         </div>
-        <img className="osec-about-hero__image" src={assets.editorial.image1171283247} alt="OSEC specialist discussing care with a patient" width={1079} height={435} />
+        <img className="osec-about-hero__image" src={assets.editorial.DSC04133} alt="OSEC clinical team in blue scrubs" width={1079} height={435} />
       </div>
     </section>
   );
