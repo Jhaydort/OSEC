@@ -46,7 +46,7 @@
   .osec-about-hero__statistics { flex: auto; flex-direction: row; flex-wrap: wrap; gap: 24px 40px; }
   .osec-about-hero__copy { gap: 20px; }
   .osec-about-hero__stat { width: 313px; max-width: 100%; }
-  .osec-about-hero__image { height: auto; aspect-ratio: 1079 / 435; }
+  .osec-about-hero__image { height: auto; aspect-ratio: 2 / 1; object-position: center 15%; border-radius: 16px; }
 }
 @media (max-width: 420px) {
   .osec-about-hero h1 { font-size: 32px; line-height: 36px; }
@@ -67,7 +67,3 @@
 }
 .osec-about-hero .osec-alternative-button__arrow span { mask-size: 12.5px 12.5px; -webkit-mask-size: 12.5px 12.5px; }
 
-/* Remove only the consultation photo and its flex gap on small mobile screens. */
-@media (max-width: 480px) {
-  .osec-about-hero__image { display: none; }
-}
