@@ -45,7 +45,7 @@ export function ContactPage() {
         <div className="osec-contact">
           <header className="osec-contact__hero">
             <h1>Contact OSEC</h1>
-            <p>Need help or ready to book an appointment? We're here to help: <a href="tel:+2348164353633">+234 816 435 3633</a>. Or complete the form below.</p>
+            <p>For enquiries or appointments, call <a href="tel:+2348164353633">+234 816 435 3633</a> or complete the form below.</p>
           </header>
           <section className="osec-contact__form-section" aria-labelledby="contact-form-heading">
             <h2 id="contact-form-heading">Tell Us How We Can Help</h2>

@@ -61,7 +61,7 @@ export function Services() {
             <h2 id="services-heading">Specialist Care Built Around Your Needs</h2>
             <p>At OSEC, we combine preventive screening, expert diagnosis, and advanced therapeutic care to help you make informed decisions about your health, with compassion, precision, and confidence.</p>
           </div>
-          <AlternativeButton href="/services" label="See all Services" />
+          <AlternativeButton href="/services" label="View All Services" />
         </div>
         <div className="osec-services__cards">
           {featuredServices.map((service, index) => (

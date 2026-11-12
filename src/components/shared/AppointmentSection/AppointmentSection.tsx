@@ -15,8 +15,8 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
         <div className="osec-appointment__column">
           <h2>Consultation</h2>
           <p>
-            Take the next step with expert care. Book a consultation with our specialists today..{' '}
-            <a className="osec-appointment__consultation-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Click Here</a>
+            Take the next step with expert care. Book a consultation with our specialists today.{' '}
+            <a className="osec-appointment__consultation-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Book a Consultation</a>
           </p>
         </div>
 
@@ -34,7 +34,6 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
               <img src={assets.icons.mail} alt="" />
               <div className="osec-appointment__emails">
                 <a href="mailto:info@osecng.com">info@osecng.com</a>
-                <a href="mailto:osecmedicals@gmail.com">osecmedicals@gmail.com</a>
               </div>
             </div>
             <div className="osec-appointment__contact-row">
@@ -50,11 +49,11 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
             <div className="osec-appointment__schedule">
               <img src={assets.icons.clinicHours} alt="" />
               <div className="osec-appointment__times">
-                <span>Mon- Fri</span>
+                <span>Monday – Friday</span>
                 <span>9:00 AM – 3:00 PM</span>
               </div>
             </div>
-            <p>By appointment only. <a className="osec-appointment__booking-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Click here to book</a></p>
+            <p>Consultations by appointment only. <a className="osec-appointment__booking-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Book now</a></p>
           </div>
         </div>
       </div>

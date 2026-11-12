@@ -33,7 +33,7 @@ Local implementation only. No deployment, DNS change, Search Console configurati
 - `/terms-of-service` redirects permanently to `/terms-and-conditions` on Vercel.
 - Existing `/news-health-articles` links previously returned the homepage. There is no article page/content implementation. The route now honestly reports that full articles are not yet available, with `noindex, follow`. It is excluded from the sitemap. No article copy or Article schema was fabricated.
 - Unknown routes display an unavailable-page shell with noindex metadata, instead of an indexable duplicate homepage. The preserved SPA fallback returns a shell; a true HTTP 404 for every unknown route remains a hosting-level enhancement.
-- All 12 distinct service detail URLs are retained. Two existing EFTR cards share one URL; their content/cards remain unchanged and SEO/sitemap entries are deduplicated.
+- All 13 distinct service detail URLs are retained, including Behavioural Health & Counselling. Two existing EFTR cards share one URL; their content/cards remain unchanged and SEO/sitemap entries are deduplicated.
 
 ## Consent and analytics
 
@@ -50,12 +50,12 @@ Local implementation only. No deployment, DNS change, Search Console configurati
 ## SEO, sharing and deployment files
 
 - Unique title, description, robots, Open Graph and Twitter metadata cover Home, About, Services, Contact, all distinct service URLs and legal pages. Patient Story is accessible but noindex and absent from the sitemap.
-- `VITE_SITE_URL` is the central production HTTPS origin. Invalid configured values fail the build, including `.vercel.app` preview domains. Empty configuration works locally and omits domain-dependent metadata and sitemap output with an explicit build warning. **Set it and rebuild before launch.**
+- `VITE_SITE_URL` is the central production HTTPS origin, set to `https://www.osecng.com` for production. The naked domain redirects permanently to `www`. Invalid configured values fail the build, including `.vercel.app` preview domains. If unset, the build and client metadata use the same `www` production fallback.
 - Build output contains a route-specific `index.html` for every known route so social crawlers receive metadata without running React. Page body content remains client-rendered, as in the original app; this is not full SSR/prerendering. Search engines still need JavaScript to render body content.
 - MedicalOrganization and WebSite JSON-LD contain only existing name, public contact/address text and logo. JSON parsing/shape were checked. No review/rating, doctor credential, award, pricing or fabricated article schema. No breadcrumb schema because there is no full visible breadcrumb trail. Rich Results/schema testing of the actual public domain remains manual after deployment approval.
 - Uses the existing `/LOGO/Logo.png` branding asset for social images and a summary Twitter card. No generated/replacement brand asset. A separately approved landscape sharing image could improve large previews later.
-- `dist/robots.txt` allows public content and disallows `/api/`. It references the sitemap when a production origin is configured. Robots rules are not access controls.
-- `dist/sitemap.xml` is generated only with a valid origin: 19 unique indexable URLs (Home, About, Services, Contact, 12 services, 3 legal pages). It excludes APIs, story submission, unavailable news and unknown routes. No invented last-modified dates.
+- `dist/robots.txt` allows public content and disallows `/api/` and `/admin/`. It references the sitemap. Robots rules are not access controls.
+- `dist/sitemap.xml` is generated with the canonical production origin: 21 unique indexable URLs (Home, About, Services, Contact, News & Health Articles, 13 services and 3 legal pages). It excludes APIs, story submission and unknown routes. No invented last-modified dates.
 - Vercel still passes `/api/:path*` through to the backend and uses a React shell for other navigation. Explicit public page rewrites preserve route-specific heads. Configuration and target files were checked locally; no live Vercel deployment was made.
 - The Word source document inside `assets/` is excluded from copied production output. Originals are untouched. Source-document exclusions also cover common editable/archive formats. Vite's local development asset server is for development only.
 

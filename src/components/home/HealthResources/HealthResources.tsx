@@ -17,12 +17,12 @@ export function HealthResources() {
             </div>
             <h2 id="health-resources-heading">Expert Insights for Better Health</h2>
           </div>
-          <a className="osec-health-resources__all" href="/news-health-articles">See All Blog</a>
+          <a className="osec-health-resources__all" href="/news-health-articles">View All Articles</a>
         </header>
 
         <div className="osec-health-resources__grid">
           {healthResources.map((article) => (
-            <ArticleCard key={article.id} title={article.title} image={article.image} href={article.externalUrl} imageAlt={article.imageAlt} imagePosition={article.imagePosition} external />
+            <ArticleCard key={article.id} title={article.title} meta={`${article.journal} · ${article.year}`} image={article.image} href={article.externalUrl} imageAlt={article.imageAlt} imagePosition={article.imagePosition} external />
           ))}
         </div>
       </div>

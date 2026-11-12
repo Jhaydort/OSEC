@@ -11,12 +11,12 @@ export function NewsPage() {
   return <>
     <main id="main-content" tabIndex={-1} className="osec-news">
       <header className="osec-news__hero">
-        <h1>News, Insights &amp; Updates</h1>
-        <p>Stay informed with expert perspectives, helpful resources, healthcare insights, and the latest news and updates from OSEC.</p>
+        <h1>Research &amp; Insights</h1>
+        <p>Clinical research and digestive health insights from the OSEC team.</p>
       </header>
       <section className="osec-news__publications" aria-label="Published articles">
         <Container className="osec-news__grid">
-          {publications.map(publication => <ArticleCard key={publication.id} title={publication.title} image={publication.image} imageAlt={publication.imageAlt} imagePosition={publication.imagePosition} href={publication.externalUrl} external headingLevel={2} />)}
+          {publications.map(publication => <ArticleCard key={publication.id} title={publication.title} meta={`${publication.journal} · ${publication.year}`} image={publication.image} imageAlt={publication.imageAlt} imagePosition={publication.imagePosition} href={publication.externalUrl} external headingLevel={2} />)}
         </Container>
       </section>
       <FAQSection items={faqs} />

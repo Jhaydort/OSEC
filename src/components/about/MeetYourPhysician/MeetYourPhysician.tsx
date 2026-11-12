@@ -20,7 +20,7 @@ export function MeetYourPhysician() {
           <div className="osec-physician__portrait">
             <img
               src={assets.editorial.physicianTaiwo}
-              alt="Dr. Onabanjo Taiwo"
+              alt="Dr. Taiwo Onabanjo"
               width={310}
               height={370}
               loading="lazy"
@@ -31,10 +31,10 @@ export function MeetYourPhysician() {
             <div className="osec-physician__copy">
               <div className="osec-physician__identity">
                 <h3> Dr. Taiwo Onabanjo</h3>
-                <p>Gastroeintestinal & Endoscopy Physician  &amp; Advanced Endoscopist</p>
+                <p>Consultant Gastroenterologist &amp; Advanced Therapeutic Endoscopist</p>
               </div>
               <div className="osec-physician__biography">
-                <p>Dr. Taiwo is an internationally trained Specialist in Gastrointestinal Endoscopy with over 12 years of experience. An ESGE Fellow trained in Germany, with advanced training in Denmark and Belgium, he provides world-class Colonoscopy, Upper GI Endoscopy, Colon Cancer Screening, EMR, ESD, and Endobariatrics in Lagos and across Nigeria.</p>
+                <p>Dr. Onabanjo is an internationally trained specialist in gastrointestinal endoscopy. An ESGE Fellow trained in Germany, with advanced training in Denmark and Belgium, he provides colonoscopy, upper GI endoscopy, colorectal cancer screening, EMR, ESD and endobariatrics in Lagos and across Nigeria.</p>
                 <p><strong>Certified member</strong>: European Society of Gastrointestinal Endoscopy (ESGE),
 World Endoscopy Organization (WEO), Member American Society of Gastrointestinal Endoscopy (ASGE),MBBS (Lautech), PG Diploma in Gastroenterology [UK], MPH [University of Liverpool]</p>
               </div>

@@ -55,11 +55,11 @@ export function Hero() {
     <section className="osec-hero" aria-labelledby="hero-heading">
       <div className="osec-hero__content">
         <div className="osec-hero__copy">
-          <LineRevealHeading id="hero-heading">A center of excellence for gastrointestinal services and procedures</LineRevealHeading>
+          <LineRevealHeading id="hero-heading">A centre of excellence in gastrointestinal care</LineRevealHeading>
           <p>
-            Catching What Matters, Before It Becomes Serious.<br />
-            OSEC helps prevent and treat gastrointestinal pathologies and cancers through early detection, advanced endoscopy,
-            and compassionate care.
+            Early Detection. Better Outcomes.<br />
+            OSEC is dedicated to preventing and treating gastrointestinal diseases and cancers through early detection,
+            advanced endoscopy and patient-centred care.
           </p>
           <div className="osec-hero__actions">
             <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />

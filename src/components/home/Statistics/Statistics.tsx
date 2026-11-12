@@ -9,9 +9,10 @@ const COUNTER_DURATION = 5_000;
 // Figma Statistics component set 224:1962, including the added training card.
 const STATISTICS_CARDS = [
   {
-    heading: 'International Expertise',
-    description: 'Continuous international training ensures our team stays at the forefront of modern endoscopy.',
+    heading: 'Research & Publications',
+    description: 'Explore clinical research and publications from the OSEC team.',
     image: assets.editorial.statsInternationalExpertise,
+    href: '/news-health-articles',
   },
   {
     heading: 'Medical Innovation',
@@ -27,7 +28,7 @@ const STATISTICS_CARDS = [
   },
   {
     heading: 'Advanced Endoscopy Training',
-    description: 'Bringing advanced specialist digestive care closer to communities across Nigeria.',
+    description: 'Training the next generation of Nigerian endoscopists in advanced techniques.',
     image: assets.editorial.statsAdvancedEndoscopyTraining,
     imageClassName: 'osec-statistics__image--advanced-training',
   },
@@ -49,7 +50,7 @@ function StatisticsCarousel() {
               {card.image && <img src={card.image} alt="" className={'imageClassName' in card ? card.imageClassName : undefined} />}
             </div>
             <div className="osec-statistics__expertise-copy">
-              <h3>{card.heading}</h3>
+              <h3>{'href' in card ? <a href={card.href}>{card.heading}</a> : card.heading}</h3>
               <p>{card.description}</p>
             </div>
           </article>

@@ -11,10 +11,11 @@ export interface ArticleCardProps {
   imageAlt?: string;
   imagePosition?: string;
   linkLabel?: string;
+  meta?: string;
 }
 
 /** Reusable article card from Figma Home 226:2599. */
-export function ArticleCard({ title, image, href, imageAlt = '', imagePosition, linkLabel = 'Read More', external = false, headingLevel = 3 }: ArticleCardProps) {
+export function ArticleCard({ title, image, href, imageAlt = '', imagePosition, linkLabel = 'Read More', external = false, headingLevel = 3, meta }: ArticleCardProps) {
   const headingId = useId();
   const Heading = headingLevel === 2 ? 'h2' : 'h3';
 
@@ -23,6 +24,7 @@ export function ArticleCard({ title, image, href, imageAlt = '', imagePosition, 
       {image ? <img className="osec-article-card__image" src={image} alt={imageAlt} style={imagePosition ? { objectPosition: imagePosition } : undefined} loading="lazy" width={348} height={256} /> : <div className="osec-article-card__image osec-article-card__image--pending" aria-hidden="true" />}
       <div className="osec-article-card__copy">
         <Heading id={headingId}>{title}</Heading>
+        {meta ? <p className="osec-article-card__meta">{meta}</p> : null}
         <ArticleLink tone="dark" href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} aria-label={`${linkLabel}: ${title}${external ? ' (opens in a new tab)' : ''}`}>{linkLabel}</ArticleLink>
       </div>
     </article>

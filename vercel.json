@@ -85,6 +85,10 @@
       "destination": "/services/glp-1-assessment-obesity-clinic/index.html"
     },
     {
+      "source": "/services/behavioral-counseling",
+      "destination": "/services/behavioral-counseling/index.html"
+    },
+    {
       "source": "/",
       "destination": "/index.html"
     },

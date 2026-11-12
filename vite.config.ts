@@ -6,7 +6,8 @@ import react from '@vitejs/plugin-react';
 const needsPolling = process.platform === 'win32' && /[\\/]OneDrive(?:[ -][^\\/]*)?[\\/]/i.test(process.cwd());
 
 export default defineConfig(({ mode }) => ({
-  plugins: [react(), productionSeo(loadEnv(mode, process.cwd(), 'VITE_').VITE_SITE_URL)],
+  // Keep production SEO output deterministic when hosting build variables are absent.
+  plugins: [react(), productionSeo(loadEnv(mode, process.cwd(), 'VITE_').VITE_SITE_URL || 'https://www.osecng.com')],
   // Existing supplied assets remain in place and are served as root-static files.
   publicDir: 'assets',
   server: {

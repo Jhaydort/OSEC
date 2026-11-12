@@ -50,7 +50,7 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
 
           <div className="osec-footer__columns">
             <section className="osec-footer__solutions" aria-labelledby="footer-solutions">
-              <h2 id="footer-solutions" className="osec-footer__label">Solutions</h2>
+              <h2 id="footer-solutions" className="osec-footer__label">Explore</h2>
               <nav className="osec-footer__solution-links" aria-label="Footer solutions">
                 {solutionLinks.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
               </nav>
@@ -95,7 +95,6 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
                   <img src={assets.icons.mail} alt="" />
                   <span>
                     <a href="mailto:info@osecng.com">info@osecng.com</a>
-                    <a href="mailto:osecmedicals@gmail.com">osecmedicals@gmail.com</a>
                   </span>
                 </div>
                 <div className="osec-footer__contact-row osec-footer__contact-row--address">

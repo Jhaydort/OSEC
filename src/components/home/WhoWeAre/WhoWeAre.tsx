@@ -84,11 +84,11 @@ export function WhoWeAre() {
         <div className="osec-who-we-are__intro">
           <div className="osec-who-we-are__eyebrow">
             <img src={assets.icons.loom} alt="" />
-            <span>Who are we</span>
+            <span>About OSEC</span>
           </div>
           <h2 id="who-we-are-heading">
-            We combine specialist expertise with compassionate care to keep you informed,
-            comfortable, and confident every step of your health care journey
+            We pair specialist expertise with compassionate care, so you feel informed,
+            comfortable and confident at every stage of your treatment.
           </h2>
           <a className="osec-who-we-are__link" href="/about">Learn More About OSEC</a>
         </div>

@@ -21,10 +21,22 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
       <main className="osec-service-detail">
         <div className={`osec-service-detail__article${service.service.id === 'behavioral-counseling' ? ' osec-service-detail__article--behavioral' : ''}`}>
           <header className="osec-service-detail__hero">
-            <a className="osec-service-detail__back" href="/services">
-              <img src={assets.icons.arrowLeft} alt="" width={24} height={24} />
-              <span>{service.backLabel ?? 'Back to Service'}</span>
-            </a>
+            <nav className="osec-service-detail__breadcrumbs" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li aria-current="page">{service.service.title}</li>
+              </ol>
+            </nav>
+            <script type="application/ld+json">{JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: `${window.location.origin}/` },
+                { '@type': 'ListItem', position: 2, name: 'Services', item: `${window.location.origin}/services` },
+                { '@type': 'ListItem', position: 3, name: service.service.title },
+              ],
+            })}</script>
             <div className="osec-service-detail__hero-copy">
               <h1>{service.title}</h1>
               <p>{service.subtitle}</p>

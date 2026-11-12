@@ -67,18 +67,18 @@ export function AboutHero() {
             <div className="osec-about-hero__copy">
               <p>At OSEC, we combine specialist expertise, advanced technology, and compassionate care to help you achieve better health outcomes.</p>
               {/* The specialists section will be added in a later About page step. */}
-              <AlternativeButton href="/about#specialists" label="Meet Our Specialists" />
+              <AlternativeButton href="/about#specialists" label="Meet Our Lead Physician" />
             </div>
             <div className="osec-about-hero__statistics">
               <div className="osec-about-hero__stat">
                 <p className="osec-about-hero__number" ref={counterRef} aria-label="1,800 or more">
                   <span aria-hidden="true">{procedureCount.toLocaleString('en-US')}+</span>
                 </p>
-                <p>Procedures Performed in the last 3 Years</p>
+              <p>Procedures Performed in the Last 3 Years</p>
               </div>
               <div className="osec-about-hero__stat">
                 <p className="osec-about-hero__milestone">First Team in Nigeria</p>
-                <p>to perform Endoscopic Submucosal Dissection (ESD) procedure in Nigeria</p>
+              <p>to perform Endoscopic Submucosal Dissection (ESD) in Nigeria</p>
               </div>
             </div>
           </div>

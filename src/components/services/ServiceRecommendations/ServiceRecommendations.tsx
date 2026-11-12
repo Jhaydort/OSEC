@@ -20,7 +20,7 @@ export function ServiceRecommendations({ currentServiceId }: ServiceRecommendati
             <img src={assets.icons.loom} alt="" width={24} height={24} />
             <SectionLabel className="osec-service-recommendations__label">More Services</SectionLabel>
           </div>
-          <h2 id="more-services-heading">Specialist Care Built Around Your Needs</h2>
+          <h2 id="more-services-heading">Related Services</h2>
         </header>
 
         <div className="osec-service-recommendations__viewport">

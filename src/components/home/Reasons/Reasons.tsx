@@ -57,7 +57,7 @@ export function Reasons() {
             <img src={assets.icons.loom} alt="" />
             <span>Why Choose OSEC</span>
           </div>
-          <h2 id="reasons-heading">Specialist Care Built Around Your Needs</h2>
+          <h2 id="reasons-heading">The OSEC Difference</h2>
           <p>
             At OSEC, we combine expert care, advanced technology, and compassion to help you
             achieve better health outcomes.
