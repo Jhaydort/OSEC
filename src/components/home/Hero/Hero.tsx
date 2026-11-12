@@ -55,10 +55,10 @@ export function Hero() {
     <section className="osec-hero" aria-labelledby="hero-heading">
       <div className="osec-hero__content">
         <div className="osec-hero__copy">
-          <LineRevealHeading id="hero-heading">A Centre of Excellence in Gastrointestinal Care</LineRevealHeading>
+          <LineRevealHeading id="hero-heading">Nigeria's centre of excellence for advanced endoscopy and digestive health</LineRevealHeading>
           <p>
             Early Detection. Better Outcomes.<br />
-            Based in Victoria Island, Lagos, OSEC is dedicated to preventing and treating gastrointestinal diseases and cancers through early detection,
+            OSEC is dedicated to the prevention and treatment of gastrointestinal diseases and cancers through early detection,
             advanced endoscopy and patient-centred care.
           </p>
           <div className="osec-hero__actions">
