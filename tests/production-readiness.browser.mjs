@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, mkdir } from 'node:fs/promises';
 const origin = process.env.QA_URL || 'http://127.0.0.1:5180';
 const withAnalytics = process.env.QA_GA === '1';
+const vercel = JSON.parse(await readFile('vercel.json', 'utf8'));
 const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
 const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
 let googleRequests = 0;
@@ -27,9 +28,17 @@ await context.route('**/rest/v1/patient_reviews*', async route => {
     await route.fulfill({ status: 201, body: '' });
   }
 });
+const routeFiles = new Map(vercel.rewrites.map(({ source, destination }) => [source, `dist${destination}`]));
+await context.route('**/*', async route => {
+  const request = route.request();
+  const url = new URL(request.url());
+  if (!request.isNavigationRequest() || url.origin !== origin) return route.fallback();
+  const file = routeFiles.get(url.pathname) ?? 'dist/404.html';
+  await route.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: await readFile(file, 'utf8') });
+});
 const page = await context.newPage();
 const errors = [];
-page.on('pageerror', error => errors.push(error.message));
+page.on('pageerror', error => errors.push(`${page.url()}: ${error.message}`));
 await mkdir('.cache/production-qa/screenshots', { recursive: true });
 try {
   await page.goto(origin + '/');
@@ -89,14 +98,16 @@ try {
     const title = await page.title(); assert.equal(titles.has(title), false, title); titles.add(title);
     assert.ok((await page.locator('meta[name="description"]').getAttribute('content')).length > 40);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), path === '/patient-story' ? 'noindex, follow' : 'index, follow');
-    assert.equal(await page.locator('link[rel="canonical"]').count(), withAnalytics && path !== '/patient-story' ? 1 : 0);
+    assert.equal(await page.locator('link[rel="canonical"]').count(), path !== '/patient-story' ? 1 : 0);
     for (const width of [375, 390, 430, 480, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${path} overflow ${width}`);
     }
     if (path === '/privacy-policy') await page.screenshot({ path: '.cache/production-qa/screenshots/privacy-desktop.png' });
   }
-  for (const path of ['/news-health-articles','/does-not-exist','/services/does-not-exist']) {
+  await page.goto(origin + '/news-health-articles');
+  assert.equal((await page.locator('meta[name="robots"]').getAttribute('content')), 'index, follow', 'Research & Insights is indexable');
+  for (const path of ['/does-not-exist','/services/does-not-exist']) {
     await page.goto(origin + path); await page.locator('main').waitFor();
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), 'noindex, follow');
   }

@@ -20,7 +20,7 @@ export function OurStory() {
             <SectionLabel className="osec-our-story__label">Our story</SectionLabel>
           </div>
           <div className="osec-our-story__copy">
-            <h2 id="our-story-heading">Built on a Simple Belief: Early Detection Saves Lives.</h2>
+            <h2 id="our-story-heading">Our Story and Commitment to Digestive Health</h2>
             <div className="osec-our-story__paragraphs">
               <p>OSEC was founded with a clear purpose, to transform digestive healthcare through earlier diagnosis, preventive screening, and compassionate specialist care.</p>
               <p>We believe that timely detection can save lives, which is why we've created a centre where patients have access to internationally recognised expertise, advanced endoscopic technology, and treatment tailored to their individual needs.</p>

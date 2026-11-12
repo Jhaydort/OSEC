@@ -17,16 +17,27 @@ test('built route heads and Vercel rewrite targets agree', async () => {
     const noindex = ['/patient-story'].includes(path);
     assert.equal(html.includes('content="noindex, follow"'), noindex);
     assert.equal(html.includes('rel="canonical"'), !!domain && !noindex);
+    assert.equal((html.match(/<h1\b/g) || []).length, 1, `one rendered H1: ${path}`);
+    assert.ok((html.match(/<div id="root">([\s\S]*?)<\/div>/)?.[1]?.length ?? 0) > 100, `prerendered body: ${path}`);
     if (domain && !noindex) {
       assert.ok(html.includes(`href="${domain}${path}"`), path);
-      const data = JSON.parse(html.match(/type="application\/ld\+json">(.*?)<\/script>/)[1]);
+      assert.ok(html.includes(`property="og:url" content="${domain}${path}"`), `Open Graph URL: ${path}`);
+      const scripts = [...html.matchAll(/type="application\/ld\+json">(.*?)<\/script>/g)];
+      assert.equal(scripts.length, 1, `single JSON-LD graph: ${path}`);
+      const data = JSON.parse(scripts[0][1]);
       assert.equal(data['@context'], 'https://schema.org');
-      assert.deepEqual(data['@graph'].map(item => item['@type']), ['MedicalOrganization', 'WebSite']);
+      const types = data['@graph'].map(item => item['@type']);
+      assert.equal(types.filter(type => type === 'MedicalOrganization').length, 1);
+      assert.equal(types.filter(type => type === 'WebSite').length, 1);
+      if (path === '/services') assert.ok(types.includes('CollectionPage'));
+      if (path === '/news-health-articles') assert.ok(types.includes('CollectionPage'));
+      if (path === '/about') assert.ok(types.includes('AboutPage'));
       assert.ok(!JSON.stringify(data).includes('aggregateRating'));
     }
   }
   assert.deepEqual(config.rewrites[0], { source: '/api/:path*', destination: '/api/:path*' });
   assert.equal(config.rewrites.at(-1).destination, '/404.html');
+  assert.deepEqual(config.redirects.find((rule) => rule.source === '/terms-of-service'), { source: '/terms-of-service', destination: '/terms-and-conditions', permanent: true });
   assert.ok((await read('dist/404.html')).includes('noindex, follow'));
   await assert.rejects(access('dist/OSEC_Service_Detail_Content_Updated.docx'));
 });
@@ -40,5 +51,6 @@ test('robots and sitemap use the configured production origin with no duplicate 
   const sitemap = await read('dist/sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
   assert.equal(new Set(urls).size, urls.length);
+  assert.equal(urls.length, 21);
   assert.deepEqual(new Set(urls), new Set(paths.filter(path => !['/patient-story'].includes(path)).map(path => domain + path)));
 });

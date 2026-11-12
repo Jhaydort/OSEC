@@ -6,14 +6,14 @@ import './MeetYourPhysician.css';
 /** About page's Figma "Meet Your Physician" section (449:15137). */
 export function MeetYourPhysician() {
   return (
-    <section className="osec-physician" aria-labelledby="meet-your-physician-heading">
+    <section className="osec-physician" id="specialists" aria-labelledby="meet-your-physician-heading">
       <div className="osec-physician__content">
         <header className="osec-physician__header">
           <div className="osec-physician__eyebrow">
             <img src={assets.icons.loom} alt="" width={24} height={24} />
             <SectionLabel className="osec-physician__label">Meet Your Physician</SectionLabel>
           </div>
-          <h2 id="meet-your-physician-heading">Expert Care, Led by Experience</h2>
+          <h2 id="meet-your-physician-heading">Meet Our Lead Physician</h2>
         </header>
 
         <div className="osec-physician__profile">

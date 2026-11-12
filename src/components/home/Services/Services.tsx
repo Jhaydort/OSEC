@@ -58,7 +58,7 @@ export function Services() {
         <div className="osec-services__intro">
           <div className="osec-services__eyebrow"><img src={assets.icons.loom} alt="" /><span>Our Services</span></div>
           <div className="osec-services__copy">
-            <h2 id="services-heading">Specialist Care Built Around Your Needs</h2>
+            <h2 id="services-heading">Specialist Digestive Health Services</h2>
             <p>At OSEC, we combine preventive screening, expert diagnosis, and advanced therapeutic care to help you make informed decisions about your health, with compassion, precision, and confidence.</p>
           </div>
           <AlternativeButton href="/services" label="View All Services" />

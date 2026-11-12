@@ -15,7 +15,7 @@ export function HealthResources() {
               <img src={assets.icons.loom} alt="" />
               <SectionLabel className="osec-health-resources__label">Health Resources</SectionLabel>
             </div>
-            <h2 id="health-resources-heading">Expert Insights for Better Health</h2>
+            <h2 id="health-resources-heading">Research &amp; Publications</h2>
           </div>
           <a className="osec-health-resources__all" href="/news-health-articles">View All Articles</a>
         </header>

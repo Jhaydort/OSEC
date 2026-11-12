@@ -66,7 +66,7 @@ function formatNumber(value: number) {
 
 /** Animates one time after the section first becomes visible. */
 function useCountUp(target: number, sectionRef: React.RefObject<HTMLElement | null>) {
-  const [value, setValue] = useState(() => window.matchMedia('(max-width: 480px) and (prefers-reduced-motion: reduce)').matches ? target : 0);
+  const [value, setValue] = useState(0);
   const hasStarted = useRef(false);
 
   useEffect(() => {
@@ -133,7 +133,7 @@ export function Statistics() {
           <span>Clinical Excellence</span>
         </div>
         <div className="osec-statistics__intro-copy">
-          <h2 id="statistics-heading">Leading the Way in Specialist Gastrointestinal Care</h2>
+          <h2 id="statistics-heading">Advancing Digestive Healthcare in Nigeria</h2>
           <p>
             Our commitment to clinical excellence is reflected in the lives we've impacted, the
             milestones we've achieved, and our continued investment in innovation, research, and

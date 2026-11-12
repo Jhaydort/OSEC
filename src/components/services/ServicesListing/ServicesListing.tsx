@@ -5,7 +5,8 @@ import './ServicesListing.css';
 /** Complete Services grid from Figma frame 249:6388. */
 export function ServicesListing() {
   return (
-    <section className="osec-services-listing" aria-label="Our services">
+    <section className="osec-services-listing" aria-labelledby="services-listing-heading">
+      <h2 id="services-listing-heading" className="osec-services-listing__heading">Available Services</h2>
       <div className="osec-services-listing__grid">
         {listedServices.map((service) => (
           <ServiceCard

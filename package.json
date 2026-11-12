@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "build": "tsc -b && tsc -p tsconfig.api.json && vite build --config vite.config.ts",
+    "build": "tsc -b && tsc -p tsconfig.api.json && vite build --config vite.config.ts && node tools/prerender.mjs",
     "preview": "vite preview --config vite.config.ts"
   },
   "dependencies": {

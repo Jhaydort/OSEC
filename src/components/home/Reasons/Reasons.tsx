@@ -28,7 +28,7 @@ const reasons: readonly Reason[] = [
   {
     title: 'Advanced Medical Technology',
     description:
-      "We had this as one of the core differentiators, focused on OSEC's modern diagnostic and therapeutic technology.",
+      'OSEC provides diagnostic and therapeutic endoscopy, including advanced procedures such as EMR, ESD and EFTR.',
     image: assets.editorial.whyOsecAdvancedTechnology,
   },
   {
@@ -57,7 +57,7 @@ export function Reasons() {
             <img src={assets.icons.loom} alt="" />
             <span>Why Choose OSEC</span>
           </div>
-          <h2 id="reasons-heading">The OSEC Difference</h2>
+          <h2 id="reasons-heading">Why Patients and Physicians Choose OSEC</h2>
           <p>
             At OSEC, we combine expert care, advanced technology, and compassion to help you
             achieve better health outcomes.

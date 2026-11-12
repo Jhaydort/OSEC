@@ -15,7 +15,7 @@ import { PatientStories } from '../components/home/PatientStories/PatientStories
 import { AppointmentSection } from '../components/shared/AppointmentSection/AppointmentSection';
 import { HealthResources } from '../components/home/HealthResources/HealthResources';
 import { FAQSection } from '../components/shared/FAQSection/FAQSection';
-import { faqs } from '../data/faqs';
+import { homepageFAQs } from '../data/faqs';
 import { PatientStoryPage } from '../pages/PatientStoryPage';
 import { ContactPage } from '../pages/ContactPage';
 import { AboutPage } from '../pages/AboutPage';
@@ -25,8 +25,8 @@ import { ServiceDetailTemplate } from '../components/services/ServiceDetailTempl
 import { serviceDetailsBySlug } from '../data/serviceDetails';
 
 /** Native internal anchors navigate in the same tab; render the matching page. */
-export default function App() {
-  const requestedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+export default function App({ initialPath }: { initialPath?: string } = {}) {
+  const requestedPath = (initialPath ?? window.location.pathname).replace(/\/+$/, '') || '/';
   const currentPath = requestedPath === '/terms-of-service' ? '/terms-and-conditions' : requestedPath;
   const legalDocument = legalDocuments[currentPath];
   const isPatientStory = currentPath === '/patient-story';
@@ -54,7 +54,7 @@ export default function App() {
       <PatientStories />
       <AppointmentSection />
       <HealthResources />
-      <FAQSection items={faqs} />
+      <FAQSection items={homepageFAQs} />
       </main>
       <Footer />
       </>}

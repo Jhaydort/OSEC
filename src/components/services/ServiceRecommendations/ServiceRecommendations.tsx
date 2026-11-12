@@ -29,7 +29,7 @@ export function ServiceRecommendations({ currentServiceId }: ServiceRecommendati
               <ServiceCard
                 variant="recommendation"
                 image={service.image}
-                imageAlt={service.title}
+                imageAlt={service.detailImageAlt ?? service.title}
                 imagePosition={service.imagePosition}
                 title={service.title}
                 description={service.description}

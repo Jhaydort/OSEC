@@ -1,32 +1,77 @@
 import { services } from './services';
 import { assets } from './assets';
+import { publications } from './healthResources';
 
 export interface PageMetadata { path: string; title: string; description: string; noindex?: boolean }
-const descriptions: Record<string, string> = {
-  'specialist-consultation': 'Learn about gastrointestinal specialist consultation at OSEC, including symptoms assessed, what to expect and next steps for digestive care.',
-  gastroscopy: 'Read about gastroscopy at OSEC, an examination of the upper digestive tract, including preparation, sedation and care after the procedure.',
-  colonoscopy: 'Learn about colonoscopy at OSEC, including assessment of the lower digestive tract, preparation and what to expect before and after the procedure.',
-  biopsy: 'Learn how gastrointestinal biopsy at OSEC collects tissue samples during endoscopy to help investigate digestive conditions and guide further care.',
-  emr: 'Read about endoscopic mucosal resection at OSEC, including assessment, preparation and endoscopic removal of suitable abnormal digestive tract tissue.',
-  esd: 'Learn about endoscopic submucosal dissection at OSEC, including specialist assessment and treatment of suitable gastrointestinal lesions.',
-  'eftr-advanced': 'Read about endoscopic full-thickness resection at OSEC, specialist assessment, preparation and care for selected gastrointestinal lesions.',
-  'peg-feeding-tube': 'Learn about PEG feeding tube placement at OSEC, including assessment for nutritional support, preparation and care after the procedure.',
-  'paediatric-endoscopy': 'Read about paediatric upper gastrointestinal endoscopy at OSEC, including assessment, preparation and support for children and their families.',
-  'paediatric-colonoscopy': 'Learn about paediatric colonoscopy at OSEC, including assessment of digestive symptoms, preparation and care for children.',
-  'glp-1-assessment-obesity-clinic': 'Read about GLP-1 assessment and obesity care at OSEC, including clinical evaluation, suitability and ongoing medical support.',
-  'weight-management': 'Explore endobariatric and medical weight management at OSEC, including individual assessment, available approaches and follow-up care.',
+const serviceMetadata: Record<string, { title: string; description: string }> = {
+  'specialist-consultation': {
+    title: 'Gastroenterologist Consultation in Lagos | OSEC',
+    description: 'Book a gastrointestinal specialist consultation at OSEC in Lagos. Get expert assessment, personalised advice and a clear plan for your digestive health.',
+  },
+  colonoscopy: {
+    title: 'Colonoscopy in Lagos | Lower GI Endoscopy | OSEC',
+    description: 'Learn about colonoscopy at OSEC in Lagos. Our specialist team examines the colon to investigate bowel symptoms, detect abnormalities and support colorectal cancer screening.',
+  },
+  gastroscopy: {
+    title: 'Gastroscopy in Lagos | Upper GI Endoscopy | OSEC',
+    description: 'Explore gastroscopy at OSEC in Lagos. Upper GI endoscopy helps investigate swallowing difficulties, reflux, ulcers, bleeding and other digestive symptoms.',
+  },
+  emr: {
+    title: 'Endoscopic Mucosal Resection (EMR) in Lagos | OSEC',
+    description: 'Learn about EMR at OSEC in Lagos, a minimally invasive endoscopic procedure used to remove suitable abnormal tissue and selected precancerous lesions.',
+  },
+  esd: {
+    title: 'Endoscopic Submucosal Dissection (ESD) | OSEC Nigeria',
+    description: 'Discover advanced ESD treatment at OSEC in Nigeria. Our specialist team offers endoscopic removal of selected gastrointestinal lesions without open surgery.',
+  },
+  biopsy: {
+    title: 'Gastrointestinal Biopsy in Lagos | GI Biopsy | OSEC',
+    description: 'Learn about gastrointestinal biopsy at OSEC in Lagos. Endoscopic tissue sampling helps investigate inflammation, infections and other digestive conditions.',
+  },
+  'peg-feeding-tube': {
+    title: 'PEG Feeding Tube Placement in Lagos | OSEC',
+    description: 'Explore PEG feeding tube placement at OSEC. Learn how endoscopic gastrostomy can support long-term nutrition when eating or swallowing is difficult.',
+  },
+  'paediatric-endoscopy': {
+    title: 'Paediatric Upper GI Endoscopy in Lagos | OSEC',
+    description: 'Learn about paediatric upper GI endoscopy at OSEC. Specialist assessment and endoscopic investigation help evaluate digestive symptoms in children.',
+  },
+  'weight-management': {
+    title: 'Endobariatric Weight Management in Lagos | OSEC',
+    description: 'Explore endobariatric weight management at OSEC in Lagos. Learn about specialist assessment and suitable endoscopic approaches to weight management.',
+  },
+  'eftr-advanced': {
+    title: 'Endoscopic Full-Thickness Resection (EFTR) | OSEC',
+    description: 'Discover EFTR at OSEC in Nigeria, an advanced endoscopic technique used to remove selected difficult gastrointestinal lesions through a minimally invasive approach.',
+  },
+  'paediatric-colonoscopy': {
+    title: "Paediatric Colonoscopy in Lagos | Children's Bowel Care | OSEC",
+    description: 'Learn about paediatric colonoscopy at OSEC. Specialist lower GI endoscopy helps investigate persistent bowel symptoms and gastrointestinal conditions in children.',
+  },
+  'glp-1-assessment-obesity-clinic': {
+    title: 'GLP-1 Assessment & Obesity Clinic in Lagos | OSEC',
+    description: 'Explore GLP-1 assessment and specialist weight management at OSEC in Lagos, with personalised evaluation, treatment guidance and clinical monitoring.',
+  },
+  'behavioral-counseling': {
+    title: 'Behavioural Health & Counselling in Lagos | OSEC',
+    description: 'Explore behavioural health and counselling at OSEC in Lagos, with psychological support, specialist assessment and personalised care for emotional wellbeing.',
+  },
 };
 export const seoPages: PageMetadata[] = [
-  { path: '/', title: 'OSEC | Outpatient Surgery and Endoscopy Clinic', description: 'Explore gastrointestinal consultations, endoscopy and outpatient care at OSEC in Victoria Island. Learn about our services and contact the clinic.' },
-  { path: '/about', title: 'About OSEC | Outpatient Surgery and Endoscopy Clinic', description: 'Learn about OSEC, our approach to specialist care, our story and the physician behind our outpatient surgery and endoscopy clinic.' },
-  { path: '/services', title: 'Our Services | OSEC', description: 'Explore OSEC’s gastrointestinal consultations, diagnostic and therapeutic endoscopy, paediatric procedures and medical weight-management services.' },
-  { path: '/contact', title: 'Contact OSEC | Enquiries and Appointment Requests', description: 'Contact OSEC in Victoria Island by phone, email or enquiry form. Ask about our services or request help arranging an appointment.' },
+  { path: '/', title: 'Digestive Health & Endoscopy Clinic in Lagos | OSEC', description: 'OSEC provides specialist digestive health care, colorectal cancer screening and advanced diagnostic and therapeutic endoscopy in Lagos, Nigeria.' },
+  { path: '/about', title: 'About OSEC | Digestive Health & Endoscopy Specialists', description: 'Learn about OSEC, a Lagos specialist centre for digestive health, colorectal cancer prevention and advanced therapeutic endoscopy.' },
+  { path: '/services', title: 'Endoscopy & Gastroenterology Services in Lagos | OSEC', description: "Explore OSEC's gastroenterology and endoscopy services in Lagos, including colonoscopy, gastroscopy, biopsies and advanced therapeutic procedures." },
+  { path: '/contact', title: 'Contact OSEC | Endoscopy Clinic in Lagos', description: 'Contact OSEC in Victoria Island, Lagos, to enquire about digestive health consultations, endoscopy services or booking an appointment.' },
   { path: '/patient-story', title: 'Share Your Experience | OSEC', description: 'Send feedback about your OSEC experience and choose whether to give permission for publication of your story.', noindex: true },
-  { path: '/news-health-articles', title: 'Research & Insights | OSEC', description: 'Explore OSEC clinical research and publications on gastrointestinal lesions, colorectal cancer screening and inflammatory bowel changes.' },
+  { path: '/news-health-articles', title: 'Research & Publications | Digestive Health | OSEC', description: "Explore OSEC's research publications and insights on digestive health, colorectal cancer prevention and gastrointestinal endoscopy." },
   { path: '/privacy-policy', title: 'Privacy Policy | OSEC', description: 'How OSEC handles website enquiries, Patient Stories, publication consent, personal information and optional analytics.' },
   { path: '/terms-and-conditions', title: 'Terms & Conditions | OSEC', description: 'Terms for using the OSEC website, including general medical information, appointment requests, enquiries and Patient Stories.' },
   { path: '/cookie-policy', title: 'Cookie Policy | OSEC', description: 'Learn about essential preference storage, optional analytics and how to change or withdraw your cookie choices on the OSEC website.' },
-  ...services.filter((service, index) => services.findIndex(other => other.href === service.href) === index).map(service => ({ path: service.href, title: `${service.title} | OSEC`, description: descriptions[service.id] ?? `Read about ${service.title} at OSEC, including assessment, preparation and what to expect.` })),
+  ...services.filter((service, index) => services.findIndex(other => other.href === service.href) === index).map(service => {
+    const metadata = serviceMetadata[service.id];
+    if (!metadata) throw new Error(`Missing approved SEO metadata for service: ${service.id}`);
+    return { path: service.href, ...metadata };
+  }),
 ];
 export function normalizeSiteUrl(value?: string): string {
   if (!value?.trim()) return '';
@@ -42,9 +87,29 @@ export function metadataFor(path: string): PageMetadata {
 }
 export function structuredData(page: PageMetadata, siteUrl: string) {
   if (!siteUrl || page.noindex) return [];
+  const service = services.find(item => item.href === page.path);
+  const serviceUrl = service ? `${siteUrl}${service.href}` : '';
   return [{ '@context': 'https://schema.org', '@graph': [
-    { '@type': 'MedicalOrganization', '@id': `${siteUrl}/#organization`, name: 'Outpatient Surgery and Endoscopy Clinic (OSEC)', url: `${siteUrl}/`, logo: siteUrl + assets.brand.logo, telephone: '+2348164353633', email: 'info@osecng.com', address: { '@type': 'PostalAddress', streetAddress: 'CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru, Victoria Island.' } },
+    { '@type': 'MedicalOrganization', '@id': `${siteUrl}/#organization`, name: 'Outpatient Surgery and Endoscopy Clinic (OSEC)', url: `${siteUrl}/`, logo: siteUrl + assets.brand.logo, telephone: '+2348164353633', email: 'info@osecng.com', address: { '@type': 'PostalAddress', streetAddress: 'CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru', addressLocality: 'Lagos', addressRegion: 'Lagos', addressCountry: 'NG' } },
     { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'OSEC', url: `${siteUrl}/`, publisher: { '@id': `${siteUrl}/#organization` } },
+    ...(page.path === '/about' ? [
+      { '@type': 'AboutPage', '@id': `${siteUrl}/about#webpage`, url: `${siteUrl}/about`, name: page.title, about: { '@id': `${siteUrl}/#organization` }, isPartOf: { '@id': `${siteUrl}/#website` } },
+    ] : []),
+    ...(page.path === '/services' ? [
+      { '@type': 'CollectionPage', '@id': `${siteUrl}/services#webpage`, url: `${siteUrl}/services`, name: page.title, isPartOf: { '@id': `${siteUrl}/#website` }, mainEntity: { '@type': 'ItemList', itemListElement: services.map((item, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'Service', name: item.title, description: item.description, url: `${siteUrl}${item.href}`, provider: { '@id': `${siteUrl}/#organization` } } })) } },
+    ] : []),
+    ...(page.path === '/news-health-articles' ? [
+      { '@type': 'CollectionPage', '@id': `${siteUrl}${page.path}#webpage`, url: `${siteUrl}${page.path}`, name: page.title, isPartOf: { '@id': `${siteUrl}/#website` }, mainEntity: { '@type': 'ItemList', itemListElement: publications.map((publication, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'ScholarlyArticle', headline: publication.title, url: publication.externalUrl, datePublished: String(publication.year) } })) } },
+    ] : []),
+    ...(service ? [
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: `${siteUrl}/services` },
+        { '@type': 'ListItem', position: 3, name: service.title, item: serviceUrl },
+      ] },
+      { '@type': 'MedicalWebPage', '@id': `${serviceUrl}#webpage`, url: serviceUrl, name: page.title, mainEntity: { '@id': `${serviceUrl}#service` } },
+      { '@type': 'Service', '@id': `${serviceUrl}#service`, name: service.title, serviceType: service.title, description: service.description, url: serviceUrl, provider: { '@id': `${siteUrl}/#organization` } },
+    ] : []),
   ] }];
 }
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!);

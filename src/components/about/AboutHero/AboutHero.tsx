@@ -62,12 +62,11 @@ export function AboutHero() {
     <section className="osec-about-hero" aria-labelledby="about-heading">
       <div className="osec-about-hero__content">
         <div className="osec-about-hero__intro">
-          <h1 id="about-heading">Leading Specialist Care, Driven by Expertise and Compassion.</h1>
+          <h1 id="about-heading">Specialist Digestive Health Care, Led by Expertise and Compassion</h1>
           <div className="osec-about-hero__details">
             <div className="osec-about-hero__copy">
-              <p>At OSEC, we combine specialist expertise, advanced technology, and compassionate care to help you achieve better health outcomes.</p>
-              {/* The specialists section will be added in a later About page step. */}
-              <AlternativeButton href="/about#specialists" label="Meet Our Lead Physician" />
+              <p>Based in Victoria Island, Lagos, OSEC provides specialist digestive health care with advanced technology and compassionate support.</p>
+              <AlternativeButton href="/about#meet-your-physician-heading" label="Meet Our Lead Physician" />
             </div>
             <div className="osec-about-hero__statistics">
               <div className="osec-about-hero__stat">

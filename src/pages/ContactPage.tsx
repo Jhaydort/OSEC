@@ -5,7 +5,7 @@ import { Footer } from '../components/layout/Footer/Footer';
 import { AppointmentSection } from '../components/shared/AppointmentSection/AppointmentSection';
 import { FAQSection } from '../components/shared/FAQSection/FAQSection';
 import { Button } from '../components/ui/Button/Button';
-import { faqs } from '../data/faqs';
+import { contactFAQs } from '../data/faqs';
 import './ContactPage.css';
 
 /** Contact OSEC, Figma frame 249:7609; unique hero/form in 249:7464. */
@@ -41,11 +41,11 @@ export function ContactPage() {
   return (
     <>
       <PageMotion page="contact" />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <div className="osec-contact">
           <header className="osec-contact__hero">
             <h1>Contact OSEC</h1>
-            <p>For enquiries or appointments, call <a href="tel:+2348164353633">+234 816 435 3633</a> or complete the form below.</p>
+            <p>Contact OSEC in Victoria Island, Lagos, for digestive health or endoscopy enquiries and appointments. Call <a href="tel:+2348164353633">+234 816 435 3633</a> or complete the form below.</p>
           </header>
           <section className="osec-contact__form-section" aria-labelledby="contact-form-heading">
             <h2 id="contact-form-heading">Tell Us How We Can Help</h2>
@@ -87,7 +87,7 @@ export function ContactPage() {
           </section>
         </div>
         <AppointmentSection />
-        <FAQSection items={faqs} />
+        <FAQSection items={contactFAQs} />
       </main>
       <Footer />
     </>

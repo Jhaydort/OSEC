@@ -19,7 +19,7 @@ export function Purpose() {
     <section className="osec-purpose" aria-labelledby="purpose-heading">
       <div className="osec-purpose__content">
         <header className="osec-purpose__header">
-          <h2 id="purpose-heading">Driven by Purpose. Focused on Better Health.</h2>
+          <h2 id="purpose-heading">Our Mission and Vision</h2>
           <p>Everything we do is guided by a commitment to improving lives through specialist expertise, compassionate care, and continuous innovation.</p>
         </header>
 

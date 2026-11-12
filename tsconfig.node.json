@@ -13,6 +13,7 @@
     "vite.config.ts",
     "seo-build.ts",
     "src/data/seo.ts",
+    "src/data/healthResources.ts",
     "src/data/services.ts",
     "src/data/assets.ts"
   ]

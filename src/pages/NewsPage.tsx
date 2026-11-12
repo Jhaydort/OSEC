@@ -2,7 +2,7 @@ import { Container } from '../components/layout/Container/Container';
 import { Footer } from '../components/layout/Footer/Footer';
 import { FAQSection } from '../components/shared/FAQSection/FAQSection';
 import { ArticleCard } from '../components/ui/ArticleCard/ArticleCard';
-import { faqs } from '../data/faqs';
+import { researchFAQs } from '../data/faqs';
 import { publications } from '../data/healthResources';
 import './NewsPage.css';
 
@@ -19,7 +19,7 @@ export function NewsPage() {
           {publications.map(publication => <ArticleCard key={publication.id} title={publication.title} meta={`${publication.journal} · ${publication.year}`} image={publication.image} imageAlt={publication.imageAlt} imagePosition={publication.imagePosition} href={publication.externalUrl} external headingLevel={2} />)}
         </Container>
       </section>
-      <FAQSection items={faqs} />
+      <FAQSection items={researchFAQs} />
     </main>
     <Footer />
   </>;

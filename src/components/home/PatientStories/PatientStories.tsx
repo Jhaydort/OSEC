@@ -25,8 +25,8 @@ export function PatientStories() {
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
   const [focused, setFocused] = useState(false);
-  const [hidden, setHidden] = useState(document.hidden);
-  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [hidden, setHidden] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const [timerVersion, setTimerVersion] = useState(0);
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');

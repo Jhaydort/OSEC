@@ -4,12 +4,15 @@ import { setAnalyticsConsent, trackPageView, trackEvent } from '../../../lib/ana
 import './CookieConsent.css';
 
 export function CookieConsent() {
-  const [consent, setConsent] = useState<Consent | null>(readConsent);
+  // Start identically on the server and client; read browser storage after hydration.
+  const [consent, setConsent] = useState<Consent | null>(null);
   const [analytics, setAnalytics] = useState(false);
   const [storageError, setStorageError] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const viewed = useRef(false);
+
+  useEffect(() => { setConsent(readConsent()); }, []);
 
   useEffect(() => {
     setAnalyticsConsent(consent);
