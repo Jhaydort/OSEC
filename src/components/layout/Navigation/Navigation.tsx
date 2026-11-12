@@ -9,7 +9,7 @@ const defaultItems: NavigationItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About OSEC', href: '/about' },
   { label: 'Our Services', href: '/services' },
-  { label: 'News & Health Articles', href: '/news-health-articles' },
+  { label: 'Research & Insights', href: '/news-health-articles' },
   { label: 'Contact Us', href: '/contact' },
 ];
 export interface NavigationProps {
@@ -84,10 +84,10 @@ export function Navigation({ activeHref, standalone = false, items = defaultItem
             );
           })}
         </nav>}
-        <Button aria-label="Book Appointment" className="osec-navigation__appointment"
+        <Button aria-label="Book an Appointment" className="osec-navigation__appointment"
           leadingIcon={<picture><source media="(max-width: 480px)" srcSet="/icons/mobile-whatsapp.svg" /><img className="osec-navigation__whatsapp" src={assets.icons.whatsapp} alt="" /></picture>}
           onClick={onAppointmentClick}>
-          Book Appointment
+          Book an Appointment
         </Button>
         {!standalone && <button ref={toggleRef} className="osec-navigation__toggle" type="button"
           aria-label={isOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={isOpen} aria-controls={menuId}

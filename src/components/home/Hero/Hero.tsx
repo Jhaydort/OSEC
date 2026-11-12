@@ -5,11 +5,15 @@ import { assets } from '../../../data/assets';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
 import './Hero.css';
 
-const heroSlides = [assets.hero.left, assets.hero.right, assets.services.gastroscopySuite] as const;
+const heroSlides = [
+  { src: assets.hero.left, alt: 'Clinician preparing an endoscope in a procedure room.' },
+  { src: assets.hero.right, alt: 'Endoscopist holding a flexible endoscope in a procedure room.' },
+  { src: assets.services.gastroscopySuite, alt: 'Endoscopy equipment arranged in a procedure room.' },
+] as const;
 
 interface HeroShapeCarouselProps {
   className: string;
-  slides: readonly string[];
+  slides: readonly { src: string; alt: string }[];
   index: number;
   animate: boolean;
   onTransitionEnd?: () => void;
@@ -25,8 +29,8 @@ function HeroShapeCarousel({ className, slides, index, animate, onTransitionEnd 
         onTransitionEnd={onTransitionEnd}
         style={{ transform: `translateX(-${index * 25}%)` }}
       >
-        {trackSlides.map((src, slideIndex) => (
-          <img className="osec-hero__image" src={src} alt="" key={`${src}-${slideIndex}`} />
+        {trackSlides.map((slide, slideIndex) => (
+          <img className="osec-hero__image" src={slide.src} alt={slide.alt} key={`${slide.src}-${slideIndex}`} />
         ))}
       </div>
     </div>
@@ -62,7 +66,7 @@ export function Hero() {
             advanced endoscopy and patient-centred care.
           </p>
           <div className="osec-hero__actions">
-            <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />
+            <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book an Appointment" />
           </div>
         </div>
 

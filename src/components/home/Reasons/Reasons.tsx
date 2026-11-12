@@ -16,7 +16,7 @@ const reasons: readonly Reason[] = [
   {
     title: 'Specialist-Led Care',
     description:
-      'Our experienced gastroenterologists provide expert diagnosis and personalised treatment plans tailored to your needs.',
+      'Our specialist-led team provides expert diagnosis and personalised treatment plans tailored to your needs.',
     image: assets.editorial.rectangle18249,
   },
   {

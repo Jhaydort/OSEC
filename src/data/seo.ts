@@ -1,6 +1,8 @@
 import { services } from './services';
 import { assets } from './assets';
 import { publications } from './healthResources';
+import { aboutFAQs, contactFAQs, generalFAQGroups, homepageFAQs, researchFAQs, servicesFAQs } from './faqs';
+import { serviceDetailsBySlug, serviceFaqsFor } from './serviceDetails';
 
 export interface PageMetadata { path: string; title: string; description: string; noindex?: boolean }
 const serviceMetadata: Record<string, { title: string; description: string }> = {
@@ -62,8 +64,9 @@ export const seoPages: PageMetadata[] = [
   { path: '/about', title: 'About OSEC | Digestive Health & Endoscopy Specialists', description: 'Learn about OSEC, a Lagos specialist centre for digestive health, colorectal cancer prevention and advanced therapeutic endoscopy.' },
   { path: '/services', title: 'Endoscopy & Gastroenterology Services in Lagos | OSEC', description: "Explore OSEC's gastroenterology and endoscopy services in Lagos, including colonoscopy, gastroscopy, biopsies and advanced therapeutic procedures." },
   { path: '/contact', title: 'Contact OSEC | Endoscopy Clinic in Lagos', description: 'Contact OSEC in Victoria Island, Lagos, to enquire about digestive health consultations, endoscopy services or booking an appointment.' },
+  { path: '/faq', title: 'Frequently Asked Questions | OSEC', description: 'Answers to common questions about appointments, digestive health procedures, results, referrals and care at OSEC.' },
   { path: '/patient-story', title: 'Share Your Experience | OSEC', description: 'Send feedback about your OSEC experience and choose whether to give permission for publication of your story.', noindex: true },
-  { path: '/news-health-articles', title: 'Research & Publications | Digestive Health | OSEC', description: "Explore OSEC's research publications and insights on digestive health, colorectal cancer prevention and gastrointestinal endoscopy." },
+  { path: '/news-health-articles', title: 'Research & Insights | Digestive Health | OSEC', description: "Explore OSEC's research publications and insights on digestive health, colorectal cancer prevention and gastrointestinal endoscopy." },
   { path: '/privacy-policy', title: 'Privacy Policy | OSEC', description: 'How OSEC handles website enquiries, Patient Stories, publication consent, personal information and optional analytics.' },
   { path: '/terms-and-conditions', title: 'Terms & Conditions | OSEC', description: 'Terms for using the OSEC website, including general medical information, appointment requests, enquiries and Patient Stories.' },
   { path: '/cookie-policy', title: 'Cookie Policy | OSEC', description: 'Learn about essential preference storage, optional analytics and how to change or withdraw your cookie choices on the OSEC website.' },
@@ -85,12 +88,26 @@ export function metadataFor(path: string): PageMetadata {
   const normalized = path.replace(/\/+$/, '') || '/';
   return seoPages.find(page => page.path === normalized) ?? { path: normalized, title: 'Page not found | OSEC', description: 'This page is not available. Explore OSEC services or contact the clinic.', noindex: true };
 }
+function faqItemsFor(page: PageMetadata) {
+  if (page.path === '/') return homepageFAQs;
+  if (page.path === '/about') return aboutFAQs;
+  if (page.path === '/services') return servicesFAQs;
+  if (page.path === '/contact') return contactFAQs;
+  if (page.path === '/news-health-articles') return researchFAQs;
+  if (page.path === '/faq') return generalFAQGroups.flatMap(group => group.items);
+  const slug = page.path.startsWith('/services/') ? page.path.slice('/services/'.length) : '';
+  const detail = serviceDetailsBySlug[slug];
+  return detail ? serviceFaqsFor(detail) : [];
+}
 export function structuredData(page: PageMetadata, siteUrl: string) {
   if (!siteUrl || page.noindex) return [];
   const service = services.find(item => item.href === page.path);
   const serviceUrl = service ? `${siteUrl}${service.href}` : '';
+  const clinic = { '@type': page.path === '/' || page.path === '/about' ? 'MedicalClinic' : 'MedicalOrganization', '@id': `${siteUrl}/#organization`, name: 'Outpatient Surgery and Endoscopy Clinic (OSEC)', url: `${siteUrl}/`, logo: siteUrl + assets.brand.logo, telephone: '+2348164353633', email: 'info@osecng.com', address: { '@type': 'PostalAddress', streetAddress: 'CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru', addressLocality: 'Lagos', addressRegion: 'Lagos', addressCountry: 'NG' } };
+  const pageFaqs = faqItemsFor(page);
   return [{ '@context': 'https://schema.org', '@graph': [
-    { '@type': 'MedicalOrganization', '@id': `${siteUrl}/#organization`, name: 'Outpatient Surgery and Endoscopy Clinic (OSEC)', url: `${siteUrl}/`, logo: siteUrl + assets.brand.logo, telephone: '+2348164353633', email: 'info@osecng.com', address: { '@type': 'PostalAddress', streetAddress: 'CASS Place, 16 Olabisi Villa, Water Corporation Drive Oniru', addressLocality: 'Lagos', addressRegion: 'Lagos', addressCountry: 'NG' } },
+    clinic,
+    ...(page.path === '/' || page.path === '/about' ? [{ '@type': 'Physician', '@id': `${siteUrl}/about#physician`, name: 'Dr Taiwo Onabanjo', medicalSpecialty: 'Gastroenterology', worksFor: { '@id': `${siteUrl}/#organization` }, url: `${siteUrl}/about` }] : []),
     { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'OSEC', url: `${siteUrl}/`, publisher: { '@id': `${siteUrl}/#organization` } },
     ...(page.path === '/about' ? [
       { '@type': 'AboutPage', '@id': `${siteUrl}/about#webpage`, url: `${siteUrl}/about`, name: page.title, about: { '@id': `${siteUrl}/#organization` }, isPartOf: { '@id': `${siteUrl}/#website` } },
@@ -101,6 +118,7 @@ export function structuredData(page: PageMetadata, siteUrl: string) {
     ...(page.path === '/news-health-articles' ? [
       { '@type': 'CollectionPage', '@id': `${siteUrl}${page.path}#webpage`, url: `${siteUrl}${page.path}`, name: page.title, isPartOf: { '@id': `${siteUrl}/#website` }, mainEntity: { '@type': 'ItemList', itemListElement: publications.map((publication, index) => ({ '@type': 'ListItem', position: index + 1, item: { '@type': 'ScholarlyArticle', headline: publication.title, url: publication.externalUrl, datePublished: String(publication.year) } })) } },
     ] : []),
+    ...(pageFaqs.length ? [{ '@type': 'FAQPage', '@id': `${siteUrl}${page.path}#faq`, url: `${siteUrl}${page.path}`, mainEntity: pageFaqs.map(item => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: `${item.answer}${item.link ? ` ${item.link.label}.` : ''}` } })) }] : []),
     ...(service ? [
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },

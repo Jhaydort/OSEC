@@ -25,6 +25,9 @@
 .osec-faq__accordion { min-width: 0; }
 .osec-faq__item { padding-block: 20px; border-bottom: var(--border-white-20); }
 .osec-faq__item h3 { margin: 0; }
+.osec-faq__group { margin-bottom: 28px; }
+.osec-faq__group > h3 { margin: 0 0 10px; font-family: var(--font-heading); font-size: 27px; font-weight: var(--font-weight-medium); line-height: 1.2; }
+.osec-faq__answer a { color: inherit; text-decoration: underline; }
 .osec-faq__trigger {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 28px;

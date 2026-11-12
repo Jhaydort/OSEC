@@ -7,10 +7,10 @@ export function ServicesHero() {
   return (
     <section className="osec-services-hero" aria-labelledby="services-page-heading">
       <div className="osec-services-hero__content">
-        <h1 id="services-page-heading">Gastroenterology and Endoscopy Services</h1>
+        <h1 id="services-page-heading">Specialist Care Built Around Your Needs</h1>
         <div className="osec-services-hero__support">
-          <p>Explore OSEC's gastroenterology and endoscopy services in Victoria Island, Lagos.</p>
-          <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book a Consultation" />
+          <p>Delivering specialist care through advanced technology, expert diagnosis, and personalised treatment.</p>
+          <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book an Appointment" />
         </div>
       </div>
     </section>

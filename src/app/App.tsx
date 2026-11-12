@@ -23,6 +23,7 @@ import { NewsPage } from '../pages/NewsPage';
 import { ServicesPage } from '../pages/ServicesPage';
 import { ServiceDetailTemplate } from '../components/services/ServiceDetailTemplate/ServiceDetailTemplate';
 import { serviceDetailsBySlug } from '../data/serviceDetails';
+import { FAQPage } from '../pages/FAQPage';
 
 /** Native internal anchors navigate in the same tab; render the matching page. */
 export default function App({ initialPath }: { initialPath?: string } = {}) {
@@ -33,6 +34,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
   const isContact = currentPath === '/contact';
   const isAbout = currentPath === '/about';
   const isServices = currentPath === '/services';
+  const isFaq = currentPath === '/faq';
   const serviceSlug = currentPath.startsWith('/services/') ? currentPath.slice('/services/'.length) : '';
   const serviceDetail = Object.prototype.hasOwnProperty.call(serviceDetailsBySlug, serviceSlug) ? serviceDetailsBySlug[serviceSlug] : undefined;
 
@@ -43,7 +45,7 @@ export default function App({ initialPath }: { initialPath?: string } = {}) {
       <CookieConsent />
       <HomepageMotion enabled={currentPath === '/'} />
       <Navigation activeHref={currentPath} standalone={isPatientStory} />
-      {legalDocument ? <LegalPage document={legalDocument} /> : isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : currentPath === '/news-health-articles' ? <NewsPage /> : currentPath !== '/' ? <UnavailablePage news={currentPath === '/news-health-articles'} /> : <>
+      {legalDocument ? <LegalPage document={legalDocument} /> : isPatientStory ? <PatientStoryPage /> : isContact ? <ContactPage /> : isAbout ? <AboutPage /> : isFaq ? <FAQPage /> : serviceDetail ? <ServiceDetailTemplate service={serviceDetail} /> : isServices ? <ServicesPage /> : currentPath === '/news-health-articles' ? <NewsPage /> : currentPath !== '/' ? <UnavailablePage news={currentPath === '/news-health-articles'} /> : <>
       <main id="main-content" tabIndex={-1}>
       <Hero />
       <WhoWeAre />

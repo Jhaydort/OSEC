@@ -1,10 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
 import { assets } from '../../../data/assets';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
 import './Statistics.css';
 
 const PROCEDURES_TOTAL = 1_800;
-const COUNTER_DURATION = 5_000;
 
 // Figma Statistics component set 224:1962, including the added training card.
 const STATISTICS_CARDS = [
@@ -12,24 +10,28 @@ const STATISTICS_CARDS = [
     heading: 'Research & Publications',
     description: 'Explore clinical research and publications from the OSEC team.',
     image: assets.editorial.statsInternationalExpertise,
+    imageAlt: 'Two clinicians standing together in a hospital office.',
     href: '/news-health-articles',
   },
   {
     heading: 'Medical Innovation',
     description: 'Pioneering advanced therapeutic procedures that improve patient outcomes.',
     image: assets.editorial.statsMedicalInnovation,
+    imageAlt: 'Clinician holding an endoscope in a procedure room.',
     imageClassName: 'osec-statistics__image--medical-innovation',
   },
   {
     heading: 'Community Impact',
     description: 'Bringing specialist digestive healthcare closer to communities across Nigeria.',
     image: assets.editorial.statsCommunityImpact,
+    imageAlt: 'Three healthcare professionals standing together in a hospital corridor.',
     imageClassName: 'osec-statistics__image--community-impact',
   },
   {
     heading: 'Advanced Endoscopy Training',
     description: 'Training the next generation of Nigerian endoscopists in advanced techniques.',
     image: assets.editorial.statsAdvancedEndoscopyTraining,
+    imageAlt: 'Endoscopy equipment and a monitor in a procedure room.',
     imageClassName: 'osec-statistics__image--advanced-training',
   },
 ] as const;
@@ -47,7 +49,7 @@ function StatisticsCarousel() {
             aria-roledescription="slide"
           >
             <div className="osec-statistics__expertise-image-wrap">
-              {card.image && <img src={card.image} alt="" className={'imageClassName' in card ? card.imageClassName : undefined} />}
+              {card.image && <img src={card.image} alt={card.imageAlt} className={'imageClassName' in card ? card.imageClassName : undefined} />}
             </div>
             <div className="osec-statistics__expertise-copy">
               <h3>{'href' in card ? <a href={card.href}>{card.heading}</a> : card.heading}</h3>
@@ -64,69 +66,10 @@ function formatNumber(value: number) {
   return new Intl.NumberFormat('en-US').format(value);
 }
 
-/** Animates one time after the section first becomes visible. */
-function useCountUp(target: number, sectionRef: React.RefObject<HTMLElement | null>) {
-  const [value, setValue] = useState(0);
-  const hasStarted = useRef(false);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return undefined;
-
-    let frameId = 0;
-    const start = () => {
-      if (hasStarted.current) return;
-      hasStarted.current = true;
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        setValue(target);
-        return;
-      }
-
-      const startedAt = performance.now();
-      const tick = (now: number) => {
-        const progress = Math.min((now - startedAt) / COUNTER_DURATION, 1);
-        const easedProgress = 1 - Math.pow(1 - progress, 2);
-        setValue(Math.round(target * easedProgress));
-
-        if (progress < 1) frameId = requestAnimationFrame(tick);
-      };
-
-      frameId = requestAnimationFrame(tick);
-    };
-
-    if (!('IntersectionObserver' in window)) {
-      start();
-      return () => cancelAnimationFrame(frameId);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          start();
-          observer.unobserve(section);
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(section);
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frameId);
-    };
-  }, [sectionRef, target]);
-
-  return value;
-}
-
 /** Figma Home frame 224:1971. */
 export function Statistics() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const proceduresCount = useCountUp(PROCEDURES_TOTAL, sectionRef);
-
   return (
-    <section className="osec-statistics" ref={sectionRef} aria-labelledby="statistics-heading">
+    <section className="osec-statistics" aria-labelledby="statistics-heading">
       <div className="osec-statistics__intro">
         <div className="osec-statistics__eyebrow">
           <img src={assets.icons.loom} alt="" />
@@ -146,7 +89,7 @@ export function Statistics() {
       <div className="osec-statistics__panel">
         <div className="osec-statistics__metric">
           <span className="osec-statistics__number" aria-label="1,800 or more procedures in the last 3 years">
-            {formatNumber(proceduresCount)}+
+            {formatNumber(PROCEDURES_TOTAL)}+
           </span>
           <div className="osec-statistics__metric-copy">
             <h3>Procedures in the last 3 years</h3>

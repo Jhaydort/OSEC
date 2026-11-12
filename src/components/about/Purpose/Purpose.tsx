@@ -4,12 +4,12 @@ const purposeCards = [
   {
     id: 'mission',
     title: 'Our Mission',
-    description: 'To improve lives through early detection, expert diagnosis, and compassionate care,making specialist digestive healthcare more accessible to everyone.',
+    description: 'To improve lives through early detection, expert diagnosis, and compassionate care, making specialist digestive healthcare more accessible to everyone.',
   },
   {
     id: 'vision',
     title: 'Our Vision',
-    description: 'To become a leading Centre for digestive health, setting the standard for innovation, clinical excellence, education, and patient-centred care.',
+    description: 'To become a leading centre for digestive health, setting the standard for innovation, clinical excellence, education, and patient-centred care.',
   },
 ] as const;
 

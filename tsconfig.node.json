@@ -5,7 +5,8 @@
     "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "types": [
-      "node"
+      "node",
+      "vite/client"
     ],
     "noEmit": true
   },
@@ -15,6 +16,11 @@
     "src/data/seo.ts",
     "src/data/healthResources.ts",
     "src/data/services.ts",
-    "src/data/assets.ts"
+    "src/data/assets.ts",
+    "src/data/faqs.ts",
+    "src/data/serviceDetails.ts",
+    "src/data/links.ts",
+    "src/lib/analytics.ts",
+    "src/lib/consent.ts"
   ]
 }

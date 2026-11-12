@@ -27,7 +27,7 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
               <span className="osec-appointment__phone-icon"><img src={assets.icons.phone} alt="" /></span>
               <div className="osec-appointment__phones">
                 <a href="tel:+2348164353633">+234 816 435 3633</a>
-                <a href="tel:08072417458">+234 807 241 7458</a>
+                <a href="tel:+2348072417458">+234 807 241 7458</a>
               </div>
             </div>
             <div className="osec-appointment__contact-row">
@@ -53,7 +53,7 @@ export function AppointmentSection({ bookingHref = OSEC_LINKS.whatsappBooking }:
                 <span>9:00 AM – 3:00 PM</span>
               </div>
             </div>
-            <p>Consultations by appointment only. <a className="osec-appointment__booking-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Book now</a></p>
+            <p>Consultations by appointment only. <a className="osec-appointment__booking-link" href={bookingHref} target="_blank" rel="noopener noreferrer">Book an Appointment</a></p>
           </div>
         </div>
       </div>

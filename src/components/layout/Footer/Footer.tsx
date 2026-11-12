@@ -8,7 +8,8 @@ const solutionLinks = [
   { label: 'Home', href: '/' },
   { label: 'About OSEC', href: '/about' },
   { label: 'Our Services', href: '/services' },
-  { label: 'News & Health Articles', href: '/news-health-articles' },
+  { label: 'Research & Insights', href: '/news-health-articles' },
+  { label: 'FAQs', href: '/faq' },
   { label: 'Contact Us', href: '/contact' },
 ] as const;
 
@@ -24,13 +25,9 @@ interface SocialLink {
   href?: string;
 }
 
-// TODO: Add approved X and Facebook URLs when supplied.
-// Icons remain non-interactive until their real destination is available.
 const socialLinks: readonly SocialLink[] = [
-  { label: 'X', asset: assets.icons.socialX },
   { label: 'WhatsApp', asset: assets.icons.socialWhatsapp, href: OSEC_LINKS.whatsapp },
   { label: 'Instagram', asset: assets.icons.socialInstagram, href: OSEC_LINKS.instagram },
-  { label: 'Facebook', asset: assets.icons.socialFacebook },
 ];
 
 export interface FooterProps {
@@ -60,8 +57,8 @@ export function Footer({ onAppointmentClick = openWhatsAppBooking }: FooterProps
               <p className="osec-footer__statement">&quot;Your health our priority. Excellence in care every step of the way&quot;</p>
               <div className="osec-footer__actions">
                 <div className="osec-footer__appointment-row">
-                  <Button variant="secondary" onClick={onAppointmentClick}>Book Appointment</Button>
-                  <button className="osec-footer__arrow-button" type="button" onClick={onAppointmentClick} aria-label="Book Appointment">
+                  <Button variant="secondary" onClick={onAppointmentClick}>Book an Appointment</Button>
+                  <button className="osec-footer__arrow-button" type="button" onClick={onAppointmentClick} aria-label="Book an Appointment">
                     <img src={assets.icons.arrowUpRight} alt="" />
                   </button>
                 </div>

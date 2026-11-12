@@ -27,8 +27,10 @@ test('built route heads and Vercel rewrite targets agree', async () => {
       const data = JSON.parse(scripts[0][1]);
       assert.equal(data['@context'], 'https://schema.org');
       const types = data['@graph'].map(item => item['@type']);
-      assert.equal(types.filter(type => type === 'MedicalOrganization').length, 1);
+      assert.equal(types.filter(type => type === 'MedicalOrganization' || type === 'MedicalClinic').length, 1);
       assert.equal(types.filter(type => type === 'WebSite').length, 1);
+      if (path === '/' || path === '/about') assert.ok(types.includes('MedicalClinic') && types.includes('Physician'));
+      if (path === '/faq' || path.startsWith('/services/')) assert.ok(types.includes('FAQPage'));
       if (path === '/services') assert.ok(types.includes('CollectionPage'));
       if (path === '/news-health-articles') assert.ok(types.includes('CollectionPage'));
       if (path === '/about') assert.ok(types.includes('AboutPage'));
@@ -36,6 +38,10 @@ test('built route heads and Vercel rewrite targets agree', async () => {
     }
   }
   assert.deepEqual(config.rewrites[0], { source: '/api/:path*', destination: '/api/:path*' });
+  for (const [source, destination] of [
+    ['/services/paediatric-endoscopy-procedures', '/services/paediatric-upper-gi-endoscopy'],
+    ['/services/behavioral-counseling', '/services/behavioural-counselling'],
+  ]) assert.deepEqual(config.redirects.find(rule => rule.source === source), { source, destination, statusCode: 301 });
   assert.equal(config.rewrites.at(-1).destination, '/404.html');
   assert.deepEqual(config.redirects.find((rule) => rule.source === '/terms-of-service'), { source: '/terms-of-service', destination: '/terms-and-conditions', permanent: true });
   assert.ok((await read('dist/404.html')).includes('noindex, follow'));
@@ -51,6 +57,6 @@ test('robots and sitemap use the configured production origin with no duplicate 
   const sitemap = await read('dist/sitemap.xml');
   const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
   assert.equal(new Set(urls).size, urls.length);
-  assert.equal(urls.length, 21);
+  assert.equal(urls.length, 22);
   assert.deepEqual(new Set(urls), new Set(paths.filter(path => !['/patient-story'].includes(path)).map(path => domain + path)));
 });

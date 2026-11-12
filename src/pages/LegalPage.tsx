@@ -15,5 +15,5 @@ export function LegalPage({ document }: { document: LegalDocument }) {
 }
 
 export function UnavailablePage({ news = false }: { news?: boolean }) {
-  return <><main id="main-content" tabIndex={-1} className="osec-legal"><Container><h1>{news ? 'News & Health Articles' : 'Page not found'}</h1><p>{news ? 'Full health articles are not available on this website yet. Please contact OSEC for information about our services.' : 'We could not find this page. Please use the navigation or return to the homepage.'}</p><p><a href="/">Return to Home</a> · <a href="/contact">Contact OSEC</a></p></Container></main><Footer /></>;
+  return <><main id="main-content" tabIndex={-1} className="osec-legal"><Container><h1>{news ? 'Research & Insights' : 'Page not found'}</h1><p>{news ? 'Full health articles are not available on this website yet. Please contact OSEC for information about our services.' : 'We could not find this page. Please use the navigation or return to the homepage.'}</p><p><a href="/">Return to Home</a> · <a href="/contact">Contact OSEC</a></p></Container></main><Footer /></>;
 }

@@ -8,15 +8,12 @@ import './PatientStories.css';
 /** Existing Figma carousel, populated only by the approved public query. */
 export function PatientStories() {
   const [items, setItems] = useState<PatientStory[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [loadFailed, setLoadFailed] = useState(false);
   useEffect(() => {
     const controller = new AbortController();
     import('../../../lib/fetchPatientStories')
       .then(({ fetchPatientStories }) => fetchPatientStories(controller.signal))
       .then((stories) => { if (!controller.signal.aborted) setItems(stories); })
-      .catch(() => { if (!controller.signal.aborted) setLoadFailed(true); })
-      .finally(() => { if (!controller.signal.aborted) setLoading(false); });
+      .catch(() => {});
     return () => controller.abort();
   }, []);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,8 +53,10 @@ export function PatientStories() {
     return () => window.clearTimeout(timer);
   }, [items.length, activeIndex, paused, focused, hidden, reducedMotion, previousIndex, timerVersion, selectStory]);
 
+  if (!items.length) return null;
+
   return (
-    <section className="osec-patient-stories" aria-labelledby="patient-stories-heading" aria-busy={loading} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
+    <section className="osec-patient-stories" aria-labelledby="patient-stories-heading" onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
       <img className="osec-patient-stories__background" src={assets.editorial.operatingTheatre} alt="" loading="lazy" />
 
       <div className="osec-patient-stories__panel">
@@ -69,7 +68,7 @@ export function PatientStories() {
           <h2 id="patient-stories-heading">Trusted by Patients. Driven by Compassion.</h2>
         </header>
 
-        {items.length ? <div className="osec-patient-stories__viewport" data-direction={direction}
+        <div className="osec-patient-stories__viewport" data-direction={direction}
           onPointerEnter={(event) => { if (event.pointerType === 'mouse') setPaused(true); }}
           onPointerLeave={() => setPaused(false)}
           onTouchStartCapture={() => setPaused(true)} onTouchEndCapture={() => setPaused(false)} onTouchCancelCapture={() => setPaused(false)}
@@ -106,9 +105,7 @@ export function PatientStories() {
             </blockquote>
             <figcaption>{story.full_name} &mdash; {services.find((service) => service.id === story.service)?.title ?? story.service}</figcaption>
           </div>
-        </figure>)}</div> : <div className="osec-patient-stories__card osec-patient-stories__placeholder" role="status">
-          {loading ? 'Loading patient stories...' : loadFailed ? 'Patient stories are temporarily unavailable. Please try again later.' : 'Patient stories will appear here when available.'}
-        </div>}
+        </figure>)}</div>
 
         <div className="osec-patient-stories__pagination" aria-label="Patient story navigation">
           {items.map((_, index) => <button key={index} type="button" aria-label={`Show patient story ${index + 1}`} aria-current={index === activeIndex ? 'true' : undefined} onClick={() => selectStory(index, index < activeIndex ? -1 : 1)} />)}

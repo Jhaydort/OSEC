@@ -28,6 +28,7 @@ export interface ServiceDetailData {
   sections?: readonly ServiceDetailSection[];
   whyChoose?: string;
   whyChooseImage?: string;
+  reviewDate?: string;
   counselor?: {
     label: string;
     heading: string;
@@ -95,7 +96,7 @@ export const gastrointestinalConsultationDetail: ServiceDetailData = {
   sections: [
     {
       heading: 'Who Should See a Gastroenterologist?',
-      paragraphs: ['A GI specialist consultation may be suitable for anyone experiencing persistent, recurrent or unexplained digestive symptoms, or for individuals who require specialist assessment of a known gastrointestinal condition.'],
+        paragraphs: ['A GI specialist consultation may be suitable for anyone experiencing persistent, recurrent or unexplained digestive symptoms, or for individuals who require specialist assessment of a known gastrointestinal condition.', 'We also see patients referred by their GP or another specialist, and those seeking a second opinion on a known condition.'],
     },
     {
       heading: 'Why Might You Need a Consultation?',
@@ -114,9 +115,9 @@ export const gastrointestinalConsultationDetail: ServiceDetailData = {
       paragraphs: ['Your specialist will explain the findings and discuss the next steps, which may include treatment, further investigations, monitoring or referral where appropriate.'],
     },
   ],
-  whyChoose: 'At OSEC, we combine specialist gastrointestinal expertise with a patient-centred approach, ensuring that each patient receives personalised advice and a clear plan of care.',
+  whyChoose: 'Your consultation is with an internationally trained gastroenterologist who can, where needed, perform your endoscopy at the same centre, so there is no need to be referred elsewhere.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -142,8 +143,6 @@ export const gastroscopyDetail: ServiceDetailData = {
       'Gastritis',
       'Stomach or duodenal ulcers',
       'Gastro-oesophageal reflux disease (GERD)',
-      'Difficulty swallowing',
-      'Unexplained upper abdominal symptoms',
       'Upper gastrointestinal bleeding',
       'Abnormal growths or lesions',
       'Certain gastrointestinal cancers',
@@ -154,7 +153,7 @@ export const gastroscopyDetail: ServiceDetailData = {
   sections: [
     {
       heading: 'Who May Need a Gastroscopy?',
-      paragraphs: ['Gastroscopy may be recommended for people experiencing persistent or unexplained upper gastrointestinal symptoms, or when a doctor needs to investigate a suspected digestive condition.'],
+        paragraphs: ['Gastroscopy may be recommended for people experiencing persistent or unexplained upper gastrointestinal symptoms, including difficulty swallowing or unexplained upper abdominal symptoms, or when a doctor needs to investigate a suspected digestive condition.'],
     },
     {
       heading: 'Why Might You Need Gastroscopy?',
@@ -191,9 +190,9 @@ export const gastroscopyDetail: ServiceDetailData = {
       ],
     },
   ],
-  whyChoose: 'OSEC combines specialist expertise, modern endoscopic equipment and a comfort-focused approach to provide safe and effective upper GI investigation and treatment.',
+  whyChoose: 'Upper GI endoscopy at OSEC is performed by an internationally trained specialist.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -207,6 +206,7 @@ export const colonoscopyDetail: ServiceDetailData = {
     { id: 'colonoscopy-examines', question: 'What does a colonoscopy examine?', answer: 'A colonoscopy allows a specialist to examine the lining of the rectum and the entire colon using a flexible camera.' },
     { id: 'colonoscopy-polyps', question: 'Can biopsies or polyps be removed during colonoscopy?', answer: 'Biopsies can be taken and suitable polyps or lesions may sometimes be removed during the same procedure.' },
     { id: 'colonoscopy-preparation', question: 'How do I prepare for colonoscopy?', answer: 'You will receive detailed instructions regarding bowel preparation, diet, fasting and medications before your procedure.' },
+    { id: 'colonoscopy-bowel-preparation', question: 'What is bowel preparation?', answer: 'Bowel preparation clears the bowel before colonoscopy. You will receive detailed instructions regarding preparation, diet, fasting and medications before your procedure.' },
   ],
   overview: [
     'Colonoscopy is an endoscopic procedure that allows a specialist to examine the inside of the colon and rectum using a thin, flexible camera called a colonoscope.',
@@ -224,7 +224,7 @@ export const colonoscopyDetail: ServiceDetailData = {
       'Gastrointestinal bleeding',
       'Other abnormalities of the colon and rectum',
     ],
-    conclusion: 'Colonoscopy can also investigate symptoms such as rectal bleeding, changes in bowel habits, persistent diarrhoea or constipation and unexplained abdominal symptoms. Biopsies or suitable polyps may be removed during the procedure when clinically appropriate.',
+    conclusion: 'Colonoscopy can also investigate symptoms such as rectal bleeding, changes in bowel habits, persistent diarrhoea or constipation and unexplained abdominal symptoms. Biopsies may be taken and suitable polyps removed during the same procedure where clinically appropriate.',
   },
   sections: [
     {
@@ -265,9 +265,9 @@ export const colonoscopyDetail: ServiceDetailData = {
       ],
     },
   ],
-  whyChoose: 'OSEC provides specialist lower gastrointestinal assessment using modern endoscopic technology, careful monitoring and a patient-focused approach to diagnosis, screening and treatment.',
+  whyChoose: 'Your colonoscopy is performed by an ESGE-trained endoscopist following European quality standards, with access to advanced polyp removal (EMR, ESD and EFTR) in the same session where appropriate.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -287,7 +287,8 @@ export const gastrointestinalBiopsyDetail: ServiceDetailData = {
     heading: 'What Can a Gastrointestinal Biopsy Diagnose?',
     introduction: 'Biopsies may help investigate:',
     items: [
-      'Inflammation',
+      'Inflammatory conditions of the oesophagus, stomach or bowel',
+        'Helicobacter pylori infection',
       'Gastritis',
       'Inflammatory bowel disease',
       'Coeliac disease',
@@ -325,9 +326,9 @@ export const gastrointestinalBiopsyDetail: ServiceDetailData = {
       paragraphs: ['The tissue samples are sent to the laboratory for histopathological examination. Your specialist will explain when and how your results will be communicated.'],
     },
   ],
-  whyChoose: 'At OSEC, biopsies are performed when clinically indicated to support accurate diagnosis and appropriate treatment planning.',
+  whyChoose: 'Samples are examined by a histopathologist and the results are reviewed by your specialist so they can be explained clearly and acted on promptly.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -356,7 +357,7 @@ export const emrDetail: ServiceDetailData = {
     {
       heading: 'Who May Need EMR?',
       paragraphs: [
-        'EMR may be suitable for patients with appropriately selected lesions where endoscopic removal is considered safe and appropriate.',
+        'EMR may be suitable when the lesion?s size, location and appearance mean it can be removed safely through the endoscope.',
         'Suitability depends on factors such as the size, location, appearance and characteristics of the lesion.',
       ],
     },
@@ -384,9 +385,9 @@ export const emrDetail: ServiceDetailData = {
       paragraphs: ['You will be monitored after the procedure and given specific instructions regarding eating, medications, recovery and follow-up.'],
     },
   ],
-  whyChoose: 'OSEC performs EMR using modern endoscopy equipment with an experienced specialist team and a strong focus on patient safety, comfort and optimal outcomes.',
+  whyChoose: 'OSEC offers the full range of endoscopic resection (EMR, ESD and EFTR), so the most suitable technique can be chosen for each lesion.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -400,11 +401,12 @@ export const esdDetail: ServiceDetailData = {
     { id: 'esd-what-is', question: 'What is endoscopic submucosal dissection?', answer: 'ESD is an advanced minimally invasive procedure used to remove selected large or complex precancerous lesions and early cancers of the gastrointestinal tract.' },
     { id: 'esd-enbloc', question: 'What does en bloc removal mean?', answer: 'En bloc means removing a selected lesion in one piece. The specimen can then undergo detailed pathological assessment, including examination of its depth and margins.' },
     { id: 'esd-suitability', question: 'How is suitability for ESD decided?', answer: 'The specialist assesses the lesion’s size, location, appearance and other features before deciding whether ESD is suitable.' },
+    { id: 'esd-comparison', question: 'How is ESD different from EMR or surgery?', answer: 'ESD can remove a selected lesion in one piece for detailed pathological assessment. It is an endoscopic approach; whether it is suitable instead of EMR or surgery depends on specialist assessment of the lesion.' },
   ],
   overview: ['Endoscopic Submucosal Dissection (ESD) is an advanced minimally invasive procedure used to remove selected large or complex precancerous lesions and early cancers of the gastrointestinal tract without conventional major surgery.'],
   assessment: {
     heading: 'What Conditions Can ESD Treat?',
-    introduction: 'ESD may be used for carefully selected:',
+    introduction: 'ESD may be used for selected lesions in the oesophagus, stomach, colon and rectum, including:',
     items: [
       'Large or complex precancerous lesions',
       'High-grade dysplasia',
@@ -417,13 +419,13 @@ export const esdDetail: ServiceDetailData = {
       heading: 'Who Is It For?',
       paragraphs: [
         'ESD is considered for patients whose lesions have characteristics that make endoscopic removal appropriate.',
-        "The specialist assesses the lesion's size, location, appearance and other features before deciding whether ESD is suitable.",
+        "The specialist assesses the lesion?s size, location, appearance and other features before deciding whether ESD is suitable.",
       ],
     },
     {
       heading: 'Why Might You Need ESD?',
       paragraphs: [
-        'One of the important advantages of ESD is the ability to remove selected lesions, often in one piece (en bloc). This allows the entire lesion to undergo detailed pathological assessment, including its depth and margins.',
+        'A key advantage of ESD is that the lesion is usually removed in one piece (en bloc). This allows the entire lesion to undergo detailed pathological assessment, including its depth and margins.',
         'For selected early rectal cancers, ESD may also provide an organ-preserving treatment option, potentially avoiding radical rectal surgery in appropriately selected patients.',
       ],
     },
@@ -447,9 +449,9 @@ export const esdDetail: ServiceDetailData = {
       paragraphs: ['Recovery and observation depend on the extent and location of the treatment. Your specialist will provide specific instructions regarding diet, medications, activity and follow-up.'],
     },
   ],
-  whyChoose: 'OSEC was the first team in Nigeria to perform ESD. The lead endoscopist is internationally trained in gastrointestinal endoscopy, with training in Germany and advanced training in Denmark and Belgium. Each patient is assessed to determine whether ESD is appropriate.',
+  whyChoose: 'OSEC was the first team in Nigeria to perform ESD. The lead endoscopist is internationally trained, with training in Germany and advanced training in Denmark and Belgium.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -461,7 +463,7 @@ export const eftrDetail: ServiceDetailData = {
   imageAlt: 'Endoscopic image of tissue and a resection device displayed on a clinical monitor.',
   faqs: [
     { id: 'eftr-what-is', question: 'What is endoscopic full-thickness resection?', answer: 'EFTR allows the full thickness of the bowel wall containing a selected lesion to be removed endoscopically, providing a specimen for histopathological examination.' },
-    { id: 'eftr-device', question: 'How does the full-thickness resection device work?', answer: 'The lesion is drawn into the device, a specialised clip closes the bowel wall, and the lesion is then removed above the clip.' },
+    { id: 'eftr-device', question: 'How does the full-thickness resection device work?', answer: 'The lesion is drawn into the device, a specialised clip closes the bowel wall, and the lesion is then cut away above the clip.' },
     { id: 'eftr-suitability', question: 'How is suitability for EFTR assessed?', answer: 'The specialist assesses the lesion’s size, location and characteristics before deciding whether EFTR is appropriate.' },
   ],
   overview: ['Endoscopic Full-Thickness Resection (EFTR) is an advanced minimally invasive procedure used to remove selected small gastrointestinal lesions, neuroendocrine tumours (NETs), difficult or non-lifting polyps and selected early cancers.'],
@@ -488,7 +490,7 @@ export const eftrDetail: ServiceDetailData = {
       heading: 'Why Might You Need EFTR?',
       paragraphs: [
         'EFTR allows the full thickness of the bowel wall containing the lesion to be removed endoscopically. It can provide an intact specimen for detailed histopathological examination.',
-        'For carefully selected early rectal lesions, it may provide an organ-preserving alternative to major surgery.',
+        'For suitable early rectal lesions, it may provide an organ-preserving alternative to major surgery.',
       ],
     },
     {
@@ -515,9 +517,9 @@ export const eftrDetail: ServiceDetailData = {
       paragraphs: ['The removed tissue undergoes histopathological assessment to determine the exact characteristics of the lesion and whether complete removal has been achieved.'],
     },
   ],
-  whyChoose: 'At OSEC, each patient is assessed to determine an appropriate treatment approach. The aim is to remove the selected lesion while preserving normal bowel and rectal function whenever possible.',
+  whyChoose: 'Each patient is assessed to determine an appropriate treatment approach. The aim is to remove the suitable lesion while preserving normal bowel and rectal function whenever possible.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -529,7 +531,7 @@ export const pegDetail: ServiceDetailData = {
   imageAlt: 'Endoscopic view of a feeding tube placed inside the stomach.',
   faqs: [
     { id: 'peg-what-is', question: 'What is PEG feeding tube placement?', answer: 'Percutaneous Endoscopic Gastrostomy (PEG) places a feeding tube directly into the stomach through a small opening in the abdomen.' },
-    { id: 'peg-who', question: 'Who may be considered for a PEG tube?', answer: 'PEG may be considered for patients who cannot maintain adequate nutrition or hydration by mouth but have a functioning gastrointestinal tract.' },
+    { id: 'peg-who', question: 'Who may be considered for a PEG tube?', answer: 'PEG may be considered when you cannot eat or drink enough safely by mouth but have a functioning gastrointestinal tract. This may be, for example, after a stroke, with head and neck cancer, with neurological conditions affecting swallowing, or during prolonged illness.' },
     { id: 'peg-care', question: 'Will I receive guidance on caring for a PEG tube?', answer: 'OSEC provides patients and their families with guidance on caring for the tube and using it safely at home.' },
   ],
   overview: [
@@ -564,7 +566,7 @@ export const pegDetail: ServiceDetailData = {
     },
     {
       heading: 'Sedation & Comfort',
-      paragraphs: ['PEG placement is usually performed with sedation to help keep the patient comfortable.'],
+      paragraphs: ['PEG placement is usually performed with sedation to help keep you comfortable.'],
     },
     {
       heading: 'After the Procedure',
@@ -575,9 +577,9 @@ export const pegDetail: ServiceDetailData = {
       paragraphs: ['At OSEC, patients and their families receive guidance on caring for the tube and using it safely at home.'],
     },
   ],
-  whyChoose: 'OSEC provides PEG placement with a focus on safe tube insertion, patient comfort and continued support for patients and their families.',
+  whyChoose: 'OSEC provides PEG placement, with guidance for you and your family on caring for the tube and using it safely at home.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -585,7 +587,7 @@ export const pegDetail: ServiceDetailData = {
 /** Paediatric Colonoscopy copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
 export const paediatricColonoscopyDetail: ServiceDetailData = {
   service: paediatricColonoscopyService,
-  title: "Paediatric Colonoscopy: Clearer Answers for Your Child's Bowel Health",
+  title: "Paediatric Colonoscopy: Clearer Answers for Your Child?s Bowel Health",
   subtitle: 'A careful examination of the colon and rectum to investigate ongoing symptoms, take biopsies when needed, and guide appropriate care.',
   imageAlt: 'Endoscopic view of the lower digestive tract during examination.',
   faqs: [
@@ -604,8 +606,7 @@ export const paediatricColonoscopyDetail: ServiceDetailData = {
       'Inflammatory bowel disease',
       'Polyps',
       'Inflammation',
-      'Other bowel lesions',
-      'Other causes of persistent gastrointestinal symptoms',
+      'Other causes of persistent bowel symptoms',
     ],
   },
   sections: [
@@ -638,16 +639,16 @@ export const paediatricColonoscopyDetail: ServiceDetailData = {
     },
     {
       heading: 'Sedation and Comfort',
-      paragraphs: ["Appropriate sedation or anaesthesia is used according to the child's age, procedure and individual needs. OSEC focuses on making the experience as comfortable and stress-free as possible."],
+      paragraphs: ["Appropriate sedation or anaesthesia is used according to the child?s age, procedure and individual needs. OSEC focuses on making the experience as comfortable and stress-free as possible."],
     },
     {
       heading: 'Recovery and Aftercare',
       paragraphs: ['The child will be monitored in recovery and the specialist will discuss the findings and any further investigations or treatment required.'],
     },
   ],
-  whyChoose: 'Our paediatric endoscopy approach prioritises safety, reassurance, comfort and individualised care for both children and their parents.',
+  whyChoose: 'Our paediatric colonoscopy team assesses lower digestive symptoms in children and explains preparation and aftercare to families.',
   cta: {
-    label: 'Book Appointment',
+    label: 'Book an Appointment',
     href: OSEC_LINKS.whatsappBooking,
   },
 };
@@ -661,7 +662,7 @@ export const glp1AssessmentDetail: ServiceDetailData = {
   faqs: [
     { id: 'glp1-assessment', question: 'What happens during a GLP-1 assessment?', answer: 'The specialist reviews your medical history, current health, gastrointestinal and pancreatic health, medications, symptoms, risk factors and weight-management goals.' },
     { id: 'glp1-eligibility', question: 'Is GLP-1-based treatment suitable for everyone?', answer: 'No. GLP-1-based treatment is not suitable for everyone. A medical assessment helps determine whether it is appropriate and whether further investigations or specialist input are needed.' },
-    { id: 'glp1-monitoring', question: 'Will treatment be monitored?', answer: 'If treatment is considered appropriate, your healthcare professional will discuss available options and the monitoring required during treatment.' },
+    { id: 'glp1-monitoring', question: 'Will treatment be monitored?', answer: 'If treatment is considered appropriate, your specialist will discuss available options and the monitoring required during treatment.' },
   ],
   overview: [
     'At OSEC, our GLP-1 Obesity Clinic provides a comprehensive medical assessment for individuals considering GLP-1-based treatment for weight management.',
@@ -695,13 +696,13 @@ export const glp1AssessmentDetail: ServiceDetailData = {
       heading: 'Assessment and Care Planning',
       paragraphs: [
         'During your consultation, the specialist will review your health history and assess factors relevant to treatment.',
-        'Where clinically appropriate, investigations may be recommended. These are guided by your medical history, symptoms and individual risk factors rather than automatically requiring a routine pancreatic function test for every patient.',
+        'Any investigations are tailored to your medical history, symptoms and individual risk factors.',
       ],
     },
     {
       heading: 'Treatment and Monitoring',
       paragraphs: [
-        'If treatment is considered appropriate, your healthcare professional will discuss the available options and the monitoring required during treatment.',
+        'If treatment is considered appropriate, your specialist will discuss the available options and the monitoring required during treatment.',
         'GLP-1-based medicines can reduce appetite, increase feelings of fullness and support weight loss in appropriately selected individuals.',
       ],
     },
@@ -710,10 +711,11 @@ export const glp1AssessmentDetail: ServiceDetailData = {
       paragraphs: ['GLP-1-based medicines are prescription treatments and are not suitable for everyone. They should be prescribed and monitored by an appropriately qualified healthcare professional.'],
     },
     {
-      heading: "OSEC's Approach",
+      heading: "OSEC?s Approach",
       paragraphs: ['Our aim is to help each patient make an informed and safe decision while supporting sustainable improvements in health, wellbeing and quality of life.'],
     },
   ],
+  whyChoose: 'As a gastroenterology-led clinic, OSEC can assess the digestive and pancreatic health factors that matter most for GLP-1 treatment, and manage any side effects in-house.',
 };
 
 /** Weight-management copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
@@ -760,6 +762,7 @@ export const weightManagementDetail: ServiceDetailData = {
       paragraphs: ['Weight management is an ongoing process. Follow-up allows your healthcare team to monitor progress, assess response to treatment and make adjustments where necessary.'],
     },
   ],
+  whyChoose: 'Your plan is built around your medical history and goals, with regular follow-up from a specialist team that can also assess digestive health.',
 };
 
 /** Paediatric OGD copy from assets/OSEC_Service_Detail_Content_Updated.docx. */
@@ -771,10 +774,10 @@ export const paediatricEndoscopyDetail: ServiceDetailData = {
     { id: 'paed-upper-biopsy', question: 'Can biopsies be taken during a child’s upper GI endoscopy?', answer: 'Small biopsies may be taken during the examination when necessary or clinically indicated.' },
     { id: 'paed-upper-preparation', question: 'How should I prepare my child for the procedure?', answer: 'Parents or guardians receive clear instructions about fasting, medications and other preparation before the procedure.' },
   ],
-  "title": "Paediatric Upper GI Endoscopy (OGD): Gentle Investigation for Your Child's Upper Digestive Health",
+  "title": "Paediatric Upper GI Endoscopy (OGD): Gentle Investigation for Your Child?s Upper Digestive Health",
   "subtitle": "A child-centred procedure to examine the oesophagus, stomach and duodenum, helping investigate persistent symptoms safely and comfortably.",
   "overview": [
-    "Paediatric Upper GI Endoscopy (OGD, or oesophago-gastro-duodenoscopy) is a minimally invasive procedure that allows our specialist team to examine a child's oesophagus, stomach and duodenum using a thin flexible camera passed through the mouth.",
+    "Paediatric Upper GI Endoscopy (OGD, or oesophago-gastro-duodenoscopy) is a minimally invasive procedure that allows our specialist team to examine a child?s oesophagus, stomach and duodenum using a thin flexible camera passed through the mouth.",
     "Small biopsies may be taken during the examination when necessary."
   ],
   "assessment": {
@@ -817,7 +820,7 @@ export const paediatricEndoscopyDetail: ServiceDetailData = {
     {
       "heading": "What Happens During the Procedure?",
       "paragraphs": [
-        "The child will be appropriately prepared before the procedure. The flexible endoscope is passed through the mouth and the upper digestive tract is carefully examined.",
+        "Our team will explain each step to you and your child before the procedure. The flexible endoscope is passed through the mouth and the upper digestive tract is carefully examined.",
         "Biopsies may be taken if clinically indicated."
       ]
     },
@@ -830,7 +833,7 @@ export const paediatricEndoscopyDetail: ServiceDetailData = {
     {
       "heading": "Sedation and Comfort",
       "paragraphs": [
-        "The procedure is carried out with appropriate sedation or anaesthesia to ensure that the child remains comfortable and safe."
+        "The procedure is carried out with appropriate sedation or anaesthesia to help keep your child comfortable and safe throughout."
       ]
     },
     {
@@ -840,9 +843,9 @@ export const paediatricEndoscopyDetail: ServiceDetailData = {
       ]
     }
   ],
-  "whyChoose": "OSEC takes a child-centred approach, focusing on reassurance, comfort and safety throughout the experience.",
+  "whyChoose": "Our team explains each step to you and your child, and plans the examination and aftercare around your child’s needs.",
   "cta": {
-    "label": "Book Appointment",
+    "label": "Book an Appointment",
     "href": OSEC_LINKS.whatsappBooking
   }
 };
@@ -873,7 +876,7 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
       { id: 'counselling-plan', question: 'What can I expect from care planning?', answer: 'The service uses assessment and compassionate guidance to help you understand your concerns, explore practical coping strategies and develop a care plan.' },
     ],
     backLabel: 'Back to Services',
-    overview: ['Our behavioural health and counselling service supports people experiencing emotional, psychological or behavioural challenges. Through personalised assessment and compassionate guidance, we help you understand your concerns, explore practical coping strategies and develop a care plan for your mental and emotional wellbeing.'],
+    overview: ['Our behavioural health and counselling service supports people experiencing emotional, psychological or behavioural challenges. Through personalised assessment and compassionate guidance, we help you understand your concerns, explore practical coping strategies and develop a care plan for your mental and emotional wellbeing. Digestive health and emotional wellbeing are closely linked through the gut–brain connection, so counselling can support conditions such as IBS, weight management and eating-related concerns.'],
     sections: [
       {
         heading: 'Assessment and Care Planning',
@@ -904,6 +907,28 @@ export const serviceDetailsBySlug: Readonly<Record<string, ServiceDetailData>> =
         'Mrs Iwayemi leads outpatient counselling, clinical case management and recovery support. Her practice focuses on evidence-based addiction interventions, adolescent psychological support and individualised care planning. She supports patients and families with compassionate counselling and practical pathways to long-term wellbeing.',
       ],
     },
+    whyChoose: 'Counselling is led by a UTC-trained counsellor with experience in addiction and adolescent mental health.',
     whyChooseImage: assets.editorial.image1171283239,
   },
 };
+
+const additionalServiceFaqs: Readonly<Record<string, FAQItem>> = {
+  'specialist-consultation': { id: 'consult-referral-records', question: 'Can I bring previous investigation results?', answer: 'Yes. Bring previous test results and a list of your medications so the specialist can consider them during your assessment.' },
+  gastroscopy: { id: 'gastroscopy-examined', question: 'Which parts of the digestive tract are examined?', answer: 'Gastroscopy examines the oesophagus, stomach and duodenum using a thin, flexible camera passed through the mouth.' },
+  emr: { id: 'emr-after-removal', question: 'What happens to tissue removed during EMR?', answer: 'The removed tissue is sent for laboratory examination to determine its characteristics and whether further treatment or follow-up is required.' },
+  esd: { id: 'esd-cancer-result', question: 'What happens if the lesion turns out to be cancer?', answer: 'The removed specimen undergoes pathological assessment, including examination of its depth and margins. Your specialist will explain the findings and discuss any further treatment or follow-up.' },
+  biopsy: { id: 'biopsy-where', question: 'Where can a gastrointestinal biopsy be taken?', answer: 'A biopsy may be taken during gastroscopy or colonoscopy when the specialist considers tissue sampling appropriate.' },
+  'peg-feeding-tube': { id: 'peg-follow-up', question: 'What support is available after PEG placement?', answer: 'You and your family receive guidance on caring for the tube and using it safely at home.' },
+  'paediatric-endoscopy': { id: 'paed-upper-results', question: 'What happens after my child’s endoscopy?', answer: 'Your child will be monitored until sufficiently recovered. The medical team will explain when normal eating and drinking can resume and discuss any findings.' },
+  'paediatric-colonoscopy': { id: 'paed-colon-biopsy-results', question: 'Can biopsies be taken during the procedure?', answer: 'Small biopsies can be taken, and some suitable polyps or lesions may be removed during the procedure.' },
+  'eftr-advanced': { id: 'eftr-aftercare', question: 'What happens after EFTR?', answer: 'You will be monitored following the procedure. Your specialist will provide specific instructions regarding recovery, diet, medications and follow-up.' },
+  'glp-1-assessment-obesity-clinic': { id: 'glp1-medical-review', question: 'What does the assessment consider?', answer: 'The specialist reviews your medical history, current health, digestive and pancreatic health, medications, symptoms, risk factors and weight-management goals.' },
+  'weight-management': { id: 'weight-follow-up-detail', question: 'Is follow-up part of weight management?', answer: 'Follow-up allows your specialist team to monitor progress, assess response to treatment and make adjustments where necessary.' },
+  'behavioral-counseling': { id: 'counselling-support-plan', question: 'How is a counselling care plan developed?', answer: 'Assessment and compassionate guidance help you understand your concerns, explore practical coping strategies and develop a care plan.' },
+};
+
+export function serviceFaqsFor(detail: ServiceDetailData): readonly FAQItem[] {
+  const current = detail.faqs ?? [];
+  const extra = additionalServiceFaqs[detail.service.id];
+  return extra && !current.some(item => item.id === extra.id) ? [...current, extra] : current;
+}

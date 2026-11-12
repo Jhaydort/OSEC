@@ -1,12 +1,13 @@
 import { PageMotion } from '../../motion/PageMotion';
 import { assets } from '../../../data/assets';
-import { OSEC_LINKS } from '../../../data/links';
-import type { ServiceDetailData } from '../../../data/serviceDetails';
+import { getServiceBookingUrl } from '../../../data/links';
+import { serviceFaqsFor, type ServiceDetailData } from '../../../data/serviceDetails';
 import { Footer } from '../../layout/Footer/Footer';
 import { AlternativeButton } from '../../ui/AlternativeButton/AlternativeButton';
 import { FAQSection } from '../../shared/FAQSection/FAQSection';
 import { faqs } from '../../../data/faqs';
 import { ServiceRecommendations } from '../ServiceRecommendations/ServiceRecommendations';
+import { ServiceMedicalReview } from '../ServiceMedicalReview/ServiceMedicalReview';
 import './ServiceDetailTemplate.css';
 
 export interface ServiceDetailTemplateProps {
@@ -33,6 +34,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               <p>{service.subtitle}</p>
             </div>
           </header>
+          {service.service.id === 'esd' ? <p className="osec-service-detail__milestone">First performed in Nigeria by OSEC</p> : null}
 
           {service.service.image ? <div className={`osec-service-detail__hero-image${service.service.id === 'behavioral-counseling' ? ' osec-service-detail__hero-image--behavioral' : ''}`}>
             <img src={service.service.image} alt={service.imageAlt} width={802} height={435} style={service.imagePosition ? { objectPosition: service.imagePosition } : undefined} />
@@ -101,12 +103,14 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               <h2 id="why-osec-heading">Why Choose OSEC?</h2>
               <p>{service.whyChoose ?? 'At OSEC, we combine specialist expertise with personalised care, giving every patient the attention and confidence they deserve.'}</p>
             </div>
-            <AlternativeButton href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer" label="Book Appointment" />
+            <AlternativeButton href={getServiceBookingUrl(service.service.title)} target="_blank" rel="noopener noreferrer" label="Book an Appointment" />
           </section>
         </div>
 
         <ServiceRecommendations currentServiceId={service.service.id} />
-        <FAQSection items={service.faqs ?? faqs} />
+        <FAQSection items={service.faqs ? serviceFaqsFor(service) : faqs} />
+        {service.service.id === 'behavioral-counseling' ? <p className="osec-service-detail__crisis-note">If you are in crisis or in immediate danger, please go to your nearest hospital emergency department or call local emergency services.</p> : null}
+        <ServiceMedicalReview reviewDate={service.reviewDate} />
       </main>
       <Footer />
     </>

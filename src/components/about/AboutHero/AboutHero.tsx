@@ -76,8 +76,8 @@ export function AboutHero() {
               <p>Procedures Performed in the Last 3 Years</p>
               </div>
               <div className="osec-about-hero__stat">
-                <p className="osec-about-hero__milestone">First Team in Nigeria</p>
-              <p>to perform Endoscopic Submucosal Dissection (ESD) in Nigeria</p>
+                <p className="osec-about-hero__milestone">First in Nigeria</p>
+              <p>Pioneers of Endoscopic Submucosal Dissection (ESD)</p>
               </div>
             </div>
           </div>

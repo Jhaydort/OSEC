@@ -5,6 +5,10 @@
       "destination": "/api/:path*"
     },
     {
+      "source": "/faq",
+      "destination": "/faq/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/about/index.html"
     },
@@ -65,8 +69,8 @@
       "destination": "/services/peg-feeding-tube-placement/index.html"
     },
     {
-      "source": "/services/paediatric-endoscopy-procedures",
-      "destination": "/services/paediatric-endoscopy-procedures/index.html"
+      "source": "/services/paediatric-upper-gi-endoscopy",
+      "destination": "/services/paediatric-upper-gi-endoscopy/index.html"
     },
     {
       "source": "/services/endobariatric-medical-weight-management",
@@ -85,8 +89,8 @@
       "destination": "/services/glp-1-assessment-obesity-clinic/index.html"
     },
     {
-      "source": "/services/behavioral-counseling",
-      "destination": "/services/behavioral-counseling/index.html"
+      "source": "/services/behavioural-counselling",
+      "destination": "/services/behavioural-counselling/index.html"
     },
     {
       "source": "/",
@@ -98,6 +102,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/services/paediatric-endoscopy-procedures",
+      "destination": "/services/paediatric-upper-gi-endoscopy",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/behavioral-counseling",
+      "destination": "/services/behavioural-counselling",
+      "statusCode": 301
+    },
     {
       "source": "/terms-of-service",
       "destination": "/terms-and-conditions",

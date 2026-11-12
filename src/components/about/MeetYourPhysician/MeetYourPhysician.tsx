@@ -20,7 +20,7 @@ export function MeetYourPhysician() {
           <div className="osec-physician__portrait">
             <img
               src={assets.editorial.physicianTaiwo}
-              alt="Dr. Taiwo Onabanjo"
+              alt="Dr Taiwo Onabanjo"
               width={310}
               height={370}
               loading="lazy"
@@ -30,23 +30,23 @@ export function MeetYourPhysician() {
           <div className="osec-physician__details">
             <div className="osec-physician__copy">
               <div className="osec-physician__identity">
-                <h3> Dr. Taiwo Onabanjo</h3>
+                <h3>Dr Taiwo Onabanjo</h3>
                 <p>Consultant Gastroenterologist &amp; Advanced Therapeutic Endoscopist</p>
               </div>
               <div className="osec-physician__biography">
-                <p>Dr. Onabanjo is an internationally trained specialist in gastrointestinal endoscopy. An ESGE Fellow trained in Germany, with advanced training in Denmark and Belgium, he provides colonoscopy, upper GI endoscopy, colorectal cancer screening, EMR, ESD and endobariatrics in Lagos and across Nigeria.</p>
-                <p><strong>Certified member</strong>: European Society of Gastrointestinal Endoscopy (ESGE),
-World Endoscopy Organization (WEO), Member American Society of Gastrointestinal Endoscopy (ASGE),MBBS (Lautech), PG Diploma in Gastroenterology [UK], MPH [University of Liverpool]</p>
+                <p>Dr Taiwo Onabanjo is an internationally trained specialist in gastrointestinal endoscopy. An ESGE Fellow trained in Germany, with advanced training in Denmark and Belgium, he provides colonoscopy, upper GI endoscopy, colorectal cancer screening, EMR, ESD and endobariatrics in Lagos and across Nigeria.</p>
+                <p><strong>Qualifications:</strong> MBBS (Lautech); PG Diploma in Gastroenterology (UK); MPH (University of Liverpool)</p>
+                <p><strong>Professional memberships:</strong> European Society of Gastrointestinal Endoscopy (ESGE); World Endoscopy Organization (WEO); American Society for Gastrointestinal Endoscopy (ASGE)</p>
               </div>
             </div>
 
             <div className="osec-physician__actions">
-              <a className="osec-physician__appointment" href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer">Book Appointment</a>
+              <a className="osec-physician__appointment" href={OSEC_LINKS.whatsappBooking} target="_blank" rel="noopener noreferrer">Book an Appointment</a>
               <div className="osec-physician__socials" aria-label="Physician contact links">
-                <a className="osec-physician__social" href={OSEC_LINKS.physicianLinkedIn} target="_blank" rel="noopener noreferrer" aria-label="Dr. Taiwo Onabanjo on LinkedIn">
+                <a className="osec-physician__social" href={OSEC_LINKS.physicianLinkedIn} target="_blank" rel="noopener noreferrer" aria-label="Dr Taiwo Onabanjo on LinkedIn">
                   <img src={assets.icons.physicianLinkedIn} alt="" width={16} height={16} />
                 </a>
-                <a className="osec-physician__social" href="mailto:info@osecng.com" aria-label="Email Dr. Onabanjo Taiwo">
+                <a className="osec-physician__social" href="mailto:info@osecng.com" aria-label="Email Dr Taiwo Onabanjo">
                   <img src={assets.icons.physicianMail} alt="" width={16} height={16} />
                 </a>
               </div>
